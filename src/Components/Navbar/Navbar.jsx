@@ -49,19 +49,19 @@ const Navbar = () => {
                         <div className="flex items-center justify-center h-8 bg-gradient-to-r from-[#920707] to-[#ed4747] rounded-2xl py-2">
                             <div className='flex items-center gap-3 text-[#F7FFF7]'>
                                 <a href={"https://www.facebook.com/sajeedaninda/"} target="_blank">
-                                    <FaFacebook className='text-2xl text-[#F7FFF7]' />
+                                    <FaFacebook className='text-2xl text-[#F7FFF7] hover:opacity-70' />
                                 </a>
 
                                 <a href={"https://www.instagram.com/_a.n.i.n.d.a_"} target="_blank">
-                                    <FaInstagram className='text-2xl text-[#F7FFF7]' />
+                                    <FaInstagram className='text-2xl text-[#F7FFF7] hover:opacity-70' />
                                 </a>
                                 <h2 className='text-2xl border-l-2 border-r-2 px-3 border-[#F7FFF7] font-bold mx-4'>Scholarix</h2>
                                 <a href={"https://github.com/SajeedAninda"} target="_blank">
-                                    <FaGithub className='text-2xl text-[#F7FFF7]' />
+                                    <FaGithub className='text-2xl text-[#F7FFF7] hover:opacity-70' />
                                 </a>
 
                                 <a href={"https://www.linkedin.com/in/sajeed-aninda/"} target="_blank">
-                                    <FaLinkedin className='text-2xl text-[#F7FFF7]' />
+                                    <FaLinkedin className='text-2xl text-[#F7FFF7] hover:opacity-70' />
                                 </a>
                             </div>
                         </div>
