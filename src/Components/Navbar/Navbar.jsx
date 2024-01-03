@@ -24,7 +24,7 @@ const Navbar = () => {
 
     return (
         <nav className="text-[#F7FFF7] bg-gradient-to-r from-[#ed4747] to-[#920707] py-2">
-            <div className="flex flex-wrap items-center justify-between w-screen px-2 lg:px-8 ">
+            <div className="flex flex-wrap items-center justify-between px-2 lg:px-8 ">
                 <div className="flex justify-center items-center lg:w-[10%]">
                     <div className="text-2xl lg:pl-0">
                         <img className='w-[85px]' src={logo} alt="" />

@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-    <Navbar></Navbar>
+      <Navbar></Navbar>
       <Homepage></Homepage>
     </>
   )
