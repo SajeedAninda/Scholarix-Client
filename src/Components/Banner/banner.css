@@ -1,0 +1,41 @@
+.swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+    background: #ed4747;
+}
+
+.banner1 {
+    background-image: url('../../assets/BannerImg/bannerImg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.banner2 {
+    background-image: url('../../assets/BannerImg/bannerImg2.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.banner3 {
+    background-image: url('../../assets/BannerImg/bannerImg3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.banner4 {
+    background-image: url('../../assets/BannerImg/bannerImg4.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.banner5 {
+    background-image: url('../../assets/BannerImg/bannerImg5.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
