@@ -20,6 +20,11 @@ function WhatWeDo() {
 
     useEffect(() => {
         heightFix();
+        const interval = setInterval(() => {
+            setTab((prevTab) => (prevTab % 3) + 1);
+        }, 2500);
+
+        return () => clearInterval(interval);
     }, []);
 
     return (
