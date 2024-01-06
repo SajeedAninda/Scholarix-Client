@@ -40,7 +40,7 @@ function WhatWeDo() {
                         </p>
                     </div>
 
-                    <div className="flex justify-between items-center">
+                    <div className="flex flex-col md:flex-row justify-between items-center">
                         <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
                             <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                                 <h3 className="text-[#0e2b45] mb-3">Navigating Educational Pathways</h3>
@@ -49,13 +49,13 @@ function WhatWeDo() {
 
                             <div className="mb-8 md:mb-0">
                                 <a
-                                    className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 1 ? 'bg-[#F7FFF7] shadow-md shadow-[#ec6d6d] hover:shadow-[#ec6d6d] border-gray-200 hover:shadow-2xl' : 'bg-[#ec6d6d] border-transparent'}`}
+                                    className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 1 ? 'bg-[#F7FFF7] shadow-md shadow-[#ec6d6d] hover:shadow-[#ec6d6d] border-gray-200 hover:shadow-2xl' : 'bg-gradient-to-r from-[#ed4747] to-[#920707] border-transparent'}`}
                                     href="#0"
                                     onClick={(e) => { e.preventDefault(); setTab(1); }}
                                 >
                                     <div>
-                                        <div className="font-bold leading-snug tracking-tight mb-1 text-[#0e2b45]">Tailored Admissions Guidance</div>
-                                        <div className="text-[#0e2b45]">At Scholarix, we understand that the journey to higher education begins with the right choice of institution. </div>
+                                        <div className={`font-bold leading-snug tracking-tight mb-1 ${tab !== 1 ? `text-[#0e2b45]` : `text-white`} `}>Tailored Admissions Guidance</div>
+                                        <div className={`font-medium ${tab !== 1 ? `text-[#0e2b45]` : `text-white`} `}>At Scholarix, we understand that the journey to higher education begins with the right choice of institution. </div>
                                     </div>
                                     <div className="flex justify-center items-center w-8 h-8 bg-[#F7FFF7] rounded-full shadow flex-shrink-0 ml-3">
                                         <GiOpenBook />
@@ -63,27 +63,27 @@ function WhatWeDo() {
                                 </a>
 
                                 <a
-                                    className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 2 ? 'bg-[#F7FFF7] shadow-md shadow-[#ec6d6d] hover:shadow-[#ec6d6d] border-gray-200 hover:shadow-2xl' : 'bg-[#ec6d6d] border-transparent'}`}
+                                    className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 2 ? 'bg-[#F7FFF7] shadow-md shadow-[#ec6d6d] hover:shadow-[#ec6d6d] border-gray-200 hover:shadow-2xl' : 'bg-gradient-to-r from-[#ed4747] to-[#920707] border-transparent'}`}
                                     href="#0"
                                     onClick={(e) => { e.preventDefault(); setTab(2); }}
                                 >
                                     <div>
-                                        <div className="font-bold leading-snug tracking-tight mb-1 text-[#0e2b45]">Comprehensive Scholarship Assistance</div>
-                                        <div className="text-[#0e2b45]">Scholarships can significantly alleviate the financial burden of education. We specialize in identifying and assisting students in applying for various scholarship opportunities.</div>
+                                        <div className={`font-bold leading-snug tracking-tight mb-1 ${tab !== 2 ? `text-[#0e2b45]` : `text-white`} `}>Comprehensive Scholarship Assistance</div>
+                                        <div className={`font-medium ${tab !== 2 ? `text-[#0e2b45]` : `text-white`} `}>Scholarships can significantly alleviate the financial burden of education. We specialize in identifying and assisting students in applying for various scholarship opportunities.</div>
                                     </div>
                                     <div className="flex justify-center items-center w-8 h-8 bg-[#F7FFF7] rounded-full shadow flex-shrink-0 ml-3">
-                                        <GiGraduateCap  />
+                                        <GiGraduateCap />
                                     </div>
                                 </a>
 
                                 <a
-                                    className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 3 ? 'bg-[#F7FFF7] shadow-md shadow-[#ec6d6d] hover:shadow-[#ec6d6d] border-gray-200 hover:shadow-2xl' : 'bg-[#ec6d6d] border-transparent'}`}
+                                    className={`flex items-center text-lg p-5 rounded border transition duration-300 ease-in-out mb-3 ${tab !== 3 ? 'bg-[#F7FFF7] shadow-md shadow-[#ec6d6d] hover:shadow-[#ec6d6d] border-gray-200 hover:shadow-2xl' : 'bg-gradient-to-r from-[#ed4747] to-[#920707] border-transparent'}`}
                                     href="#0"
                                     onClick={(e) => { e.preventDefault(); setTab(3); }}
                                 >
                                     <div>
-                                        <div className="font-bold leading-snug tracking-tight mb-1 text-[#0e2b45]">Holistic Career and Educational Planning</div>
-                                        <div className="text-[#0e2b45]">Education is not just about acquiring knowledge; it's about building a foundation for a successful career. Scholarix goes beyond traditional consultancy by offering holistic career and educational planning services.</div>
+                                        <div className={`font-bold leading-snug tracking-tight mb-1 ${tab !== 3 ? `text-[#0e2b45]` : `text-white`} `}>Holistic Career and Educational Planning</div>
+                                        <div className={`font-medium ${tab !== 3 ? `text-[#0e2b45]` : `text-white`} `}>Education is not just about acquiring knowledge; it's about building a foundation for a successful career. Scholarix goes beyond traditional consultancy by offering holistic career and educational planning services.</div>
                                     </div>
                                     <div className="flex justify-center items-center w-8 h-8 bg-[#F7FFF7] rounded-full shadow flex-shrink-0 ml-3">
                                         <FaUserGraduate />
