@@ -28,9 +28,9 @@ function WhatWeDo() {
     }, []);
 
     return (
-        <section className="relative">
-            <div className="absolute inset-0 bg-[#F7FFF7] pointer-events-none mb-16" aria-hidden="true"></div>
-            <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-[#F7FFF7] transform -translate-y-1/2"></div>
+        <section className="relative bg-[#F7FFF7]">
+            {/* <div className="absolute inset-0 bg-[#F7FFF7] pointer-events-none mb-16" aria-hidden="true"></div>
+            <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-[#F7FFF7] transform -translate-y-1/2"></div> */}
 
             <div className="relative w-[90%] mx-auto px-4 sm:px-6">
                 <div className="pt-8">
