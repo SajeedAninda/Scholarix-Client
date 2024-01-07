@@ -26,7 +26,7 @@ const WhyChooseScholarix = () => {
                     </div>
 
                     <div className='flex-1'>
-                        <Accordion style={{ backgroundColor: '#ffffff', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px", marginBottom: '2px' }}>
+                        <Accordion style={{ backgroundColor: '#ffffff', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
@@ -42,7 +42,7 @@ const WhyChooseScholarix = () => {
                         </Accordion>
 
 
-                        <Accordion style={{ backgroundColor: '#ffffff', marginBottom: '2px', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
+                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
@@ -57,7 +57,7 @@ const WhyChooseScholarix = () => {
                         </Accordion>
 
 
-                        <Accordion style={{ backgroundColor: '#ffffff', marginBottom: '2px', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
+                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
@@ -74,7 +74,7 @@ const WhyChooseScholarix = () => {
                         </Accordion>
 
 
-                        <Accordion style={{ backgroundColor: '#ffffff', marginBottom: '2px', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
+                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
@@ -89,7 +89,7 @@ const WhyChooseScholarix = () => {
                             </AccordionDetails>
                         </Accordion>
 
-                        <Accordion style={{ backgroundColor: '#ffffff', marginBottom: '2px', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
+                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
@@ -105,7 +105,7 @@ const WhyChooseScholarix = () => {
                         </Accordion>
 
 
-                        <Accordion style={{ backgroundColor: '#ffffff', marginBottom: '2px', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
+                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
@@ -120,7 +120,7 @@ const WhyChooseScholarix = () => {
                             </AccordionDetails>
                         </Accordion>
 
-                        <Accordion style={{ backgroundColor: '#ffffff', marginBottom: '2px', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
+                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
