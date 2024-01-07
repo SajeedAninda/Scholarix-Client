@@ -21,7 +21,7 @@ const ChooseCountry = () => {
                         </p>
                     </div>
 
-                    <div className='grid grid-cols-3 mt-6 gap-8'>
+                    <div className='grid grid-cols-1 md:grid-cols-3 mt-6 gap-8'>
                         {/* CARD 1 */}
                         <div>
                             <div class="card">
