@@ -16,7 +16,6 @@ const Navbar = () => {
     };
 
     const clipCustomStyle = {
-        // Media query for min-width: 992px
         '@media (min-width: 992px)': {
             clipPath: 'polygon(5% 0%, 100% 0%, 95% 100%, 0% 100%)',
         },
