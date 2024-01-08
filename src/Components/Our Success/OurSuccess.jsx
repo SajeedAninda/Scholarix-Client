@@ -3,21 +3,21 @@ import { BsFillPeopleFill } from "react-icons/bs";
 import { IoIosPeople } from "react-icons/io";
 import { BsGlobeCentralSouthAsia } from "react-icons/bs";
 import { FaUniversity } from "react-icons/fa";
-
+import "./success.css"
 
 const OurSuccess = () => {
     return (
-        <div>
+        <div className='successBg mt-16 py-16'>
             <div className='mx-auto w-[90%]'>
-                <div className='pt-16 pb-8'>
+                <div className='pb-8'>
                     <div className="max-w-3xl mx-auto text-center">
-                        <h1 className="mb-4 text-lg text-[#0e2b45]">Our Success</h1>
-                        <p className="text-xl font-semibold text-[#0e2b45]">Embarking on countless educational journeys, we take pride in the success stories that have unfolded under the guidance of Scholarix. Our triumphs extend beyond academic achievements to encompass personal growth, career milestones, and the fulfillment of aspirations.
+                        <h1 className="mb-4 text-lg text-white">Our Success</h1>
+                        <p className="text-xl font-semibold text-white">Embarking on countless educational journeys, we take pride in the success stories that have unfolded under the guidance of Scholarix. Our triumphs extend beyond academic achievements to encompass personal growth, career milestones, and the fulfillment of aspirations.
                         </p>
                     </div>
                 </div>
 
-                <div className='grid grid-cols-4 gap-6'>
+                <div className='grid grid-cols-4 gap-6 text-white'>
                     <div className='flex flex-col items-center space-y-3'>
                         <BsFillPeopleFill className='text-[100px]'/>
                         <h3 className='text-4xl font-bold'>2200+</h3>
