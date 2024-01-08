@@ -6,6 +6,7 @@ import HowWeWork from '../../Components/How We Work/HowWeWork';
 import ChooseCountry from '../../Components/Choose Country/ChooseCountry';
 import WhyChooseScholarix from '../../Components/Why Choose Scholarix/WhyChooseScholarix';
 import OurSuccess from '../../Components/Our Success/OurSuccess';
+import PeopleSays from '../../Components/People Says/PeopleSays';
 
 const Homepage = () => {
     return (
@@ -17,6 +18,7 @@ const Homepage = () => {
             <ChooseCountry></ChooseCountry>
             <WhyChooseScholarix></WhyChooseScholarix>
             <OurSuccess></OurSuccess>
+            <PeopleSays></PeopleSays>
         </div>
     );
 };

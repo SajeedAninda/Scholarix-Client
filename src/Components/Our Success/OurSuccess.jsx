@@ -40,7 +40,7 @@ const OurSuccess = () => {
                     <div className='flex flex-col items-center space-y-3'>
                         <BsFillPeopleFill className='text-[100px]' />
                         <h3 className='text-4xl font-bold'>
-                            <AnimatedCounter end={2200} duration={3} startCounting={startCounting} /> +
+                            <AnimatedCounter end={1200} duration={3} startCounting={startCounting} /> +
                         </h3>
                         <h3 className='text-3xl font-bold'>Satisfied Clients</h3>
                     </div>
