@@ -17,7 +17,7 @@ const PeopleSays = () => {
         heightFix();
         const interval = setInterval(() => {
             setTab((prevTab) => (prevTab % 6) + 1);
-        }, 2500);
+        }, 4000);
 
         return () => clearInterval(interval);
     }, []);
