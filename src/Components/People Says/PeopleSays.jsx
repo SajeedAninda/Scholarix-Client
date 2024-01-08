@@ -23,7 +23,7 @@ const PeopleSays = () => {
     }, []);
 
     return (
-        <section className="relative bg-[#F7FFF7]">
+        <section className="relative">
 
             <div className="relative w-[90%] mx-auto px-4 sm:px-6">
                 <div className="pt-8">

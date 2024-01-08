@@ -1,0 +1,163 @@
+import React from 'react';
+import logo from "../../assets/Logo/logo.png"
+import { Link } from 'react-router-dom';
+import { FaFacebook } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+
+const Footer = () => {
+    return (
+        <div className="relative mt-16 bg-gradient-to-r from-[#ed4747] to-[#920707]">
+            <svg
+                className="absolute top-0 w-full h-6 -mt-5 sm:-mt-10 sm:h-16"
+                preserveAspectRatio="none"
+                viewBox="0 0 1440 54"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style={{ stopColor: "#ed4747", stopOpacity: 1 }} />
+                        <stop offset="100%" style={{ stopColor: "#920707", stopOpacity: 1 }} />
+                    </linearGradient>
+                </defs>
+                <path
+                    fill="url(#gradient)"
+                    d="M0 22L120 16.7C240 11 480 1.00001 720 0.700012C960 1.00001 1200 11 1320 16.7L1440 22V54H1320C1200 54 960 54 720 54C480 54 240 54 120 54H0V22Z"
+                />
+            </svg>
+
+            <div className="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+                <div className="flex justify-between items-center pb-8">
+                    <div className="md:max-w-md lg:col-span-2">
+                        <Link to={"/"}>
+                            <div className='flex gap-2 items-center'>
+                                <img className='w-[80px]' src={logo} alt="" />
+                                <h2 className='text-white text-4xl font-bold'>Scholarix</h2>
+                            </div>
+                        </Link>
+                        <div className="mt-4 lg:max-w-sm">
+                            <p className="text-sm text-white">
+                                As you embark on this exciting journey of knowledge with Scholarix, we extend our heartfelt gratitude. This platform is not just about education; it's about nurturing dreams, fostering growth, and celebrating every achievement. Your aspirations are our mission, and we look forward to witnessing the incredible journey that lies ahead.
+                            </p>
+                            <p className="mt-4 text-sm text-white">
+                                Thank you for choosing Scholarix – where every educational endeavor is a step towards a brighter future."
+                            </p>
+                        </div>
+                    </div>
+                    <div className="flex gap-20">
+                        <div>
+                            <p className="font-semibold tracking-wide text-white">
+                                Apples
+                            </p>
+                            <ul className="mt-2 space-y-2">
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Media
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Brochure
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Nonprofit
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Educational
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Projects
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p className="font-semibold tracking-wide text-white">
+                                Business
+                            </p>
+                            <ul className="mt-2 space-y-2">
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Infopreneur
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Personal
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Wiki
+                                    </a>
+                                </li>
+                                <li>
+                                    <a
+                                        href="/"
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    >
+                                        Forum
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex flex-col justify-between pt-5 pb-10 border-t border-purple-200 sm:flex-row">
+                    <p className="text-sm text-gray-100">
+                        © Copyright 2020 Lorem Inc. All rights reserved.
+                    </p>
+                    <div className='flex items-center gap-3 text-[#F7FFF7]'>
+                                <a href={"https://www.facebook.com/sajeedaninda/"} target="_blank">
+                                    <FaFacebook className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                                </a>
+
+                                <a href={"https://www.instagram.com/_a.n.i.n.d.a_"} target="_blank">
+                                    <FaInstagram className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                                </a>
+                                <a href={"https://github.com/SajeedAninda"} target="_blank">
+                                    <FaGithub className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                                </a>
+
+                                <a href={"https://www.linkedin.com/in/sajeed-aninda/"} target="_blank">
+                                    <FaLinkedin className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                                </a>
+                            </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default Footer;
