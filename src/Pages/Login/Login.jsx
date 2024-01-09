@@ -1,6 +1,9 @@
 import React from 'react';
 import loginLottie from "../../assets/LottieFiles/loginLottie.json"
 import Lottie from 'lottie-react';
+import { IoIosLogIn } from "react-icons/io";
+import { Link } from 'react-router-dom';
+
 
 const Login = () => {
     let handleLogin = (e) => {
@@ -13,13 +16,13 @@ const Login = () => {
 
     return (
         <div>
-            <div className="min-h-screen text-gray-900 flex justify-center">
+            <div className="w-[90%] mx-auto">
                 <div
-                    className="w-[90%] mx-auto m-0 sm:m-20 bg-white flex justify-center"
+                    className="bg-white flex justify-between"
                 >
                     <div className="flex-1">
-                        <div className="mt-6 flex flex-col items-center">
-                            <h1 className="text-2xl xl:text-3xl font-extrabold">
+                        <div className="mt-12 flex flex-col items-center">
+                            <h1 className="text-2xl xl:text-3xl font-extrabold text-[#0e2b45]">
                                 Login to Scholarix
                             </h1>
                             <div className="w-full flex-1 mt-8">
@@ -95,23 +98,12 @@ const Login = () => {
                                     <div className='flex justify-center mt-6'>
                                         <button
                                             type='submit'
-                                            className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg flex hover:text-[#ed4747]'
+                                            className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg flex hover:text-[#ed4747] items-center gap-2'
                                         >
-                                            <svg
-                                                className="w-6 h-6 -ml-2"
-                                                fill="none"
-                                                stroke="currentColor"
-                                                stroke-width="2"
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                            >
-                                                <path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-                                                <circle cx="8.5" cy="7" r="4" />
-                                                <path d="M20 8v6M23 11h-6" />
-                                            </svg>
-                                            <span className="ml-3">
+                                            <span className="">
                                                 Sign In
                                             </span>
+                                            <IoIosLogIn className='text-2xl font-bold'/>
                                         </button>
                                     </div>
                                 </form>
@@ -123,6 +115,10 @@ const Login = () => {
                             <Lottie animationData={loginLottie} loop={true} />
                         </div>
                     </div>
+                </div>
+
+                <div className='text-center text-2xl font-bold text-[#0e2b45]'>
+                    Don't have an Account? <Link className='text-[#ed4747] hover:underline' to={"/register"}>Register</Link>
                 </div>
             </div>
         </div>
