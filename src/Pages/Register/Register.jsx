@@ -2,13 +2,15 @@ import React, { useState } from 'react';
 import registerLottie from "../../assets/LottieFiles/registerLottie.json"
 import Lottie from 'lottie-react';
 import { IoIosPersonAdd } from "react-icons/io";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import useAuth from '../../Hooks/UseAuth';
 
 const Register = () => {
     let [selectedImage, setSelectedImage] = useState(null);
-    let [imgUrl, setImgUrl] = useState(null);
+    let { signUp, profileUpdate } = useAuth();
+    let navigate = useNavigate();
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -32,12 +34,38 @@ const Register = () => {
         let data = new FormData();
         data.append("image", image);
 
+        if (password.length < 5) {
+            return toast.error("Password should be more than 5 Characters")
+        }
+        let loadingToast = toast.loading('Registering...');
+
         try {
-            const res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
-            setImgUrl(res.data.data.display_url);
-            console.log(name, email, password, imgUrl);
+            let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
+            let imageUrl = res.data.data.display_url;
+            console.log(name, email, password, imageUrl);
+
+            signUp(email, password)
+                .then((userCredential) => {
+                    let user = userCredential.user;
+                    profileUpdate(name, imageUrl)
+                        .then(() => {
+                            toast.dismiss(loadingToast);
+                            toast.success("Registration Successful");
+                            console.log(user);
+                            navigate("/");
+                        })
+                })
+                .catch((error) => {
+                    let errorCode = error.code;
+                    if (errorCode === "auth/email-already-in-use") {
+                        toast.dismiss(loadingToast);
+                        return toast.error("Email is already being used");
+                    }
+                });
         } catch (error) {
             console.error("Error uploading image:", error);
+            toast.dismiss(loadingToast);
+            toast.error("Error uploading image");
         }
     }
 
