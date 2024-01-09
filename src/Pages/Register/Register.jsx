@@ -9,7 +9,6 @@ import toast from 'react-hot-toast';
 const Register = () => {
     let [selectedImage, setSelectedImage] = useState(null);
     let [imgUrl, setImgUrl] = useState(null);
-    const [error, setError] = useState(null);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -17,7 +16,6 @@ const Register = () => {
         if (file) {
             if (file.type.startsWith('image/')) {
                 setSelectedImage(file);
-                setError(null);
             } else {
                 setSelectedImage(null);
                 toast.error("Please upload a valid image")
