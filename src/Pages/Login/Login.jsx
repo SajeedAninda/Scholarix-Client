@@ -3,6 +3,14 @@ import loginLottie from "../../assets/LottieFiles/loginLottie.json"
 import Lottie from 'lottie-react';
 
 const Login = () => {
+    let handleLogin = (e) => {
+        e.preventDefault();
+        let email = e.target.email.value;
+        let password = e.target.password.value;
+        console.log(email, password);
+    }
+
+
     return (
         <div>
             <div className="min-h-screen text-gray-900 flex justify-center">
@@ -69,19 +77,24 @@ const Login = () => {
                                     </div>
                                 </div>
 
-                                <div className="mx-auto max-w-xs">
+                                <form onSubmit={handleLogin} className="mx-auto max-w-xs">
                                     <input
-                                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
+                                        className="w-full px-4 py-4 rounded-lg font-medium bg-gray-100 placeholder-gray-500 text-sm focus:outline-none focus:border-[#0e2b45] focus:bg-white border-2 border-[#ed4747]"
                                         type="email"
+                                        name="email"
                                         placeholder="Email"
+                                        required
                                     />
                                     <input
-                                        className="w-full px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white mt-5"
+                                        className="w-full px-4 py-4 rounded-lg font-medium bg-gray-100 placeholder-gray-500 text-sm focus:outline-none focus:border-[#0e2b45] focus:bg-white mt-5 border-2 border-[#ed4747]"
                                         type="password"
+                                        name="password"
                                         placeholder="Password"
+                                        required
                                     />
                                     <div className='flex justify-center mt-6'>
                                         <button
+                                            type='submit'
                                             className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg flex hover:text-[#ed4747]'
                                         >
                                             <svg
@@ -101,7 +114,7 @@ const Login = () => {
                                             </span>
                                         </button>
                                     </div>
-                                </div>
+                                </form>
                             </div>
                         </div>
                     </div>
