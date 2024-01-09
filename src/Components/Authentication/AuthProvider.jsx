@@ -1,6 +1,6 @@
 import React, { createContext, useState } from 'react';
 export let AuthContext = createContext();
-import { createUserWithEmailAndPassword, getAuth, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { app } from './firebase.config';
 const auth = getAuth(app);
 
@@ -20,9 +20,14 @@ const AuthProvider = ({ children }) => {
         })
     }
 
+    let signIn = (email,password) => {
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+
     let authentication = {
         signUp,
-        profileUpdate
+        profileUpdate,
+        signIn
     }
 
     return (

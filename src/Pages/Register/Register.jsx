@@ -34,8 +34,15 @@ const Register = () => {
         let data = new FormData();
         data.append("image", image);
 
-        if (password.length < 5) {
-            return toast.error("Password should be more than 5 Characters")
+        if (password.length < 6) {
+            return toast.error("Password Length should atleast be 6 Characters!")
+        }
+
+        if (!/[A-Z]/.test(password)) {
+            return toast.error("Password should contain at least one capital letter!")
+        }
+        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+            return toast.error("Password should contain at least one special character!")
         }
         let loadingToast = toast.loading('Registering...');
 
@@ -57,6 +64,7 @@ const Register = () => {
                 })
                 .catch((error) => {
                     let errorCode = error.code;
+                    console.log(errorCode)
                     if (errorCode === "auth/email-already-in-use") {
                         toast.dismiss(loadingToast);
                         return toast.error("Email is already being used");

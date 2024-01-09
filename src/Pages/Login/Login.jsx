@@ -2,15 +2,35 @@ import React from 'react';
 import loginLottie from "../../assets/LottieFiles/loginLottie.json"
 import Lottie from 'lottie-react';
 import { IoIosLogIn } from "react-icons/io";
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import useAuth from '../../Hooks/UseAuth';
+import toast from 'react-hot-toast';
 
 const Login = () => {
+    let { signIn } = useAuth();
+    let navigate = useNavigate();
+
     let handleLogin = (e) => {
         e.preventDefault();
         let email = e.target.email.value;
         let password = e.target.password.value;
-        console.log(email, password);
+        let loadingToast = toast.loading('Logging In...');
+        signIn(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                toast.dismiss(loadingToast);
+                toast.success('Logged In Successfully!');
+                navigate('/');
+            })
+            .catch((error) => {
+                let errorCode = error.code;
+                console.log(errorCode);
+                if (errorCode === "auth/invalid-credential") {
+                    toast.dismiss(loadingToast);
+                    return toast.error("Invalid Username or Password")
+                }
+            });
     }
 
 
@@ -103,7 +123,7 @@ const Login = () => {
                                             <span className="">
                                                 Sign In
                                             </span>
-                                            <IoIosLogIn className='text-2xl font-bold'/>
+                                            <IoIosLogIn className='text-2xl font-bold' />
                                         </button>
                                     </div>
                                 </form>
