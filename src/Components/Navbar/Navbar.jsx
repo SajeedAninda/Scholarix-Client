@@ -8,7 +8,6 @@ import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 
 
-
 const Navbar = () => {
     const [isMenuHidden, setIsMenuHidden] = useState(false);
     const toggleMenu = () => {
@@ -32,9 +31,9 @@ const Navbar = () => {
 
                 <div className="w-[10%] block lg:hidden">
                     <div className="flex items-center justify-center">
-                        <button className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
+                        <Link to={"/login"} className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
                             Login
-                        </button>
+                        </Link>
                     </div>
                 </div>
 
@@ -67,10 +66,10 @@ const Navbar = () => {
                         <div className="flex items-center justify-center">
                             <ul className="flex items-center py-2 gap-2 lg:gap-10 md:pt-[0.7rem] capitalize text-sm md:text-lg font-bold">
                                 <li className='relative group'>
-                                    <a href="#" className=" transition-all duration-300">
+                                    <Link to={"/"} className=" transition-all duration-300">
                                         Home
                                         <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100 "></span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li className='relative group'>
                                     <a href="#" className=" transition-all duration-300">
@@ -103,9 +102,9 @@ const Navbar = () => {
                 </div>
                 <div className="w-[10%] hidden lg:block">
                     <div className="flex items-center justify-center">
-                        <button className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
+                        <Link to={"/login"} className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
                             Login
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
