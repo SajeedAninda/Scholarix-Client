@@ -3,24 +3,44 @@ import registerLottie from "../../assets/LottieFiles/registerLottie.json"
 import Lottie from 'lottie-react';
 import { IoIosPersonAdd } from "react-icons/io";
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 const Register = () => {
-    const [selectedImage, setSelectedImage] = useState(null);
+    let [selectedImage, setSelectedImage] = useState(null);
+    let [imgUrl, setImgUrl] = useState(null);
+    const [error, setError] = useState(null);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
 
         if (file) {
-            setSelectedImage(file);
+            if (file.type.startsWith('image/')) {
+                setSelectedImage(file);
+                setError(null);
+            } else {
+                setSelectedImage(null);
+                toast.error("Please upload a valid image")
+            }
         }
     };
 
-    let handleLogin = (e) => {
+    let handleRegister = async (e) => {
         e.preventDefault();
         let name = e.target.name.value;
         let email = e.target.email.value;
         let password = e.target.password.value;
-        console.log(name, email, password);
+        let image = e.target.elements.image.files[0];
+        let data = new FormData();
+        data.append("image", image);
+
+        try {
+            const res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
+            setImgUrl(res.data.data.display_url);
+            console.log(name, email, password, imgUrl);
+        } catch (error) {
+            console.error("Error uploading image:", error);
+        }
     }
 
 
@@ -36,7 +56,7 @@ const Register = () => {
                                 Register to Scholarix
                             </h1>
                             <div className="w-full flex-1 mt-8">
-                                <form onSubmit={handleLogin} className="mx-auto max-w-xs">
+                                <form onSubmit={handleRegister} className="mx-auto max-w-xs">
                                     <input
                                         className="w-full px-4 py-4 rounded-lg font-medium bg-gray-100 placeholder-gray-500 text-sm focus:outline-none focus:border-[#0e2b45] focus:bg-white border-2 border-[#ed4747] mb-5"
                                         type="text"
@@ -152,7 +172,7 @@ const Register = () => {
                     </div>
 
 
-                    
+
                     <div className="flex-1 text-center hidden lg:flex">
                         <div>
                             <Lottie className='w-full' animationData={registerLottie} loop={true} />
