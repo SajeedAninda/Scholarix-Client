@@ -7,7 +7,7 @@ import useAuth from '../../Hooks/UseAuth';
 import toast from 'react-hot-toast';
 
 const Login = () => {
-    let { signIn } = useAuth();
+    let { signIn, googleLogin } = useAuth();
     let navigate = useNavigate();
 
     let handleLogin = (e) => {
@@ -33,6 +33,18 @@ const Login = () => {
             });
     }
 
+    let handleGoogleLogin = () => {
+        googleLogin()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+                toast.success('Logged In Successfully!');
+                navigate("/");
+            }).catch((error) => {
+                console.log(error);
+            });
+    }
+
 
     return (
         <div>
@@ -48,6 +60,7 @@ const Login = () => {
                             <div className="w-full flex-1 mt-8">
                                 <div className="flex flex-col items-center">
                                     <button
+                                        onClick={handleGoogleLogin}
                                         className="w-full max-w-xs font-bold shadow-sm rounded-lg py-3 bg-[#ed4747] text-white items-center justify-center duration-300 border-2 border-[#ed4747]  focus:outline-none hover:shadow focus:shadow-sm focus:shadow-outline transition ease-in-out delay-50 text-lg flex hover:text-[#ed4747] hover:bg-transparent hover:border-2 hover:border-[#ed4747]"
                                     >
                                         <div className="bg-white p-2 rounded-full">
