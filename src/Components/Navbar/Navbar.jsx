@@ -6,13 +6,25 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import useAuth from '../../Hooks/useAuth';
 
 
 const Navbar = () => {
+    let { loggedInUser, logOut } = useAuth();
     const [isMenuHidden, setIsMenuHidden] = useState(false);
     const toggleMenu = () => {
         setIsMenuHidden(!isMenuHidden);
     };
+
+    let handleLogOut = () => {
+        logOut()
+            .then(() => {
+                console.log("Logged Out")
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
 
     const clipCustomStyle = {
         '@media (min-width: 992px)': {
@@ -101,11 +113,20 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="w-[10%] hidden lg:block">
-                    <div className="flex items-center justify-center">
-                        <Link to={"/login"} className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
-                            Login
-                        </Link>
-                    </div>
+                    {
+                        loggedInUser ?
+                            <div className="flex items-center justify-center">
+                                <button onClick={handleLogOut}  className='bg-[#ed4747] px-5 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
+                                    Log Out
+                                </button>
+                            </div>
+                            :
+                            <div className="flex items-center justify-center">
+                                <Link to={"/login"} className='bg-[#ed4747] px-7 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
+                                    Login
+                                </Link>
+                            </div>
+                    }
                 </div>
             </div>
         </nav>
