@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import "./addcourses.css"
 
 const AddCourses = () => {
     let [selectedImage, setSelectedImage] = useState(null);
@@ -174,7 +175,7 @@ const AddCourses = () => {
                                         Scholarship Amount:
                                     </label>
                                     <br />
-                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="number" name='scholarshipAmount' id='scholarshipAmount' required />
+                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="number" name='scholarshipAmount' id='scholarshipAmount' required disabled={selectedScholarship === "no"}/>
                                 </div>
                             </div>
                         </div>
