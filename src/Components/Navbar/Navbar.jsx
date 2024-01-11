@@ -107,6 +107,15 @@ const Navbar = () => {
                                         <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
                                     </a>
                                 </li>
+                                {
+                                    loggedInUser &&
+                                    <li className='relative group'>
+                                        <Link to="/admin" className=" transition-all duration-300">
+                                            Admin Panel
+                                            <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
+                                        </Link>
+                                    </li>
+                                }
                             </ul>
                         </div>
 
@@ -116,7 +125,7 @@ const Navbar = () => {
                     {
                         loggedInUser ?
                             <div className="flex items-center justify-center">
-                                <button onClick={handleLogOut}  className='bg-[#ed4747] px-5 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
+                                <button onClick={handleLogOut} className='bg-[#ed4747] px-5 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
                                     Log Out
                                 </button>
                             </div>
