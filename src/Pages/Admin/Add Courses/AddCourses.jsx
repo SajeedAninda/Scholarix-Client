@@ -1,9 +1,19 @@
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AddCourses = () => {
     let [selectedImage, setSelectedImage] = useState(null);
+    let [selectedDegree, setSelectedDegree] = useState("");
+    let [selectedField, setSelectedField] = useState("");
+    let [selectedCountry, setSelectedCountry] = useState("");
+    let [selectedScholarship, setSelectedScholarship] = useState("");
+    let [selectedIntake, setSelectedIntake] = useState("");
+    let [selectedApplicationDeadline, setSelectedApplicationDeadline] = useState("");
 
-    const handleImageChange = (e) => {
+    let currentTime = new Date();
+
+
+    let handleImageChange = (e) => {
         const file = e.target.files[0];
 
         if (file) {
@@ -15,6 +25,24 @@ const AddCourses = () => {
             }
         }
     };
+
+    let handleAddCourses = (e) => {
+        e.preventDefault();
+        let course_name = e.target.courseName.value;
+        let university_name = e.target.universityName.value;
+        let degree_name = selectedDegree;
+        let field_name = selectedField;
+        let city_name = e.target.city.value;
+        let tuition_fees = e.target.tuitionFees.value;
+        let available_scholarship = selectedScholarship;
+        let scholarship_amount = e.target.scholarshipAmount.value;
+        let intake_time = selectedIntake;
+        let application_deadline = selectedApplicationDeadline;
+        let posted_time = currentTime;
+
+        let courseDetails = { course_name, university_name, degree_name, field_name, city_name, tuition_fees, available_scholarship, scholarship_amount, intake_time, application_deadline, posted_time };
+        console.log(courseDetails);
+    }
 
 
 
@@ -28,7 +56,7 @@ const AddCourses = () => {
             </div>
             <div className='w-[90%] my-4 mx-auto bg-gradient-to-r from-[#ed4747] to-[#920707] shadow-2xl rounded-lg'>
                 <div className='py-4 px-8'>
-                    <form>
+                    <form onSubmit={handleAddCourses}>
                         {/* 1st row */}
                         <div className='flex gap-6 w-full'>
                             <div className='flex-1'>
@@ -55,7 +83,7 @@ const AddCourses = () => {
                                     Degree:
                                 </label>
                                 <br />
-                                <select className='mt-2 px-4 w-full rounded-lg py-2' name="degree" id="degree">
+                                <select onChange={(e) => { setSelectedDegree(e.target.value) }} value={selectedDegree} className='mt-2 px-4 w-full rounded-lg py-2' name="degree" id="degree" required>
                                     <option disabled selected>Select The Related Degree</option>
                                     <option value="bachelors">Bachelors</option>
                                     <option value="masters">Masters</option>
@@ -69,7 +97,7 @@ const AddCourses = () => {
                                     Field:
                                 </label>
                                 <br />
-                                <select className='mt-2 px-4 w-full rounded-lg py-2' name="field" id="field">
+                                <select onChange={(e) => { setSelectedField(e.target.value) }} value={selectedField} className='mt-2 px-4 w-full rounded-lg py-2' name="field" id="field" required>
                                     <option disabled selected>Select The Related Field</option>
                                     <option value="engineering">Engineering</option>
                                     <option value="management">Management</option>
@@ -87,7 +115,7 @@ const AddCourses = () => {
                                     Country:
                                 </label>
                                 <br />
-                                <select className='mt-2 px-4 w-full rounded-lg py-2' name="country" id="country">
+                                <select onChange={(e) => { setSelectedCountry(e.target.value) }} value={selectedCountry} className='mt-2 px-4 w-full rounded-lg py-2' name="country" id="country" required>
                                     <option disabled selected>Select Country</option>
                                     <option value="usa">USA</option>
                                     <option value="china">China</option>
@@ -133,7 +161,7 @@ const AddCourses = () => {
                                     Scholarship:
                                 </label>
                                 <br />
-                                <select className='mt-2 px-4 w-full rounded-lg py-2' name="scholarship" id="scholarship">
+                                <select onChange={(e) => { setSelectedScholarship(e.target.value) }} value={selectedScholarship} className='mt-2 px-4 w-full rounded-lg py-2' name="scholarship" id="scholarship" required>
                                     <option disabled selected>Select If Scholarship is Available</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
@@ -158,7 +186,7 @@ const AddCourses = () => {
                                     Intake:
                                 </label>
                                 <br />
-                                <select className='mt-2 px-4 w-full rounded-lg py-2' name="intake" id="intake">
+                                <select onChange={(e) => { setSelectedIntake(e.target.value) }} value={selectedIntake} className='mt-2 px-4 w-full rounded-lg py-2' name="intake" id="intake" required>
                                     <option disabled selected>Select Intake Time</option>
                                     <option value="aut2024">Autumn 2024</option>
                                     <option value="win2025">Winter 2025</option>
@@ -173,7 +201,7 @@ const AddCourses = () => {
                                         Application Deadline:
                                     </label>
                                     <br />
-                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="date" name='applicationDeadline' id='applicationDeadline' required />
+                                    <input onChange={(e) => { setSelectedApplicationDeadline(e.target.value) }} value={selectedApplicationDeadline} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="date" name='applicationDeadline' id='applicationDeadline' required />
                                 </div>
                             </div>
                         </div>
