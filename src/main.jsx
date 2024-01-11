@@ -13,6 +13,7 @@ import { Toaster } from 'react-hot-toast';
 import AuthProvider from './Components/Authentication/AuthProvider.jsx';
 import AdminDashboard from './Pages/Admin/Admin Dashboard/AdminDashboard.jsx';
 import AdminPanel from './Pages/Admin/Admin Panel/AdminPanel.jsx';
+import AddCourses from './Pages/Admin/Add Courses/AddCourses.jsx';
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/admin",
         element: <AdminDashboard></AdminDashboard>
+      },
+      {
+        path: "addCourses",
+        element: <AddCourses></AddCourses>
       }
     ]
   }
