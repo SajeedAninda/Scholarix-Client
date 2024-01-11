@@ -28,7 +28,7 @@ const AdminPanel = () => {
                         </label>
                     </div>
                     <div className="flex-1 text-2xl font-bold px-2 mx-2 gap-3">
-                        <img src={logo} className='w-[50px] rounded-full' alt="" />
+                        <img src={logo} className='w-[50px]' alt="" />
                         <h2>Admin Panel</h2>
                     </div>
                     <div className="flex-none hidden lg:block">
@@ -38,7 +38,7 @@ const AdminPanel = () => {
                                 to={"/"}
                                 end
                                 className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                                 }
                             >
                                 Home
@@ -47,7 +47,7 @@ const AdminPanel = () => {
                                 to={"/admin"}
                                 end
                                 className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                                 }
                             >
                                 Dashboard
@@ -56,7 +56,7 @@ const AdminPanel = () => {
                             <NavLink
                                 to={"/addCourses"}
                                 className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                                 }
                             >
                                 Add Courses
@@ -65,12 +65,12 @@ const AdminPanel = () => {
                             <NavLink
                                 to={"/courseList"}
                                 className={({ isActive, isPending }) =>
-                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                                 }
                             >
                                 Course List
                             </NavLink>
-                            <button onClick={handleLogout} className='text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md'>
+                            <button onClick={handleLogout} className='text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md'>
                                 Logout
                             </button>
                         </ul>
@@ -86,7 +86,7 @@ const AdminPanel = () => {
                         to={"/"}
                         end
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                         }
                     >
                         Home
@@ -95,7 +95,7 @@ const AdminPanel = () => {
                         to={"/admin"}
                         end
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                         }
                     >
                         Dashboard
@@ -104,7 +104,7 @@ const AdminPanel = () => {
                     <NavLink
                         to={"/addCourses"}
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                         }
                     >
                         Add Courses
@@ -113,7 +113,7 @@ const AdminPanel = () => {
                     <NavLink
                         to={"/courseList"}
                         className={({ isActive, isPending }) =>
-                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#952895]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#952895] rounded-md"
+                            isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
                         }
                     >
                         Course List
