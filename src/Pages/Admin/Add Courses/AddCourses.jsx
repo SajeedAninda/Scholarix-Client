@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import "./addcourses.css"
+import axios from 'axios';
 
 const AddCourses = () => {
     let [selectedImage, setSelectedImage] = useState(null);
@@ -27,7 +28,10 @@ const AddCourses = () => {
         }
     };
 
-    let handleAddCourses = (e) => {
+    let data = new FormData();
+    data.append("image", selectedImage);
+
+    let handleAddCourses = async (e) => {
         e.preventDefault();
         let course_name = e.target.courseName.value;
         let university_name = e.target.universityName.value;
@@ -41,8 +45,17 @@ const AddCourses = () => {
         let application_deadline = selectedApplicationDeadline;
         let posted_time = currentTime;
 
-        let courseDetails = { course_name, university_name, degree_name, field_name, city_name, tuition_fees, available_scholarship, scholarship_amount, intake_time, application_deadline, posted_time };
-        console.log(courseDetails);
+        try {
+            let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
+            let imageUrl = res.data.data.display_url;
+            let courseDetails = { course_name, university_name, degree_name, field_name, city_name, tuition_fees, available_scholarship, scholarship_amount, intake_time, application_deadline, posted_time, imageUrl };
+
+            console.log(courseDetails);
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            // toast.dismiss(loadingToast);
+            toast.error("Error uploading image");
+        }
     }
 
 
@@ -175,7 +188,7 @@ const AddCourses = () => {
                                         Scholarship Amount:
                                     </label>
                                     <br />
-                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="number" name='scholarshipAmount' id='scholarshipAmount' required disabled={selectedScholarship === "no"}/>
+                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="number" name='scholarshipAmount' id='scholarshipAmount' required disabled={selectedScholarship === "no"} />
                                 </div>
                             </div>
                         </div>
