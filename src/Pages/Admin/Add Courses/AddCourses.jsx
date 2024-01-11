@@ -1,6 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const AddCourses = () => {
+    let [selectedImage, setSelectedImage] = useState(null);
+
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+
+        if (file) {
+            if (file.type.startsWith('image/')) {
+                setSelectedImage(file);
+            } else {
+                setSelectedImage(null);
+                toast.error("Please upload a valid image")
+            }
+        }
+    };
+
+
+
     return (
         <div className='py-8'>
             <div className='space-y-2'>
@@ -160,6 +177,33 @@ const AddCourses = () => {
                                 </div>
                             </div>
                         </div>
+
+                        {/* 7th row  */}
+                        <div className='mt-5 bg-transparent w-full m-auto rounded-xl'>
+                            <div className='px-5 py-3 relative rounded-lg'>
+                                <div className='flex flex-col w-max mx-auto text-center'>
+                                    <label>
+                                        <input
+                                            className='text-sm cursor-pointer w-36 hidden'
+                                            type='file'
+                                            name='image'
+                                            id='image'
+                                            accept='image/*'
+                                            hidden
+                                            onChange={handleImageChange}
+                                        />
+                                        <div className='bg-transparent border-2 border-white text-white text-2xl font-bold cursor-pointer py-2 px-7 hover:bg-[white] hover:border-[#ed4747] hover:text-[#ed4747] rounded-xl'>
+                                            {selectedImage ? selectedImage.name : "Upload Relevant University Picture"}
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* BUTTON  */}
+                        <button className='w-full mt-3 rounded-lg bg-transparent py-2 text-2xl font-bold border-2 border-white text-white hover:bg-white hover:border-white hover:text-[#0e2b45] transition ease-in-out delay-50'>
+                            Add Course
+                        </button>
                     </form>
                 </div>
             </div>

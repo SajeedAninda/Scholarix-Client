@@ -5,7 +5,7 @@ import { IoIosPersonAdd } from "react-icons/io";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import useAuth from '../../Hooks/UseAuth';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     let [selectedImage, setSelectedImage] = useState(null);
