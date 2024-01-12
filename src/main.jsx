@@ -14,6 +14,11 @@ import AuthProvider from './Components/Authentication/AuthProvider.jsx';
 import AdminDashboard from './Pages/Admin/Admin Dashboard/AdminDashboard.jsx';
 import AdminPanel from './Pages/Admin/Admin Panel/AdminPanel.jsx';
 import AddCourses from './Pages/Admin/Add Courses/AddCourses.jsx';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Courses from './Pages/Courses/Courses.jsx';
+
+const queryClient = new QueryClient()
+
 
 const router = createBrowserRouter([
   {
@@ -23,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Homepage></Homepage>
+      },
+      {
+        path:"/courses",
+        element: <Courses></Courses>
       },
       {
         path: "/login",
@@ -53,8 +62,10 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Toaster />
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 )
