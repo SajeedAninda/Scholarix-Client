@@ -1,6 +1,6 @@
 import React from 'react';
-import { FaFilter } from "react-icons/fa";
-
+import { TbFilterSearch } from "react-icons/tb";
+import { FaSearch } from "react-icons/fa";
 
 const Courses = () => {
     return (
@@ -18,7 +18,7 @@ const Courses = () => {
                     <div className='filters w-[30%] border-2 border-[#ed4747] p-4 rounded-md'>
                         <div className='FilterHeader border-b-2 border-[#ed4747] flex justify-center items-center gap-2 py-2'>
                             <h2 className='text-xl font-bold text-center'>Filter Courses</h2>
-                            <FaFilter className='text-2xl' />
+                            <TbFilterSearch className='text-3xl' />
                         </div>
 
                         <div className='TuitionRange pt-4 '>
@@ -82,8 +82,11 @@ const Courses = () => {
                         </div>
                     </div>
 
-                    <div className='search&card w-[70%] border-2 border-[#ed4747] rounded-md'>
-                        Course Names
+                    <div className='search&card w-[70%]'>
+                        <div className='SearchBar relative'>
+                            <input className='w-full border-2 border-[#ed4747] rounded-lg py-3 px-4 text-[#0e2b45] font-semibold placeholder:font-semibold' type="text" placeholder='Search By Course or University Name' />
+                            <FaSearch className='text-xl absolute right-5 bottom-4 text-[#ed4747] cursor-pointer'/>
+                        </div>
                     </div>
                 </div>
             </div>
