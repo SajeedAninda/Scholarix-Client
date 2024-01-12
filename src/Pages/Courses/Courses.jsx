@@ -29,7 +29,7 @@ const Courses = () => {
                 </div>
 
                 <div className='flex gap-6'>
-                    <div className='filters w-[30%] border-2 border-[#ed4747] p-4 rounded-md'>
+                    <div className='filters w-[30%] border-2 border-[#ed4747] px-4 pt-4 pb-8 rounded-md h-fit'>
                         <div className='FilterHeader border-b-2 border-[#ed4747] flex justify-center items-center gap-2 py-2'>
                             <h2 className='text-xl font-bold text-center'>Filter Courses</h2>
                             <TbFilterSearch className='text-3xl' />
