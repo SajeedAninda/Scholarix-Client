@@ -1,8 +1,22 @@
 import React from 'react';
 import { TbFilterSearch } from "react-icons/tb";
 import { FaSearch } from "react-icons/fa";
+import useAxiosInstance from '../../Hooks/useAxiosInstance';
+import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const Courses = () => {
+    let axiosInstance = useAxiosInstance();
+
+    const { data: courseDetails } = useQuery({
+        queryKey: ['assetList'],
+        queryFn: async () => {
+            const response = await axiosInstance("/courseDetails");
+            return response.data;
+        }
+    })
+
+
     return (
         <div>
             <div className='w-[90%] mx-auto py-8'>
@@ -23,9 +37,13 @@ const Courses = () => {
 
                         <div className='TuitionRange pt-4 '>
                             <h2 className='text-lg font-semibold'>Tuition Range Per Semester:</h2>
-                            <div className='flex gap-4 py-2'>
-                                <input className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={0} />
-                                <input className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={30000} />
+                            <div className='flex gap-3 py-2'>
+                                <div className='w-full'>
+                                    <input className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={0} />
+                                </div>
+                                <div className='w-full'>
+                                    <input className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={30000} />
+                                </div>
                             </div>
                         </div>
 
@@ -85,8 +103,51 @@ const Courses = () => {
                     <div className='search&card w-[70%]'>
                         <div className='SearchBar relative'>
                             <input className='w-full border-2 border-[#ed4747] rounded-lg py-3 px-4 text-[#0e2b45] font-semibold placeholder:font-semibold' type="text" placeholder='Search By Course or University Name' />
-                            <FaSearch className='text-xl absolute right-5 bottom-4 text-[#ed4747] cursor-pointer'/>
+                            <FaSearch className='text-xl absolute right-5 bottom-4 text-[#ed4747] cursor-pointer' />
                         </div>
+
+                        <div className='Cards'>
+                            {
+                                courseDetails ?
+                                    (
+                                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
+                                            {courseDetails.map(course => (
+                                                <div key={course?._id} className="bg-whiterounded-lg shadow-lg flex flex-col">
+                                                    <img className="rounded-t-lg w-full h-[200px] object-cover" src={course?.imageUrl} alt="" />
+
+
+                                                    <div className="p-5 flex flex-col flex-grow bg-gradient-to-r from-[#920707] to-[#ed4747] rounded-b-lg">
+                                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-white"><span className='capitalize'>{course?.degree_name}</span> in {course?.course_name}</h5>
+
+
+                                                        <p className="mb-3 font-normal text-white">
+                                                            {course?.university_name} in <span className='capitalize'>{course?.country_name}</span>
+                                                        </p>
+
+
+
+
+                                                        <h5 className="mb-2 text-xl font-bold tracking-tight text-white flex items-center">{course?.tuition_fees}$/Semester </h5>
+
+
+                                                        <Link className='mt-auto inline-flex items-center px-3 py-2 text-sm font-semibold text-center text-[#0e2b45] bg-white rounded-lg hover:bg-[#ed4747] hover:text-white' to={`/servicesDetails/${course?._id}`}>
+                                                            See Details
+                                                            <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                                            </svg>
+                                                        </Link>
+                                                    </div>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )
+                                    :
+                                    (
+                                        <div>Loading...</div>
+                                    )
+                            }
+                        </div>
+
                     </div>
                 </div>
             </div>
