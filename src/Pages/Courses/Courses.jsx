@@ -13,7 +13,6 @@ import { IoMdArrowRoundForward } from "react-icons/io";
 const Courses = () => {
     let axiosInstance = useAxiosInstance();
     let [page, setPage] = useState(0);
-    let [count, setCount] = useState(null);
 
     let [tuitionMin, setTuitionMin] = useState(0);
     let [tuitionMax, setTuitionMax] = useState(30000);
@@ -31,13 +30,9 @@ const Courses = () => {
         }
     })
 
-    console.log(courseDetails);
-
-    useEffect(() => {
-        axios.get("http://localhost:5000/coursesCount")
-            .then(res => setCount(res.data.count))
-    }, [])
-
+    console.log(courseDetails?.result);
+    let count = courseDetails?.count ?? 0;
+    console.log("totalcount", count)
     let totalPages = Math.ceil(count / 6);
     let displayPages = [...Array(totalPages).keys()];
 
@@ -162,10 +157,10 @@ const Courses = () => {
 
                         <div className='Cards'>
                             {
-                                courseDetails ?
+                                courseDetails?.result ?
                                     (
                                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
-                                            {courseDetails.map(course => (
+                                            {courseDetails?.result?.map(course => (
                                                 <div key={course?._id} className="bg-whiterounded-lg shadow-lg flex flex-col">
                                                     <img className="rounded-t-lg w-full h-[200px] object-cover" src={course?.imageUrl} alt="" />
 
@@ -203,7 +198,7 @@ const Courses = () => {
                         </div>
 
 
-                        <div className='flex justify-center gap-4 mt-4'>
+                        <div className='PAGINATIONSECTION flex justify-center gap-4 mt-4'>
                             <button onClick={handlePrevious} className='bg-[#ed4747] px-5 py-1 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] hover:text-[#ed4747] transition ease-in-out delay-50 text-lg'>
                                 <IoMdArrowRoundBack />
                             </button>
