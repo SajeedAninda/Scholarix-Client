@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import "./addcourses.css"
 import axios from 'axios';
 import useAxiosInstance from '../../../Hooks/useAxiosInstance';
+import { useNavigate } from 'react-router-dom';
 
 const AddCourses = () => {
     let axiosInstance = useAxiosInstance();
@@ -13,6 +14,8 @@ const AddCourses = () => {
     let [selectedScholarship, setSelectedScholarship] = useState("");
     let [selectedIntake, setSelectedIntake] = useState("");
     let [selectedApplicationDeadline, setSelectedApplicationDeadline] = useState("");
+
+    let navigate = useNavigate();
 
     let currentTime = new Date();
 
@@ -41,9 +44,9 @@ const AddCourses = () => {
         let field_name = selectedField;
         let country_name = selectedCountry;
         let city_name = e.target.city.value;
-        let tuition_fees = e.target.tuitionFees.value;
+        let tuition_fees = parseFloat(e.target.tuitionFees.value);
         let available_scholarship = selectedScholarship;
-        let scholarship_amount = e.target.scholarshipAmount.value;
+        let scholarship_amount = parseFloat(e.target.scholarshipAmount.value);
         let intake_time = selectedIntake;
         let application_deadline = selectedApplicationDeadline;
         let posted_time = currentTime;
@@ -53,7 +56,7 @@ const AddCourses = () => {
         try {
             let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
             let imageUrl = res.data.data.display_url;
-            let courseDetails = { course_name, university_name, degree_name, field_name,country_name, city_name, tuition_fees, available_scholarship, scholarship_amount, intake_time, application_deadline, posted_time, imageUrl };
+            let courseDetails = { course_name, university_name, degree_name, field_name, country_name, city_name, tuition_fees, available_scholarship, scholarship_amount, intake_time, application_deadline, posted_time, imageUrl };
 
             axiosInstance.post("/courses", courseDetails)
                 .then(res => {
@@ -61,14 +64,7 @@ const AddCourses = () => {
                     if (res.data.insertedId) {
                         toast.dismiss(loadingToast);
                         toast.success("Added Course Successfully");
-                        setSelectedImage(null);
-                        setSelectedDegree("");
-                        setSelectedField("");
-                        setSelectedCountry("");
-                        setSelectedScholarship("");
-                        setSelectedIntake("");
-                        setSelectedApplicationDeadline("");
-                        e.target.reset();
+                        navigate("/admin");
                     }
                 })
         } catch (error) {

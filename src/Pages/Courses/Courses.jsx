@@ -16,14 +16,15 @@ const Courses = () => {
     let [searchText, setSearchText] = useState("");
 
     const { data: courseDetails } = useQuery({
-        queryKey: ['assetList'],
+        queryKey: ['assetList', tuitionMin, tuitionMax, countries, degree, scholarship, searchText],
         queryFn: async () => {
-            const response = await axiosInstance("/courseDetails");
+            const response = await axiosInstance(`/courseDetails?tuitionMin=${tuitionMin}&tuitionMax=${tuitionMax}&countries=${countries}&degree=${degree}&scholarship=${scholarship}&searchText=${searchText}`);
             return response.data;
         }
     })
 
     console.log(tuitionMin, tuitionMax, countries, degree, scholarship, searchText);
+    console.log(courseDetails);
 
 
     return (
