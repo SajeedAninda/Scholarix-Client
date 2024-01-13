@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbFilterSearch } from "react-icons/tb";
 import { FaSearch } from "react-icons/fa";
 import useAxiosInstance from '../../Hooks/useAxiosInstance';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { IoMdArrowRoundForward } from "react-icons/io";
+
+
 
 const Courses = () => {
     let axiosInstance = useAxiosInstance();
+    let [page, setPage] = useState(0);
+    let [count, setCount] = useState(null);
 
     let [tuitionMin, setTuitionMin] = useState(0);
     let [tuitionMax, setTuitionMax] = useState(30000);
@@ -17,15 +24,37 @@ const Courses = () => {
     let [searchText, setSearchText] = useState("");
 
     const { data: courseDetails } = useQuery({
-        queryKey: ['assetList', tuitionMin, tuitionMax, countries, field, scholarship, searchText, degrees],
+        queryKey: ['assetList', tuitionMin, tuitionMax, countries, field, scholarship, searchText, degrees, page],
         queryFn: async () => {
-            const response = await axiosInstance(`/courseDetails?tuitionMin=${tuitionMin}&tuitionMax=${tuitionMax}&countries=${countries}&field=${field}&scholarship=${scholarship}&searchText=${searchText}&degrees=${degrees}`);
+            const response = await axiosInstance(`/courseDetails?tuitionMin=${tuitionMin}&tuitionMax=${tuitionMax}&countries=${countries}&field=${field}&scholarship=${scholarship}&searchText=${searchText}&degrees=${degrees}&page=${page}`);
             return response.data;
         }
     })
 
-    // console.log(tuitionMin, tuitionMax, countries, field, scholarship, searchText, degrees);
-    // console.log(courseDetails);
+    console.log(courseDetails);
+
+    useEffect(() => {
+        axios.get("http://localhost:5000/coursesCount")
+            .then(res => setCount(res.data.count))
+    }, [])
+
+    let totalPages = Math.ceil(count / 6);
+    let displayPages = [...Array(totalPages).keys()];
+
+
+    let handlePrevious = () => {
+        if (page > 0) {
+            setPage(page - 1);
+        }
+    };
+
+    let handleNext = () => {
+        if (page < totalPages - 1) {
+            setPage(page + 1);
+        }
+    };
+
+
 
 
     return (
@@ -173,6 +202,25 @@ const Courses = () => {
                             }
                         </div>
 
+
+                        <div className='flex justify-center gap-4 mt-4'>
+                            <button onClick={handlePrevious} className='bg-[#ed4747] px-5 py-1 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] hover:text-[#ed4747] transition ease-in-out delay-50 text-lg'>
+                                <IoMdArrowRoundBack />
+                            </button>
+                            {displayPages.map((pageIndex, index) => (
+                                <button
+                                    key={index}
+                                    onClick={() => setPage(pageIndex)}
+                                    className={`${pageIndex === page ? 'bg-[#ed4747] text-[#F7FFF7]' : 'bg-white text-[#ed4747]'
+                                        } px-5 py-1 rounded-md font-bold border-2 border-[#ed4747] hover:border-2 hover:text-white hover:bg-[#ed4747] hover:border-[#ed4747] transition ease-in-out delay-50 text-lg`}
+                                >
+                                    {pageIndex + 1}
+                                </button>
+                            ))}
+                            <button onClick={handleNext} className='bg-[#ed4747] px-5 py-1 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg hover:text-[#ed4747]'>
+                                <IoMdArrowRoundForward />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
