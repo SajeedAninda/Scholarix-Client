@@ -11,20 +11,21 @@ const Courses = () => {
     let [tuitionMin, setTuitionMin] = useState(0);
     let [tuitionMax, setTuitionMax] = useState(30000);
     let [countries, setCountries] = useState("allCountry");
-    let [degree, setDegree] = useState("allDegree");
+    let [degrees, setDegrees] = useState("allDegrees");
+    let [field, setField] = useState("allField");
     let [scholarship, setScholarship] = useState("allScholarship");
     let [searchText, setSearchText] = useState("");
 
     const { data: courseDetails } = useQuery({
-        queryKey: ['assetList', tuitionMin, tuitionMax, countries, degree, scholarship, searchText],
+        queryKey: ['assetList', tuitionMin, tuitionMax, countries, field, scholarship, searchText, degrees],
         queryFn: async () => {
-            const response = await axiosInstance(`/courseDetails?tuitionMin=${tuitionMin}&tuitionMax=${tuitionMax}&countries=${countries}&degree=${degree}&scholarship=${scholarship}&searchText=${searchText}`);
+            const response = await axiosInstance(`/courseDetails?tuitionMin=${tuitionMin}&tuitionMax=${tuitionMax}&countries=${countries}&field=${field}&scholarship=${scholarship}&searchText=${searchText}&degrees=${degrees}`);
             return response.data;
         }
     })
 
-    console.log(tuitionMin, tuitionMax, countries, degree, scholarship, searchText);
-    console.log(courseDetails);
+    // console.log(tuitionMin, tuitionMax, countries, field, scholarship, searchText, degrees);
+    // console.log(courseDetails);
 
 
     return (
@@ -79,13 +80,27 @@ const Courses = () => {
                         </div>
 
                         <div className='Degrees pt-2'>
+                            <label className='text-lg font-semibold' htmlFor="degree">
+                                Degree:
+                            </label>
+                            <br />
+                            <select onChange={(e) => { setDegrees(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="degree" id="degree" required>
+                                <option value="allDegrees" selected>All Degrees</option>
+                                <option value="bachelors">Bachelors</option>
+                                <option value="masters">Masters</option>
+                                <option value="phd">PHD</option>
+                                <option value="diploma">Diploma</option>
+                            </select>
+                        </div>
+
+                        <div className='Fields pt-2'>
                             <div>
-                                <label className='text-lg font-semibold' htmlFor="degree">
-                                    Degree:
+                                <label className='text-lg font-semibold' htmlFor="field">
+                                    Field:
                                 </label>
                                 <br />
-                                <select onChange={(e) => { setDegree(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="field" id="field" >
-                                    <option className='font-semibold' value="allDegree" selected>All Degrees</option>
+                                <select onChange={(e) => { setField(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="field" id="field" >
+                                    <option className='font-semibold' value="allField" selected>All Fields</option>
                                     <option className='font-semibold' value="engineering">Engineering</option>
                                     <option className='font-semibold' value="management">Management</option>
                                     <option className='font-semibold' value="economics">Economics</option>
@@ -97,7 +112,7 @@ const Courses = () => {
 
                         <div className='AvailableScholarships pt-2'>
                             <div>
-                                <label className='text-lg font-semibold' htmlFor="degree">
+                                <label className='text-lg font-semibold' htmlFor="scholarship">
                                     Scholarship:
                                 </label>
                                 <br />
