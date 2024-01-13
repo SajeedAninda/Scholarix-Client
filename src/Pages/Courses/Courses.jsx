@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TbFilterSearch } from "react-icons/tb";
 import { FaSearch } from "react-icons/fa";
 import useAxiosInstance from '../../Hooks/useAxiosInstance';
@@ -8,6 +8,9 @@ import { Link } from 'react-router-dom';
 const Courses = () => {
     let axiosInstance = useAxiosInstance();
 
+    let [tuitionMin, setTuitionMin] = useState(0);
+    let [tuitionMax, setTuitionMax] = useState(30000);
+
     const { data: courseDetails } = useQuery({
         queryKey: ['assetList'],
         queryFn: async () => {
@@ -15,6 +18,8 @@ const Courses = () => {
             return response.data;
         }
     })
+
+    console.log(tuitionMin, tuitionMax);
 
 
     return (
@@ -39,10 +44,10 @@ const Courses = () => {
                             <h2 className='text-lg font-semibold'>Tuition Range Per Semester:</h2>
                             <div className='flex gap-3 py-2'>
                                 <div className='w-full'>
-                                    <input className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={0} />
+                                    <input onChange={(e) => { setTuitionMin(parseFloat(e.target.value)) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={0} />
                                 </div>
                                 <div className='w-full'>
-                                    <input className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={30000} />
+                                    <input onChange={(e) => { setTuitionMax(parseFloat(e.target.value)) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-xl' type="number" defaultValue={30000} />
                                 </div>
                             </div>
                         </div>
