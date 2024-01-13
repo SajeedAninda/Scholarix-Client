@@ -10,6 +10,10 @@ const Courses = () => {
 
     let [tuitionMin, setTuitionMin] = useState(0);
     let [tuitionMax, setTuitionMax] = useState(30000);
+    let [countries, setCountries] = useState("allCountry");
+    let [degree, setDegree] = useState("allDegree");
+    let [scholarship, setScholarship] = useState("allScholarship");
+    let [searchText, setSearchText] = useState("");
 
     const { data: courseDetails } = useQuery({
         queryKey: ['assetList'],
@@ -19,7 +23,7 @@ const Courses = () => {
         }
     })
 
-    console.log(tuitionMin, tuitionMax);
+    console.log(tuitionMin, tuitionMax, countries, degree, scholarship, searchText);
 
 
     return (
@@ -58,7 +62,7 @@ const Courses = () => {
                                     Country:
                                 </label>
                                 <br />
-                                <select className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="country" id="country">
+                                <select onChange={(e) => { setCountries(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="country" id="country">
                                     <option className='font-semibold' value="allCountry" selected>All Countries</option>
                                     <option className='font-semibold' value="usa">USA</option>
                                     <option className='font-semibold' value="china">China</option>
@@ -79,7 +83,7 @@ const Courses = () => {
                                     Degree:
                                 </label>
                                 <br />
-                                <select className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="field" id="field" >
+                                <select onChange={(e) => { setDegree(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="field" id="field" >
                                     <option className='font-semibold' value="allDegree" selected>All Degrees</option>
                                     <option className='font-semibold' value="engineering">Engineering</option>
                                     <option className='font-semibold' value="management">Management</option>
@@ -96,7 +100,7 @@ const Courses = () => {
                                     Scholarship:
                                 </label>
                                 <br />
-                                <select className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="scholarship" id="scholarship" >
+                                <select onChange={(e) => { setScholarship(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-xl py-2 px-4 font-semibold text-md' name="scholarship" id="scholarship" >
                                     <option className='font-semibold' value="allScholarship" selected>All Courses</option>
                                     <option className='font-semibold' value="yes">Courses with Available Scholarship</option>
                                     <option className='font-semibold' value="no">Courses without Scholarship</option>
@@ -107,7 +111,7 @@ const Courses = () => {
 
                     <div className='search&card w-[70%]'>
                         <div className='SearchBar relative'>
-                            <input className='w-full border-2 border-[#ed4747] rounded-lg py-3 px-4 text-[#0e2b45] font-semibold placeholder:font-semibold' type="text" placeholder='Search By Course or University Name' />
+                            <input onChange={(e) => { setSearchText(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-lg py-3 px-4 text-[#0e2b45] font-semibold placeholder:font-semibold' type="text" placeholder='Search By Course or University Name' />
                             <FaSearch className='text-xl absolute right-5 bottom-4 text-[#ed4747] cursor-pointer' />
                         </div>
 
