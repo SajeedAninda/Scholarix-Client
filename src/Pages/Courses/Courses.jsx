@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { IoMdArrowRoundForward } from "react-icons/io";
+import CourseSkeleton from '../../Components/Skeleton/CourseSkeleton';
 
 
 
@@ -191,7 +192,7 @@ const Courses = () => {
                                     )
                                     :
                                     (
-                                        <div>Loading...</div>
+                                        <CourseSkeleton></CourseSkeleton>
                                     )
                             }
                         </div>
