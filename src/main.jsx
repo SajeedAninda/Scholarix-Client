@@ -17,6 +17,7 @@ import AddCourses from './Pages/Admin/Add Courses/AddCourses.jsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Courses from './Pages/Courses/Courses.jsx';
 import CourseDetails from './Pages/Courses/Course Details/CourseDetails.jsx';
+import CourseList from './Pages/Admin/Course List/CourseList.jsx';
 
 const queryClient = new QueryClient()
 
@@ -60,7 +61,11 @@ const router = createBrowserRouter([
       {
         path: "addCourses",
         element: <AddCourses></AddCourses>
-      }
+      },
+      {
+        path: "courseList",
+        element: <CourseList></CourseList>
+      },
     ]
   }
 ]);
