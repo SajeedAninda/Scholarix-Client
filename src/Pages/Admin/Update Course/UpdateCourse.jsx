@@ -7,45 +7,22 @@ import { useNavigate } from 'react-router-dom';
 
 const UpdateCourse = () => {
     let courseDetails = useLoaderData();
-    let { _id, imageUrl, application_deadline, intake_time, scholarship_amount, available_scholarship, tuition_fees, city_name, country_name, field_name, degree_name, university_name, course_name } = courseDetails;
+    let { _id, application_deadline, intake_time, scholarship_amount, available_scholarship, tuition_fees, city_name, country_name, field_name, degree_name, university_name, course_name } = courseDetails;
 
     let axiosInstance = useAxiosInstance();
-    let [selectedImage, setSelectedImage] = useState(null);
-    let [selectedDegree, setSelectedDegree] = useState("");
-    let [selectedField, setSelectedField] = useState("");
-    let [selectedCountry, setSelectedCountry] = useState("");
-    let [selectedScholarship, setSelectedScholarship] = useState("");
-    let [selectedIntake, setSelectedIntake] = useState("");
-    let [selectedApplicationDeadline, setSelectedApplicationDeadline] = useState("");
+    let [selectedDegree, setSelectedDegree] = useState(degree_name);
+    let [selectedField, setSelectedField] = useState(field_name);
+    let [selectedCountry, setSelectedCountry] = useState(country_name);
+    let [selectedScholarship, setSelectedScholarship] = useState(available_scholarship);
+    let [selectedIntake, setSelectedIntake] = useState(intake_time);
+    let [selectedApplicationDeadline, setSelectedApplicationDeadline] = useState(application_deadline);
 
     let navigate = useNavigate();
 
     let currentTime = new Date();
 
-
-    let handleImageChange = (e) => {
-        const file = e.target.files[0];
-
-        if (file) {
-            if (file.type.startsWith('image/')) {
-                setSelectedImage(file);
-            } else {
-                setSelectedImage(null);
-                toast.error("Please upload a valid image")
-            }
-        }
-    };
-
-    let data = new FormData();
-    data.append("image", selectedImage);
-
     let handleAddCourses = async (e) => {
         e.preventDefault();
-
-        if (!selectedImage) {
-            toast.error("Please upload an image");
-            return;
-        }
         let course_name = e.target.courseName.value;
         let university_name = e.target.universityName.value;
         let degree_name = selectedDegree;
@@ -59,28 +36,22 @@ const UpdateCourse = () => {
         let application_deadline = selectedApplicationDeadline;
         let posted_time = currentTime;
 
-        let loadingToast = toast.loading('Adding Course...');
+        let loadingToast = toast.loading('Updating Course...');
 
-        try {
-            let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
-            let imageUrl = res.data.data.display_url;
-            let courseDetails = { course_name, university_name, degree_name, field_name, country_name, city_name, tuition_fees, available_scholarship, scholarship_amount, intake_time, application_deadline, posted_time, imageUrl };
+        let courseDetails = { course_name, university_name, degree_name, field_name, country_name, city_name, tuition_fees, available_scholarship, scholarship_amount, intake_time, application_deadline, posted_time };
 
-            axiosInstance.post("/courses", courseDetails)
-                .then(res => {
-                    console.log(res.data);
-                    if (res.data.insertedId) {
-                        toast.dismiss(loadingToast);
-                        toast.success("Added Course Successfully");
-                        navigate("/admin");
-                    }
-                })
-        } catch (error) {
-            console.error("Error uploading image:", error);
-            toast.dismiss(loadingToast);
-            toast.error("Error uploading image");
-        }
+        axiosInstance.patch(`/updateCourse/${_id}`, courseDetails)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    toast.dismiss(loadingToast);
+                    toast.success("Updated Course Successfully");
+                    navigate("/admin/courseList");
+                }
+            })
     }
+
+
 
     return (
         <div className='py-8'>
@@ -100,7 +71,7 @@ const UpdateCourse = () => {
                                     Course Name:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Computer Science & Engineering' type="text" name='courseName' id='courseName' required defaultValue={course_name}/>
+                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Computer Science & Engineering' type="text" name='courseName' id='courseName' required defaultValue={course_name} />
                             </div>
 
                             <div className='flex-1'>
@@ -108,7 +79,7 @@ const UpdateCourse = () => {
                                     University Name:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Harvard University' type="text" name='universityName' id='universityName' required defaultValue={university_name}/>
+                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Harvard University' type="text" name='universityName' id='universityName' required defaultValue={university_name} />
                             </div>
                         </div>
 
@@ -172,7 +143,7 @@ const UpdateCourse = () => {
                                         City:
                                     </label>
                                     <br />
-                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: London' type="text" name='city' id='city' required defaultValue={city_name}/>
+                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: London' type="text" name='city' id='city' required defaultValue={city_name} />
                                 </div>
                             </div>
                         </div>
@@ -185,7 +156,7 @@ const UpdateCourse = () => {
                                         Tuition Fees:
                                     </label>
                                     <br />
-                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 8000/semester' type="number" name='tuitionFees' id='tuitionFees' required defaultValue={tuition_fees}/>
+                                    <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 8000/semester' type="number" name='tuitionFees' id='tuitionFees' required defaultValue={tuition_fees} />
                                 </div>
                             </div>
                         </div>
@@ -237,35 +208,13 @@ const UpdateCourse = () => {
                                         Application Deadline:
                                     </label>
                                     <br />
-                                    <input onChange={(e) => { setSelectedApplicationDeadline(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="date" name='applicationDeadline' id='applicationDeadline' required value={application_deadline}/>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 7th row  */}
-                        <div className='mt-5 bg-transparent w-full m-auto rounded-xl'>
-                            <div className='px-5 py-3 relative rounded-lg'>
-                                <div className='flex flex-col w-max mx-auto text-center'>
-                                    <label>
-                                        <input
-                                            className='text-sm cursor-pointer w-36 hidden'
-                                            type='file'
-                                            name='image'
-                                            id='image'
-                                            accept='image/*'
-                                            hidden
-                                            onChange={handleImageChange}
-                                        />
-                                        <div className='bg-transparent border-2 border-white text-white text-2xl font-bold cursor-pointer py-2 px-7 hover:bg-[white] hover:border-[#ed4747] hover:text-[#ed4747] rounded-xl'>
-                                            {selectedImage ? selectedImage.name : "Upload Relevant University Picture"}
-                                        </div>
-                                    </label>
+                                    <input onChange={(e) => { setSelectedApplicationDeadline(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 2000' type="date" name='applicationDeadline' id='applicationDeadline' required value={selectedApplicationDeadline} />
                                 </div>
                             </div>
                         </div>
 
                         {/* BUTTON  */}
-                        <button className='w-full mt-3 rounded-lg bg-transparent py-2 text-2xl font-bold border-2 border-white text-white hover:bg-white hover:border-white hover:text-[#0e2b45] transition ease-in-out delay-50'>
+                        <button className='w-full mt-6 rounded-lg bg-transparent py-2 text-2xl font-bold border-2 border-white text-white hover:bg-white hover:border-white hover:text-[#0e2b45] transition ease-in-out delay-50'>
                             Update Course
                         </button>
                     </form>
