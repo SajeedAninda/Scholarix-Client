@@ -5,15 +5,19 @@ import useAxiosInstance from './useAxiosInstance';
 const useCourses = () => {
     let axiosInstance = useAxiosInstance();
 
-    const { data: courses, isLoading: isCoursesLoading } = useQuery({
+    const { data: courses, isLoading: isCoursesLoading, refetch } = useQuery({
         queryKey: ['allCourses'],
         queryFn: async () => {
-            const response = await axiosInstance(`/allCourses`);
+            const response = await axiosInstance.get(`/allCourses`);
             return response.data;
         }
     })
 
-    return [courses, isCoursesLoading];
+    return {
+        courses,
+        isCoursesLoading,
+        refetch,
+    };
 };
 
 export default useCourses;

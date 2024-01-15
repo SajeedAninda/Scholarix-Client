@@ -3,11 +3,15 @@ import useCourses from '../../../Hooks/useCourses';
 import { MdEditSquare } from "react-icons/md";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { FaSearch } from "react-icons/fa";
+import useAxiosInstance from '../../../Hooks/useAxiosInstance';
+import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 
 const CourseList = () => {
-    let [courses, isCoursesLoading] = useCourses();
+    let { courses, isCoursesLoading, refetch } = useCourses();
     let [searchText, setSearchText] = useState('');
+    let axiosInstance = useAxiosInstance();
 
     let filteredCourses;
 
@@ -21,7 +25,32 @@ const CourseList = () => {
         );
     }
 
-    console.log(filteredCourses);
+    let handleDeleteCourse = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Once Deleted, you cannot revert this!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#0e2b45',
+            cancelButtonColor: '#ed4747',
+            confirmButtonText: 'Yes, Delete!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosInstance.delete(`/deleteCourse/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch();
+                            console.log(res.data);
+                            toast.success("Course Deleted Succesfully")
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error :", error);
+                        toast.error('Error', 'Failed to delete Asset');
+                    });
+            }
+        });
+    }
 
     return (
         <div className='mx-auto w-[90%] py-8'>
@@ -85,7 +114,7 @@ const CourseList = () => {
                             <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
                                 <MdEditSquare className='text-3xl cursor-pointer font-bold text-[#0e2b45]' />
                             </div>
-                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
+                            <div onClick={() => handleDeleteCourse(course?._id)} className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
                                 <RiDeleteBinFill className='text-3xl cursor-pointer font-bold text-[#ed4747]' />
                             </div>
                         </div>
