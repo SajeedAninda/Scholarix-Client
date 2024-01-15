@@ -18,6 +18,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import Courses from './Pages/Courses/Courses.jsx';
 import CourseDetails from './Pages/Courses/Course Details/CourseDetails.jsx';
 import CourseList from './Pages/Admin/Course List/CourseList.jsx';
+import UpdateCourse from './Pages/Admin/Update Course/UpdateCourse.jsx';
 
 const queryClient = new QueryClient()
 
@@ -66,6 +67,11 @@ const router = createBrowserRouter([
         path: "courseList",
         element: <CourseList></CourseList>
       },
+      {
+        path: "courseList/updateCourse/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/courseDetails/${params.id}`),
+        element: <UpdateCourse></UpdateCourse>
+      }
     ]
   }
 ]);

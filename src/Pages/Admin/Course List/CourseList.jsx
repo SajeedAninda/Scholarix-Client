@@ -6,6 +6,7 @@ import { FaSearch } from "react-icons/fa";
 import useAxiosInstance from '../../../Hooks/useAxiosInstance';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 
 const CourseList = () => {
@@ -111,9 +112,11 @@ const CourseList = () => {
                             <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
                                 {course?.degree_name}
                             </div>
-                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
+
+                            <Link to={`updateCourse/${course?._id}`} className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
                                 <MdEditSquare className='text-3xl cursor-pointer font-bold text-[#0e2b45]' />
-                            </div>
+                            </Link>
+
                             <div onClick={() => handleDeleteCourse(course?._id)} className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
                                 <RiDeleteBinFill className='text-3xl cursor-pointer font-bold text-[#ed4747]' />
                             </div>
