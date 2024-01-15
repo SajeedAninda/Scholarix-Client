@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useCourses from '../../../Hooks/useCourses';
+import { MdEditSquare } from "react-icons/md";
+import { RiDeleteBinFill } from "react-icons/ri";
+import { FaSearch } from "react-icons/fa";
+
 
 const CourseList = () => {
     let [courses, isCoursesLoading] = useCourses();
+    let [searchText, setSearchText] = useState('');
 
-    console.log(courses);
+    let filteredCourses;
+
+    if (searchText == '') {
+        filteredCourses = courses;
+    }
+    else {
+        filteredCourses = courses?.filter(course =>
+            course?.university_name.toLowerCase().includes(searchText.toLowerCase()) ||
+            course?.course_name.toLowerCase().includes(searchText.toLowerCase())
+        );
+    }
+
+    console.log(filteredCourses);
 
     return (
         <div className='mx-auto w-[90%] py-8'>
@@ -17,19 +34,24 @@ const CourseList = () => {
 
             <div className='mt-8'>
                 <h1 className='text-3xl text-[#0e2b45] font-bold'>
-                    Total Added Courses: {courses?.length}
+                    Total Courses: {filteredCourses?.length}
                 </h1>
+            </div>
+
+            <div className='SearchBar relative mt-4'>
+                <input onChange={(e) => { setSearchText(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-lg py-3 px-4 text-[#0e2b45] font-semibold placeholder:font-semibold' type="text" placeholder='Search By Course or University Name' />
+                <FaSearch className='text-xl absolute right-5 bottom-4 text-[#ed4747] cursor-pointer' />
             </div>
 
             <div className='mt-4'>
                 <div className='bg-gradient-to-r from-[#ed4747] to-[#920707] rounded-tl-xl rounded-tr-xl grid grid-cols-11 px-6 py-4'>
-                    <div className='text-white font-bold text-xl col-span-2 text-center'>
+                    <div className='text-white font-bold text-xl col-span-1 text-center'>
                         Image
                     </div>
                     <div className='text-white font-bold text-xl col-span-3 text-center'>
                         Course
                     </div>
-                    <div className='text-white font-bold text-xl col-span-3 text-center'>
+                    <div className='text-white font-bold text-xl col-span-4 text-center'>
                         University
                     </div>
                     <div className='text-white font-bold text-xl col-span-1 text-center'>
@@ -45,26 +67,26 @@ const CourseList = () => {
             </div>
 
             {
-                courses?.map(course =>
-                    <div className='mt-4'>
-                        <div className='bg-gradient-to-r from-[#ed4747] to-[#920707] rounded-tl-xl rounded-tr-xl grid grid-cols-11 px-6 py-4'>
-                            <div className='text-white font-bold text-xl col-span-2 text-center flex justify-center'>
+                filteredCourses?.map(course =>
+                    <div className=''>
+                        <div className='bg-[#F7FFF7] border-b-2 border-[#ed4747] grid grid-cols-11 px-6 py-4 items-center'>
+                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
                                 <img className='w-[50px] h-[50px] rounded-full' src={course?.imageUrl} alt="" />
                             </div>
-                            <div className='text-white font-bold text-xl col-span-3 text-center'>
+                            <div className='text-[#0e2b45] font-bold text-lg col-span-3 text-center'>
                                 {course?.course_name}
                             </div>
-                            <div className='text-white font-bold text-xl col-span-3 text-center'>
+                            <div className='text-[#0e2b45] font-bold text-lg col-span-4 text-center'>
                                 {course?.university_name}
                             </div>
-                            <div className='text-white font-bold text-xl col-span-1 text-center'>
+                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
                                 {course?.degree_name}
                             </div>
-                            <div className='text-white font-bold text-xl col-span-1 text-center'>
-                                Update
+                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
+                                <MdEditSquare className='text-3xl cursor-pointer font-bold text-[#0e2b45]' />
                             </div>
-                            <div className='text-white font-bold text-xl col-span-1 text-center'>
-                                Delete
+                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
+                                <RiDeleteBinFill className='text-3xl cursor-pointer font-bold text-[#ed4747]' />
                             </div>
                         </div>
                     </div>
