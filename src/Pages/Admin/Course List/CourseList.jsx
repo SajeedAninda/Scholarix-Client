@@ -7,6 +7,7 @@ import useAxiosInstance from '../../../Hooks/useAxiosInstance';
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import CourseListSkeleton from '../../../Components/Skeleton/CourseListSkeleton';
 
 
 const CourseList = () => {
@@ -97,32 +98,39 @@ const CourseList = () => {
             </div>
 
             {
-                filteredCourses?.map(course =>
-                    <div className=''>
-                        <div className='bg-[#F7FFF7] border-b-2 border-[#ed4747] grid grid-cols-11 px-6 py-4 items-center'>
-                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
-                                <img className='w-[50px] h-[50px] rounded-full' src={course?.imageUrl} alt="" />
-                            </div>
-                            <div className='text-[#0e2b45] font-bold text-lg col-span-3 text-center'>
-                                {course?.course_name}
-                            </div>
-                            <div className='text-[#0e2b45] font-bold text-lg col-span-4 text-center'>
-                                {course?.university_name}
-                            </div>
-                            <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
-                                {course?.degree_name}
-                            </div>
+                filteredCourses ?
+                    (
+                        filteredCourses?.map(course =>
+                            <div className=''>
+                                <div className='bg-[#F7FFF7] border-b-2 border-[#ed4747] grid grid-cols-11 px-6 py-4 items-center'>
+                                    <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
+                                        <img className='w-[50px] h-[50px] rounded-full' src={course?.imageUrl} alt="" />
+                                    </div>
+                                    <div className='text-[#0e2b45] font-bold text-lg col-span-3 text-center'>
+                                        {course?.course_name}
+                                    </div>
+                                    <div className='text-[#0e2b45] font-bold text-lg col-span-4 text-center'>
+                                        {course?.university_name}
+                                    </div>
+                                    <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
+                                        {course?.degree_name}
+                                    </div>
 
-                            <Link to={`updateCourse/${course?._id}`} className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
-                                <MdEditSquare className='text-3xl cursor-pointer font-bold text-[#0e2b45]' />
-                            </Link>
+                                    <Link to={`updateCourse/${course?._id}`} className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
+                                        <MdEditSquare className='text-3xl cursor-pointer font-bold text-[#0e2b45]' />
+                                    </Link>
 
-                            <div onClick={() => handleDeleteCourse(course?._id)} className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
-                                <RiDeleteBinFill className='text-3xl cursor-pointer font-bold text-[#ed4747]' />
+                                    <div onClick={() => handleDeleteCourse(course?._id)} className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
+                                        <RiDeleteBinFill className='text-3xl cursor-pointer font-bold text-[#ed4747]' />
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                )
+                        )
+                    )
+                    :
+                    (
+                        <CourseListSkeleton></CourseListSkeleton>
+                    )
             }
         </div>
     );
