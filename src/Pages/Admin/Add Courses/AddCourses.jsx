@@ -38,6 +38,11 @@ const AddCourses = () => {
 
     let handleAddCourses = async (e) => {
         e.preventDefault();
+        
+        if (!selectedImage) {
+            toast.error("Please upload an image");
+            return;
+        }
         let course_name = e.target.courseName.value;
         let university_name = e.target.universityName.value;
         let degree_name = selectedDegree;
@@ -114,7 +119,7 @@ const AddCourses = () => {
                                 </label>
                                 <br />
                                 <select onChange={(e) => { setSelectedDegree(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="degree" id="degree" required>
-                                    <option disabled selected>Select The Related Degree</option>
+                                    <option value="">Select The Related Degree</option>
                                     <option value="bachelors">Bachelors</option>
                                     <option value="masters">Masters</option>
                                     <option value="phd">PHD</option>
@@ -128,7 +133,7 @@ const AddCourses = () => {
                                 </label>
                                 <br />
                                 <select onChange={(e) => { setSelectedField(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="field" id="field" required>
-                                    <option disabled selected>Select The Related Field</option>
+                                    <option value="">Select The Related Field</option>
                                     <option value="engineering">Engineering</option>
                                     <option value="management">Management</option>
                                     <option value="economics">Economics</option>
@@ -146,7 +151,7 @@ const AddCourses = () => {
                                 </label>
                                 <br />
                                 <select onChange={(e) => { setSelectedCountry(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="country" id="country" required>
-                                    <option disabled selected>Select Country</option>
+                                    <option value="">Select The Related Country</option>
                                     <option value="usa">USA</option>
                                     <option value="china">China</option>
                                     <option value="canada">Canada</option>
@@ -192,7 +197,7 @@ const AddCourses = () => {
                                 </label>
                                 <br />
                                 <select onChange={(e) => { setSelectedScholarship(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="scholarship" id="scholarship" required>
-                                    <option disabled selected>Select If Scholarship is Available</option>
+                                    <option value="">Select if Scholarship is Available</option>
                                     <option value="yes">Yes</option>
                                     <option value="no">No</option>
                                 </select>
@@ -217,7 +222,7 @@ const AddCourses = () => {
                                 </label>
                                 <br />
                                 <select onChange={(e) => { setSelectedIntake(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="intake" id="intake" required>
-                                    <option disabled selected>Select Intake Time</option>
+                                    <option value="">Select Intake Time</option>
                                     <option value="aut2024">Autumn 2024</option>
                                     <option value="win2025">Winter 2025</option>
                                     <option value="aut2025">Autumn 2025</option>
