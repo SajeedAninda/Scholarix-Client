@@ -19,6 +19,7 @@ import Courses from './Pages/Courses/Courses.jsx';
 import CourseDetails from './Pages/Courses/Course Details/CourseDetails.jsx';
 import CourseList from './Pages/Admin/Course List/CourseList.jsx';
 import UpdateCourse from './Pages/Admin/Update Course/UpdateCourse.jsx';
+import StudyAbroad from './Pages/Study Abroad/StudyAbroad.jsx';
 
 const queryClient = new QueryClient()
 
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
         path: "/courseDetails/:id",
         loader: ({ params }) => fetch(`http://localhost:5000/courseDetails/${params.id}`),
         element: <CourseDetails></CourseDetails>
+      },
+      {
+        path: "/studyAbroad",
+        element: <StudyAbroad></StudyAbroad>
       },
       {
         path: "/login",
