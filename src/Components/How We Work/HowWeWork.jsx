@@ -2,7 +2,6 @@ import React from 'react';
 
 const HowWeWork = () => {
     return (
-        // < !--component -- >
         <div>
             <div class="w-[90%] mx-auto h-full">
                 <div className='pt-16 pb-8'>

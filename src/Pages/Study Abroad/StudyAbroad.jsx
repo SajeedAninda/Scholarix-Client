@@ -11,6 +11,7 @@ import au from "../../assets/ChooseCountry/au.jpg"
 import ind from "../../assets/ChooseCountry/ind.jpg"
 import ger from "../../assets/ChooseCountry/ger.jpg"
 import frnc from "../../assets/ChooseCountry/frnc.jpg"
+import StudyAbroadTabs from './StudyAbroadTabs';
 
 const StudyAbroad = () => {
     return (
@@ -162,6 +163,9 @@ const StudyAbroad = () => {
 
 
                 </div>
+
+                <StudyAbroadTabs></StudyAbroadTabs>
+
             </div>
         </div>
     );
