@@ -11,14 +11,14 @@ const DifferentScholarships = () => {
         }
     };
 
-    useEffect(() => {
-        heightFix();
-        const interval = setInterval(() => {
-            setTab((prevTab) => (prevTab % 9) + 1);
-        }, 8000);
+    // useEffect(() => {
+    //     heightFix();
+    //     const interval = setInterval(() => {
+    //         setTab((prevTab) => (prevTab % 9) + 1);
+    //     }, 8000);
 
-        return () => clearInterval(interval);
-    }, []);
+    //     return () => clearInterval(interval);
+    // }, []);
 
 
     return (
