@@ -35,7 +35,7 @@ const CoursesWithScholarships = () => {
 
             <div className='mt-6'>
                 <Tab.Group>
-                    <Tab.List className="flex space-x-1 rounded-xl bg-[#ed4747] p-1">
+                    <Tab.List className="flex space-x-1 rounded-xl bg-white border-2 border-[#ed4747] p-1">
                         <Tab
                             className={({ selected }) =>
                                 classNames(
@@ -43,7 +43,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -56,7 +56,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -69,7 +69,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -82,7 +82,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -95,7 +95,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -108,7 +108,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -121,7 +121,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -134,7 +134,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
@@ -147,7 +147,7 @@ const CoursesWithScholarships = () => {
                                     'ring-white/60 ring-offset-2 ring-offset-white focus:outline-none focus:ring-2',
                                     selected
                                         ? 'bg-gradient-to-r from-[#ed4747] to-[#920707] text-white shadow'
-                                        : 'text-white hover:bg-white/[0.12] hover:text-white'
+                                        : 'text-[#ed4747] hover:bg-white/[0.12] hover:text-[#522c2c]'
                                 )
                             }
                         >
