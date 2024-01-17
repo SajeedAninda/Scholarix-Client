@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import useCourses from '../../Hooks/useCourses';
 import { Tab } from '@headlessui/react';
 import TabCourseSkeleton from '../../Components/Skeleton/TabCourseSkeleton';

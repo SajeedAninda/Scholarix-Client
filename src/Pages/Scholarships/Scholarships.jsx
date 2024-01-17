@@ -1,6 +1,7 @@
 import React from 'react';
 import scholarshipImg from "../../assets/ScholarshipImage/scholarshipImg.jpg"
 import DifferentScholarships from './DifferentScholarships';
+import CoursesWithScholarships from './CoursesWithScholarships';
 
 const Scholarships = () => {
     return (
@@ -25,6 +26,7 @@ const Scholarships = () => {
                 </div>
 
                 <DifferentScholarships></DifferentScholarships>
+                <CoursesWithScholarships></CoursesWithScholarships>
             </div>
         </div>
     );
