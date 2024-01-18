@@ -1,14 +1,22 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import { MdLocationCity } from "react-icons/md";
 import { LiaUniversitySolid } from "react-icons/lia";
 import { FaBookReader } from "react-icons/fa";
+import useCourses from '../../Hooks/useCourses';
+import CourseSkeleton from '../../Components/Skeleton/CourseSkeleton';
 
 
 
 const CountryDetails = () => {
     let countryDetails = useLoaderData();
     let { _id, country_name, country_db_name, country_img_url, country_brief_details, country_overview_details, why_students_study_here, best_cities_to_study, top_universities, best_scholarships, best_courses } = countryDetails
+
+    let { courses } = useCourses();
+
+    let scholarshipCourses = courses?.filter(course => course?.country_name === country_db_name && course?.available_scholarship === "yes");
+
+    console.log(scholarshipCourses);
 
     return (
         <div className='w-[90%] mx-auto py-8'>
@@ -101,6 +109,53 @@ const CountryDetails = () => {
                     }
                 </ul>
             </div>
+
+            <div className='space-y-3 mt-10 flex-1'>
+                <h2 className='text-3xl font-bold text-[#0e2b45] text-center'>Available Courses With Scholarships in {country_name}</h2>
+                <div className='Cards'>
+                    {
+                        scholarshipCourses?
+                            (
+                                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-6'>
+                                    {scholarshipCourses?.map(course => (
+                                        <div key={course?._id} className="bg-whiterounded-lg shadow-lg flex flex-col">
+                                            <img className="rounded-t-lg w-full h-[200px] object-cover" src={course?.imageUrl} alt="" />
+
+
+                                            <div className="p-5 flex flex-col flex-grow bg-gradient-to-r from-[#920707] to-[#ed4747] rounded-b-lg">
+                                                <h5 className="mb-2 text-xl font-bold tracking-tight text-white"><span className='capitalize'>{course?.degree_name}</span> in {course?.course_name}</h5>
+
+
+                                                <p className="mb-3 font-normal text-white">
+                                                    {course?.university_name} in <span className='capitalize'>{course?.country_name}</span>
+                                                </p>
+
+
+
+
+                                                <h5 className="mb-2 text-xl font-bold tracking-tight text-white flex items-center">{course?.tuition_fees}$/Semester </h5>
+
+
+                                                <Link to={`/courseDetails/${course?._id}`} className='mt-auto inline-flex items-center px-3 py-2 text-sm font-semibold text-center text-[#0e2b45] bg-white rounded-lg hover:bg-[#ed4747] hover:text-white'>
+                                                    See Details
+                                                    <svg className="w-3.5 h-3.5 ml-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                                                    </svg>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            )
+                            :
+                            (
+                                <CourseSkeleton></CourseSkeleton>
+                            )
+                    }
+                </div>
+            </div>
+
+
 
         </div>
     );
