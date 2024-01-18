@@ -2,6 +2,8 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { MdLocationCity } from "react-icons/md";
 import { LiaUniversitySolid } from "react-icons/lia";
+import { FaBookReader } from "react-icons/fa";
+
 
 
 const CountryDetails = () => {
@@ -60,6 +62,46 @@ const CountryDetails = () => {
                     </ul>
                 </div>
             </div>
+
+            <div className='space-y-3 mt-10'>
+                <h2 className='text-3xl font-bold text-[#0e2b45] text-center'>Best Courses in {country_name}</h2>
+                <div className='flex justify-center mt-4 space-x-4'>
+                    {/* Left List */}
+                    <ul className='text-center'>
+                        {best_courses.slice(0, Math.ceil(best_courses.length / 2)).map((course, index) => (
+                            <li key={index} className='text-2xl mt-4 font-semibold text-[#0e2b45] flex items-center gap-2 pl-6'>
+                                <FaBookReader />
+                                {course}
+                            </li>
+                        ))}
+                    </ul>
+
+                    {/* Right List */}
+                    <ul className='text-center'>
+                        {best_courses.slice(Math.ceil(best_courses.length / 2)).map((course, index) => (
+                            <li key={index} className='text-2xl mt-4 font-semibold text-[#0e2b45] flex items-center gap-2 pl-6'>
+                                <FaBookReader />
+                                {course}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <div className='space-y-3 mt-10 flex-1'>
+                <h2 className='text-3xl font-bold text-[#0e2b45] text-center'>Best Scholarships in {country_name}</h2>
+                <ul className='mt-4'>
+                    {
+                        best_scholarships?.map((scholarship, index) => (
+                            <li key={index} className='text-[#0e2b45] flex items-center gap-2 mt-6'>
+                                <h3 className='w-[40%] font-bold text-2xl'> {scholarship.name}</h3>
+                                <p className='w-[60%] font-semibold text-xl'>{scholarship.details}</p>
+                            </li>
+                        ))
+                    }
+                </ul>
+            </div>
+
         </div>
     );
 };
