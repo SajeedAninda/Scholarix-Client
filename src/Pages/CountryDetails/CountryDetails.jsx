@@ -1,5 +1,8 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { MdLocationCity } from "react-icons/md";
+import { LiaUniversitySolid } from "react-icons/lia";
+
 
 const CountryDetails = () => {
     let countryDetails = useLoaderData();
@@ -26,6 +29,36 @@ const CountryDetails = () => {
             <div className='space-y-3 mt-6'>
                 <h2 className='text-3xl font-bold text-[#0e2b45]'>Why Study in {country_name}?</h2>
                 <p className='text-lg font-semibold text-[#0e2b45]'>{why_students_study_here}</p>
+            </div>
+
+            <div className='flex justify-between items-center'>
+                <div className='space-y-3 mt-6 flex-1'>
+                    <h2 className='text-3xl font-bold text-[#0e2b45]'>Best Cities to study in {country_name}</h2>
+                    <ul className='mt-4'>
+                        {
+                            best_cities_to_study?.map(cities =>
+                                <li className='text-2xl mt-4 font-semibold text-[#0e2b45] flex items-center gap-2 pl-6'>
+                                    <MdLocationCity />
+                                    {cities}
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
+
+                <div className='space-y-3 mt-6 flex-1'>
+                    <h2 className='text-3xl font-bold text-[#0e2b45]'>Top Universities in {country_name}</h2>
+                    <ul className='mt-4'>
+                        {
+                            top_universities?.map(unis =>
+                                <li className='text-2xl mt-4 font-semibold text-[#0e2b45] flex items-center gap-2 pl-6'>
+                                    <LiaUniversitySolid />
+                                    {unis}
+                                </li>
+                            )
+                        }
+                    </ul>
+                </div>
             </div>
         </div>
     );
