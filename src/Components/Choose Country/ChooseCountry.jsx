@@ -1,16 +1,9 @@
 import React from 'react';
 import "./country.css"
-import usa from "../../assets/ChooseCountry/usa.jpg"
-import cn from "../../assets/ChooseCountry/cn.jpg"
-import can from "../../assets/ChooseCountry/can.jpg"
-import uk from "../../assets/ChooseCountry/uk.jpg"
-import mal from "../../assets/ChooseCountry/mal.jpg"
-import au from "../../assets/ChooseCountry/au.jpg"
-import ind from "../../assets/ChooseCountry/ind.jpg"
-import ger from "../../assets/ChooseCountry/ger.jpg"
-import frnc from "../../assets/ChooseCountry/frnc.jpg"
 import useCountries from '../../Hooks/useCountries';
 import CourseSkeleton from '../Skeleton/CourseSkeleton';
+import { Link } from 'react-router-dom';
+import CountrySkeleton from '../Skeleton/CountrySkeleton';
 
 const ChooseCountry = () => {
     let { countries } = useCountries();
@@ -27,10 +20,10 @@ const ChooseCountry = () => {
                         </p>
                     </div>
 
-                    <div className='grid grid-cols-1 md:grid-cols-3 mt-6 gap-8'>
-                        {
-                            countries ?
-                                (
+                    {
+                        countries ?
+                            <div className='grid grid-cols-1 md:grid-cols-3 mt-6 gap-8'>
+                                {
                                     countries?.map(country =>
                                         <div class="card">
                                             <img className='object-cover' src={country?.country_img_url} alt="" />
@@ -39,18 +32,20 @@ const ChooseCountry = () => {
                                                 <p class="card__description">
                                                     {country?.country_brief_details}
                                                 </p>
+
+                                                <div className='flex justify-end'>
+                                                    <Link className='text-[white] font-bold underline hover:opacity-50'>
+                                                        See Details
+                                                    </Link>
+                                                </div>
                                             </div>
                                         </div>
                                     )
-                                )
-                                :
-                                (
-                                    <div>
-                                        <CourseSkeleton></CourseSkeleton>
-                                    </div>
-                                )
-                        }
-                    </div>
+                                }
+                            </div>
+                            :
+                            <CountrySkeleton></CountrySkeleton>
+                    }
 
 
 
