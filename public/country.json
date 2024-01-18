@@ -1,0 +1,434 @@
+[
+    {
+        "country_name": "USA",
+        "country_db_name": "usa",
+        "country_img_url": "https://i.ibb.co/XF8XB63/usa.jpg",
+        "country_brief_details": "The United States is a melting pot of cultures, offering a vast array of educational opportunities. Renowned for its prestigious Ivy League institutions and a wide range of programs, students can experience a diverse and dynamic environment. From the bustling cities to serene campuses, the USA provides a well-rounded education with a global perspective.",
+        "country_overview_details": "The United States of America, often referred to as the 'Land of Opportunities,' stands as an iconic destination for international students. Comprising 50 states with diverse landscapes, cultures, and educational institutions, the USA offers a vast array of academic experiences. Its higher education system is characterized by flexibility, innovation, and a commitment to academic excellence. The country's dynamic cities, world-renowned research facilities, and vibrant multicultural atmosphere contribute to its unparalleled appeal as a global education hub. Students in the USA find themselves immersed in a rich tapestry of learning, blending theoretical knowledge with practical skills, fostering intellectual growth, and preparing them for successful careers in various fields.",
+        "why_students_study_here": "Students choose to study in the USA for a multitude of reasons, each contributing to a transformative educational experience. The USA's higher education system is known for its academic flexibility, allowing students to tailor their courses and majors to match their individual interests and career goals. The emphasis on research and innovation provides students with opportunities to engage in cutting-edge projects and collaborate with world-class scholars. Beyond academia, the USA's diverse and inclusive society encourages cross-cultural interactions, fostering a global mindset and preparing students to thrive in an interconnected world. The abundance of extracurricular activities, internships, and networking opportunities ensures a holistic educational journey, equipping students with not only knowledge but also practical skills and a robust professional network. Additionally, the country's commitment to freedom, democracy, and human rights aligns with the values of many international students, creating a welcoming and supportive environment for academic and personal growth.",
+        "best_cities_to_study": [
+            "New York City",
+            "Boston",
+            "San Francisco",
+            "Los Angeles",
+            "Chicago"
+        ],
+        "top_universities": [
+            "Harvard University",
+            "MIT",
+            "Stanford University",
+            "California Institute of Technology (Caltech)",
+            "University of Chicago"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Fulbright Scholarship",
+                "details": "The Fulbright Scholarship is a prestigious program that supports international students, scholars, and professionals in pursuing advanced research and academic endeavors in the United States. It promotes cultural exchange and mutual understanding between the people of the United States and other countries."
+            },
+            {
+                "name": "Hubert H. Humphrey Fellowship Program",
+                "details": "The Hubert H. Humphrey Fellowship Program brings accomplished professionals from designated countries to the United States for a year of non-degree graduate-level study and professional development. The program fosters collaboration and exchange of experiences across a range of fields."
+            },
+            {
+                "name": "Merit-Based Scholarships",
+                "details": "Many universities and organizations in the USA offer merit-based scholarships to outstanding students based on their academic achievements, leadership qualities, and extracurricular involvement. These scholarships aim to recognize and support exceptional talent."
+            }
+        ],
+        "best_courses": [
+            "Computer Science",
+            "Biomedical Engineering",
+            "Business Administration",
+            "Economics",
+            "Environmental Science",
+            "Psychology",
+            "International Relations",
+            "Film Studies",
+            "Aerospace Engineering",
+            "Public Health"
+        ]
+    },
+    {
+        "country_name": "China",
+        "country_db_name": "china",
+        "country_img_url": "https://i.ibb.co/tqW89nj/cn.jpg",
+        "country_brief_details": "China has rapidly become a global education hub, blending ancient traditions with modern advancements. With a growing number of universities ranking among the world's best, international students are drawn to China for its rich cultural heritage, economic growth, and opportunities for cross-cultural exchange.",
+        "country_overview_details": "China, a nation steeped in history and embracing rapid modernization, stands at the crossroads of tradition and innovation. With its vast landscapes, ancient landmarks, and bustling metropolises, China offers a unique backdrop for academic pursuits. The country's higher education system reflects its commitment to technological advancements, scientific exploration, and global collaboration. Students in China not only experience a dynamic academic environment but also immerse themselves in a society that seamlessly blends ancient customs with contemporary progress, making it an enriching destination for international education.",
+        "why_students_study_here": "Choosing China for higher education is an exploration of academic excellence within a rich cultural tapestry. The country's renowned institutions are at the forefront of groundbreaking research, offering students the chance to contribute to and benefit from cutting-edge discoveries. China's commitment to innovation and technology ensures that students receive a forward-looking education, equipping them with skills relevant to the evolving global landscape. The affordability of education, including reasonable tuition fees and cost of living, makes China an attractive destination for international students seeking quality education without breaking the bank. Additionally, students are drawn to the Mandarin language programs, providing a valuable skill set in an increasingly interconnected world. The cultural immersion and exposure to China's rapid economic growth contribute to a unique learning experience, fostering adaptability, global awareness, and cross-cultural understanding.",
+        "best_cities_to_study": [
+            "Beijing",
+            "Shanghai",
+            "Guangzhou",
+            "Hangzhou",
+            "Shenzhen"
+        ],
+        "top_universities": [
+            "Tsinghua University",
+            "Peking University",
+            "Fudan University",
+            "Zhejiang University",
+            "Shanghai Jiao Tong University"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Chinese Government Scholarship",
+                "details": "The Chinese Government Scholarship is a full scholarship program provided by the Chinese government to support international students pursuing degrees at Chinese universities. It covers tuition, accommodation, stipend, and medical insurance."
+            },
+            {
+                "name": "Confucius Institute Scholarship",
+                "details": "The Confucius Institute Scholarship supports international students, scholars, and Chinese language teachers in studying Chinese language, culture, and related subjects in China. It encourages cross-cultural exchange and understanding."
+            },
+            {
+                "name": "CSC Scholarship",
+                "details": "The China Scholarship Council (CSC) Scholarship is a significant program that sponsors international students for doctoral and master's degrees in Chinese universities. It covers tuition, accommodation, and a living allowance."
+            }
+        ],
+        "best_courses": [
+            "Computer Science and Technology",
+            "International Business",
+            "Environmental Engineering",
+            "Traditional Chinese Medicine",
+            "Global Health",
+            "Economics",
+            "Architecture and Urban Planning",
+            "International Relations",
+            "Civil Engineering",
+            "Aerospace Engineering"
+        ]
+    },
+    {
+        "country_name": "Canada",
+        "country_db_name": "canada",
+        "country_img_url": "https://i.ibb.co/vD51xWG/can.jpg",
+        "country_brief_details": "Known for its friendly communities and high-quality education, Canada stands out as a top destination for international students. The country's universities consistently rank among the best globally, offering a welcoming atmosphere and a chance to explore diverse landscapes, from vibrant cities to picturesque natural wonders.",
+        "country_overview_details": "Canada, known for its vast landscapes, multicultural cities, and commitment to inclusivity, has positioned itself as a premier destination for international education. The country's higher education system is characterized by rigorous academic standards, research excellence, and a welcoming environment. With its reputation for safety, natural beauty, and a high quality of life, Canada provides students with a unique blend of academic and cultural experiences. Whether exploring the vibrant urban centers or the pristine wilderness, students in Canada find themselves at the intersection of academic excellence and a diverse, inclusive society.",
+        "why_students_study_here": "Canada's appeal as an education destination stems from a combination of academic quality, cultural richness, and quality of life. The country's institutions prioritize research and innovation, offering students opportunities to engage in groundbreaking projects and collaborate with leading scholars. The commitment to multiculturalism ensures an inclusive environment where students from diverse backgrounds feel welcome and valued. Canada's emphasis on practical, hands-on learning experiences prepares students for real-world challenges, fostering critical thinking and problem-solving skills. The post-graduation work opportunities and immigration policies make Canada an attractive destination for those seeking a seamless transition from education to employment. The country's strong economy, stunning natural landscapes, and reputation for safety contribute to an overall exceptional educational experience.",
+        "best_cities_to_study": [
+            "Toronto",
+            "Vancouver",
+            "Montreal",
+            "Calgary",
+            "Quebec City"
+        ],
+        "top_universities": [
+            "University of Toronto",
+            "University of British Columbia",
+            "McGill University",
+            "University of Alberta",
+            "University of Montreal"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Vanier Canada Graduate Scholarships",
+                "details": "The Vanier Canada Graduate Scholarships aim to attract and retain world-class doctoral students by supporting those who demonstrate leadership skills, academic excellence, and a high standard of scholarly achievement in the social sciences, humanities, natural sciences, engineering, and health."
+            },
+            {
+                "name": "Canada Graduate Scholarships (CGS)",
+                "details": "The Canada Graduate Scholarships (CGS) program provides financial support to high-caliber scholars pursuing master's or doctoral studies in Canada. It fosters research excellence and encourages interdisciplinary collaboration."
+            },
+            {
+                "name": "Lester B. Pearson International Scholarship Program",
+                "details": "The Lester B. Pearson International Scholarship Program at the University of Toronto is a merit-based scholarship that recognizes exceptional students who have demonstrated leadership qualities and a commitment to community service. It covers tuition, books, incidental fees, and residence."
+            }
+        ],
+        "best_courses": [
+            "Computer Science",
+            "Environmental Science",
+            "Civil Engineering",
+            "Business Administration",
+            "Biotechnology",
+            "Political Science",
+            "Aerospace Engineering",
+            "Health Sciences",
+            "International Relations",
+            "Media Studies"
+        ]
+    },
+    {
+        "country_name": "UK",
+        "country_db_name": "uk",
+        "country_img_url": "https://i.ibb.co/gDkZK3W/uk.jpg",
+        "country_brief_details": "The United Kingdom is synonymous with academic excellence, boasting a rich history of scholarship and innovation. From the historic halls of Oxford and Cambridge to modern institutions in bustling cities, the UK provides a globally recognized education. Students benefit from a diverse cultural environment and exposure to cutting-edge research.",
+        "country_overview_details": "The United Kingdom, with its rich history, cultural diversity, and world-class institutions, stands as an educational beacon attracting students from across the globe. Comprising four constituent countries — England, Scotland, Wales, and Northern Ireland — the UK offers a multifaceted experience. Its higher education system, steeped in tradition and innovation, is renowned for academic rigor, cutting-edge research, and a commitment to fostering critical thinking. Beyond academia, the UK's charming landscapes, historic landmarks, and cosmopolitan cities contribute to a holistic educational journey, where students not only gain knowledge but also immerse themselves in a vibrant cultural tapestry.",
+        "why_students_study_here": "Choosing the UK for higher education is a transformative decision driven by a myriad of factors. The country's universities consistently rank among the best globally, providing students with access to world-class faculty and cutting-edge research facilities. The emphasis on independent thinking, creativity, and practical application of knowledge prepares students for dynamic careers in various fields. The multicultural environment fosters global perspectives, and students have the opportunity to engage with a diverse community, expanding their horizons both academically and culturally. The UK's strong ties to industry, coupled with internship opportunities, ensure that students are well-equipped for the demands of the professional world. Additionally, the UK's historical landmarks, vibrant arts scene, and international culinary offerings create an enriching and fulfilling student experience.",
+        "best_cities_to_study": [
+            "London",
+            "Edinburgh",
+            "Manchester",
+            "Birmingham",
+            "Glasgow"
+        ],
+        "top_universities": [
+            "University of Oxford",
+            "University of Cambridge",
+            "Imperial College London",
+            "London School of Economics and Political Science (LSE)",
+            "University College London (UCL)"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Chevening Scholarships",
+                "details": "Chevening Scholarships are awarded to outstanding individuals with leadership potential from around the world. The scholarships cover the cost of studying in the UK, including tuition fees, living allowance, and other expenses."
+            },
+            {
+                "name": "Commonwealth Shared Scholarships",
+                "details": "Commonwealth Shared Scholarships are for candidates from developing Commonwealth countries who would not otherwise be able to afford to study in the UK. The scholarships cover the cost of travel, tuition, and living expenses."
+            },
+            {
+                "name": "Gates Cambridge Scholarships",
+                "details": "Gates Cambridge Scholarships are prestigious, highly competitive full-cost scholarships for graduate study and research in any subject available at the University of Cambridge. The scholarships cover tuition, maintenance, and a discretionary contribution to research costs."
+            }
+        ],
+        "best_courses": [
+            "Computer Science",
+            "Economics",
+            "Biomedical Sciences",
+            "History",
+            "International Relations",
+            "Architecture",
+            "Business Administration",
+            "Law",
+            "Environmental Science",
+            "Media Studies"
+        ]
+    },
+    {
+        "country_name": "Malaysia",
+        "country_db_name": "malaysia",
+        "country_img_url": "https://i.ibb.co/ykQfb6y/mal.jpg",
+        "country_brief_details": "Malaysia offers a unique blend of cultures, making it an enticing destination for international students. With affordable education, a tropical climate, and a variety of programs taught in English, Malaysia provides a multicultural experience against the backdrop of stunning landscapes and bustling urban centers.",
+        "country_overview_details": "Malaysia, a Southeast Asian gem, offers a captivating blend of modernity and tradition. Known for its diverse landscapes, multicultural society, and warm hospitality, Malaysia has emerged as an enticing destination for international students. Its higher education system, marked by a commitment to quality and accessibility, provides a gateway to a globalized world. With a rich tapestry of cultural festivals, bustling markets, and pristine natural beauty, Malaysia offers students not only academic excellence but also a unique and immersive cultural experience.",
+        "why_students_study_here": "Malaysia's appeal as an education destination is rooted in a harmonious blend of academic quality, cultural richness, and affordability. The country's universities, equipped with modern facilities and experienced faculty, provide students with a diverse range of academic programs. Malaysia's multicultural society ensures a welcoming environment, allowing students to engage with different perspectives and fostering a global mindset. The affordability of education and cost of living make Malaysia an attractive option for international students seeking quality education without a significant financial burden. The country's strategic location in Southeast Asia provides easy access to neighboring countries, offering students opportunities for travel and exploration. Additionally, Malaysia's commitment to preserving its natural heritage makes it an ideal destination for those seeking a balance between academic pursuits and appreciation for the environment.",
+        "best_cities_to_study": [
+            "Kuala Lumpur",
+            "Penang",
+            "Johor Bahru",
+            "Kuching",
+            "Kota Kinabalu"
+        ],
+        "top_universities": [
+            "University of Malaya (UM)",
+            "Universiti Kebangsaan Malaysia (UKM)",
+            "Universiti Sains Malaysia (USM)",
+            "Taylor's University",
+            "Monash University Malaysia"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Malaysian International Scholarship (MIS)",
+                "details": "The Malaysian International Scholarship (MIS) is an initiative by the Malaysian government to attract talented international students for postgraduate studies in Malaysia. It covers tuition fees, monthly living allowance, and other allowances."
+            },
+            {
+                "name": "ASEAN Scholarships for Postgraduate Studies",
+                "details": "The ASEAN Scholarships for Postgraduate Studies aim to promote goodwill and intellectual exchange among ASEAN member countries by supporting students pursuing postgraduate studies in Malaysia. The scholarships cover tuition fees and living expenses."
+            },
+            {
+                "name": "Khazanah Global Scholarship",
+                "details": "The Khazanah Global Scholarship provides financial support to outstanding students with leadership potential to pursue undergraduate and postgraduate studies at selected leading universities worldwide. It includes tuition fees, monthly allowances, and other benefits."
+            }
+        ],
+        "best_courses": [
+            "Engineering",
+            "Computer Science",
+            "Biotechnology",
+            "Hospitality and Tourism Management",
+            "Islamic Finance",
+            "Environmental Management",
+            "Business Administration",
+            "Culinary Arts",
+            "Medical Sciences",
+            "International Relations"
+        ]
+    },
+    {
+        "country_name": "Australia",
+        "country_db_name": "australia",
+        "country_img_url": "https://i.ibb.co/cXb2T28/au.jpg",
+        "country_brief_details": "Australia's world-class universities and laid-back lifestyle make it a sought-after destination for students worldwide. From the vibrant cities of Sydney and Melbourne to the pristine beaches and natural wonders, Australia offers a high standard of living along with excellent academic programs across various disciplines.",
+        "country_overview_details": "Australia, renowned for its vast landscapes, diverse ecosystems, and vibrant cities, stands as a top destination for international education. With a commitment to academic excellence, innovation, and inclusivity, Australia offers a unique blend of high-quality education and a relaxed lifestyle. Its higher education system, characterized by world-class institutions and a practical approach to learning, attracts students from around the world seeking a comprehensive and enriching educational experience.",
+        "why_students_study_here": "The decision to study in Australia is driven by a combination of academic reputation, quality of life, and diverse opportunities. Australian universities consistently rank among the best globally, providing students with access to cutting-edge research and industry connections. The country's emphasis on innovation and practical skills ensures that students graduate with not only theoretical knowledge but also the ability to apply their learning in real-world scenarios. Australia's welcoming and multicultural society encourages students to engage with a global community, broadening their perspectives and fostering cultural understanding. The country's commitment to research and development creates an environment where students can actively contribute to groundbreaking discoveries. Additionally, Australia's stunning natural landscapes, thriving arts scene, and outdoor recreational opportunities contribute to a well-rounded and fulfilling student experience.",
+        "best_cities_to_study": [
+            "Sydney",
+            "Melbourne",
+            "Brisbane",
+            "Perth",
+            "Adelaide"
+        ],
+        "top_universities": [
+            "Australian National University (ANU)",
+            "University of Sydney",
+            "University of Melbourne",
+            "University of Queensland",
+            "University of New South Wales (UNSW)"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Australia Awards Scholarships",
+                "details": "Australia Awards Scholarships are long-term awards administered by the Australian government, offering opportunities for individuals from developing countries to undertake full-time undergraduate or postgraduate studies at participating Australian universities."
+            },
+            {
+                "name": "Endeavour Leadership Program",
+                "details": "The Endeavour Leadership Program is the Australian government's competitive, merit-based scholarship program providing financial support for individuals to undertake high-quality education and training at leading institutions in Australia."
+            },
+            {
+                "name": "Research Training Program (RTP) Scholarships",
+                "details": "The Research Training Program (RTP) Scholarships provide financial support to domestic and international students undertaking research degrees at Australian universities. The scholarships cover tuition fees and a stipend for living expenses."
+            }
+        ],
+        "best_courses": [
+            "Biomedical Sciences",
+            "Information Technology",
+            "Environmental Science",
+            "Business Analytics",
+            "Civil Engineering",
+            "Marine Biology",
+            "International Business",
+            "Agricultural Sciences",
+            "Creative Arts",
+            "Public Health"
+        ]
+    },
+    {
+        "country_name": "Germany",
+        "country_db_name": "germany",
+        "country_img_url": "https://i.ibb.co/zrzLsR9/ger.jpg",
+        "country_brief_details": "Germany is a powerhouse for innovation and technology, making it an ideal destination for students pursuing engineering, science, and research-oriented programs. The country's strong emphasis on practical skills, combined with a rich cultural scene, attracts students seeking a holistic and forward-thinking education.",
+        "country_overview_details": "Germany, located at the heart of Europe, is celebrated for its rich cultural heritage, technological prowess, and academic excellence. With a reputation for innovation and precision, Germany offers an exceptional environment for international students. Its higher education system, characterized by a strong focus on research and practical application, provides students with a comprehensive and forward-looking educational experience. Beyond academia, Germany's charming landscapes, historic landmarks, and vibrant cities contribute to a well-rounded student journey, blending cultural exploration with academic pursuits.",
+        "why_students_study_here": "Choosing Germany for higher education is a strategic decision fueled by a combination of academic rigor, technological advancement, and cultural richness. The country's universities, some of which are globally renowned, emphasize hands-on learning and research collaboration. Germany's commitment to innovation and industry connectivity ensures that students are exposed to real-world challenges, preparing them for successful careers. The affordable education system, including low or no tuition fees in many cases, makes Germany an attractive destination for students seeking quality education without a significant financial burden. The country's multicultural society promotes diversity, fostering a global mindset among students. Moreover, Germany's central location in Europe allows students to explore neighboring countries, enriching their cultural experiences and broadening their perspectives.",
+        "best_cities_to_study": [
+            "Berlin",
+            "Munich",
+            "Heidelberg",
+            "Hamburg",
+            "Stuttgart"
+        ],
+        "top_universities": [
+            "Technical University of Munich (TUM)",
+            "Ludwig Maximilian University of Munich",
+            "Heidelberg University",
+            "University of Freiburg",
+            "RWTH Aachen University"
+        ],
+        "best_scholarships": [
+            {
+                "name": "DAAD Scholarships",
+                "details": "The German Academic Exchange Service (DAAD) offers a wide range of scholarships to support international students and researchers in pursuing academic endeavors in Germany. The scholarships cover various disciplines and academic levels."
+            },
+            {
+                "name": "Heinrich Böll Foundation Scholarships",
+                "details": "The Heinrich Böll Foundation Scholarships are awarded to international students pursuing master's or doctoral studies in Germany. The scholarships focus on promoting ecological sustainability, democracy, human rights, and social justice."
+            },
+            {
+                "name": "Deutschland Stipendium (Germany Scholarship)",
+                "details": "The Deutschland Stipendium, or Germany Scholarship, is a merit-based scholarship program that supports students at German universities. It provides financial assistance and aims to encourage high-achieving students."
+            }
+        ],
+        "best_courses": [
+            "Mechanical Engineering",
+            "Computer Science",
+            "Renewable Energy Systems",
+            "Business Informatics",
+            "Biotechnology",
+            "Data Science",
+            "Automotive Engineering",
+            "Environmental Engineering",
+            "International Business Management",
+            "Public Policy"
+        ]
+    },
+    {
+        "country_name": "India",
+        "country_db_name": "india",
+        "country_img_url": "https://i.ibb.co/jLy9Sr8/ind.jpg",
+        "country_brief_details": "India's education system reflects its diverse cultural heritage and rapid economic growth. With a mix of traditional wisdom and modern innovation, students in India experience a dynamic learning environment. The country's renowned institutions offer a wide range of courses, making it a hub for various academic disciplines.",
+        "country_overview_details": "India, a land of diverse cultures, historical richness, and burgeoning opportunities, has become an increasingly popular destination for international students. With a robust education system and a vibrant tapestry of traditions, India offers a unique blend of ancient wisdom and modern innovation. Its higher education institutions, some dating back centuries, provide a distinctive academic environment that fosters intellectual growth and critical thinking. Beyond academics, India's breathtaking landscapes, architectural wonders, and bustling cities contribute to an enriching student experience that goes beyond the classroom.",
+        "why_students_study_here": "Opting for India as a higher education destination is a choice driven by a multitude of factors. India's universities, known for their academic excellence, offer a diverse range of courses across various disciplines. The emphasis on research and practical application ensures that students receive a holistic education, preparing them for dynamic careers. India's multicultural society provides students with exposure to a wide array of traditions, languages, and cuisines, fostering cultural understanding and global collaboration. The cost-effective education system, coupled with affordable living expenses, makes India an attractive option for international students. The country's rapidly growing economy presents ample opportunities for networking and professional growth. Additionally, India's rich history, festivals, and artistic heritage offer students a unique and immersive cultural experience.",
+        "best_cities_to_study": [
+            "New Delhi",
+            "Mumbai",
+            "Bangalore",
+            "Chennai",
+            "Hyderabad"
+        ],
+        "top_universities": [
+            "Indian Institutes of Technology (IITs)",
+            "University of Delhi",
+            "Jawaharlal Nehru University (JNU)",
+            "Indian Institute of Science (IISc)",
+            "Indian Institutes of Management (IIMs)"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Commonwealth Scholarship and Fellowship Plan (CSFP)",
+                "details": "The Commonwealth Scholarship and Fellowship Plan (CSFP) is a scholarship scheme that supports students from Commonwealth countries to pursue postgraduate studies in other Commonwealth countries, including India."
+            },
+            {
+                "name": "Indian Council for Cultural Relations (ICCR) Scholarships",
+                "details": "The ICCR Scholarships, offered by the Indian Council for Cultural Relations, support international students in pursuing undergraduate, postgraduate, and research programs at Indian universities. The scholarships cover tuition and living expenses."
+            },
+            {
+                "name": "Dr. Manmohan Singh Scholarships",
+                "details": "Dr. Manmohan Singh Scholarships are awarded to outstanding students from Afghanistan, Bangladesh, Bhutan, Maldives, Nepal, Pakistan, and Sri Lanka to pursue undergraduate and postgraduate studies in India. The scholarships cover tuition and other expenses."
+            }
+        ],
+        "best_courses": [
+            "Information Technology",
+            "Biomedical Engineering",
+            "Business Administration",
+            "Renewable Energy",
+            "Pharmaceutical Sciences",
+            "Environmental Studies",
+            "Social Sciences",
+            "Aerospace Engineering",
+            "Artificial Intelligence",
+            "Public Health"
+        ]
+    },
+    {
+        "country_name": "France",
+        "country_db_name": "france",
+        "country_img_url": "https://i.ibb.co/4FZvfDR/frnc.jpg",
+        "country_brief_details": "France, a global center for art, culture, and innovation, provides a unique educational experience. Renowned for its culinary arts, fashion, and architectural marvels, France's universities offer programs that blend creativity and academic rigor. Students can immerse themselves in a rich cultural tapestry while pursuing their academic goals.",
+        "country_overview_details": "France, known for its romantic ambiance, culinary excellence, and cultural contributions, has established itself as a global center for higher education. With a rich history, iconic landmarks, and a commitment to intellectual pursuits, France offers an unparalleled academic and cultural experience. Its higher education system, marked by a blend of tradition and modernity, provides students with a stimulating environment for academic exploration and personal growth. Beyond the lecture halls, France's diverse landscapes, artistic heritage, and vibrant cities contribute to an immersive educational journey that transcends disciplines.",
+        "why_students_study_here": "Opting for France as a higher education destination is a decision fueled by a convergence of academic prestige, cultural richness, and quality of life. The country's universities, renowned for their academic rigor, offer a wide array of programs across disciplines. The emphasis on creativity, critical thinking, and research ensures that students receive a comprehensive education that goes beyond textbooks. France's multicultural society, combined with a welcoming atmosphere, encourages students to engage with diverse perspectives, fostering cultural understanding and global collaboration. The strategic location within Europe provides students with opportunities to explore neighboring countries and experience a truly international lifestyle. The country's commitment to arts, literature, and scientific innovation creates an environment where students are inspired to pursue their passions. Additionally, France's world-famous cuisine, historic landmarks, and vibrant cultural scene make it a captivating destination for students seeking an enriching and unforgettable educational experience.",
+        "best_cities_to_study": [
+            "Paris",
+            "Lyon",
+            "Marseille",
+            "Toulouse",
+            "Bordeaux"
+        ],
+        "top_universities": [
+            "Sorbonne University",
+            "École Normale Supérieure (ENS)",
+            "HEC Paris",
+            "University of Paris-Sud",
+            "École Polytechnique"
+        ],
+        "best_scholarships": [
+            {
+                "name": "Eiffel Excellence Scholarship Program",
+                "details": "The Eiffel Excellence Scholarship Program is a prestigious scholarship scheme offered by the French government to attract international students for master's and doctoral programs in France. It covers tuition, living expenses, and other benefits."
+            },
+            {
+                "name": "ENS International Selection Scholarships",
+                "details": "ENS International Selection Scholarships are awarded by the École Normale Supérieure to outstanding international students pursuing master's or doctoral studies in science and humanities. The scholarships cover tuition and living expenses."
+            },
+            {
+                "name": "HEC Paris MBA Scholarships",
+                "details": "HEC Paris MBA Scholarships are merit-based financial awards for exceptional students admitted to the HEC Paris MBA program. The scholarships support students with tuition fees and living expenses."
+            }
+        ],
+        "best_courses": [
+            "Fashion Design",
+            "Aerospace Engineering",
+            "Culinary Arts",
+            "International Business",
+            "Political Science",
+            "Art History",
+            "Data Science",
+            "Sustainable Development",
+            "Film Studies",
+            "Biotechnology"
+        ]
+    }
+]
