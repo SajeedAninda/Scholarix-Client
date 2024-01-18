@@ -21,6 +21,7 @@ import CourseList from './Pages/Admin/Course List/CourseList.jsx';
 import UpdateCourse from './Pages/Admin/Update Course/UpdateCourse.jsx';
 import StudyAbroad from './Pages/Study Abroad/StudyAbroad.jsx';
 import Scholarships from './Pages/Scholarships/Scholarships.jsx';
+import CountryDetails from './Pages/CountryDetails/CountryDetails.jsx';
 
 const queryClient = new QueryClient()
 
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
       {
         path: "/studyAbroad",
         element: <StudyAbroad></StudyAbroad>
+      },
+      {
+        path: "/countryDetails/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/detailedCountry/${params.id}`),
+        element: <CountryDetails></CountryDetails>
       },
       {
         path: "/login",

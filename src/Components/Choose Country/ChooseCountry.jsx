@@ -34,7 +34,7 @@ const ChooseCountry = () => {
                                                 </p>
 
                                                 <div className='flex justify-end'>
-                                                    <Link className='text-[white] font-bold underline hover:opacity-50'>
+                                                    <Link to={`/countryDetails/${country?._id}`} className='text-[white] font-bold underline hover:opacity-50'>
                                                         See Details
                                                     </Link>
                                                 </div>
