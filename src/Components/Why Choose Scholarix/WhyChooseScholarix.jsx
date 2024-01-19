@@ -1,13 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import choose1 from "../../assets/WhyChooseScholarixImg/chooseImg1.jpg"
 import choose2 from "../../assets/WhyChooseScholarixImg/chooseImg2.jpg"
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const WhyChooseScholarix = () => {
+    const [isOpen, setIsOpen] = useState(null);
+    const handleToggle = (idx) => setIsOpen((prevIdx) => (prevIdx === idx ? null : idx));
+
+    const accordionData = [
+        {
+            title: 'Global Expertise',
+            content: 'Scholarix brings a wealth of global expertise to guide you through the complex world of international education. Our team comprises seasoned professionals with extensive knowledge of various educational systems, ensuring you receive tailored advice for your academic journey.',
+        },
+        {
+            title: 'Personalized Guidance',
+            content: 'At Scholarix, we believe in personalized guidance. Our dedicated consultants take the time to understand your aspirations, academic background, and preferences. This allows us to provide customized solutions, ensuring you make informed decisions that align with your goals.',
+        },
+        {
+            title: 'Comprehensive Services',
+            content: 'From university selection and application assistance to visa support and post-arrival services, Scholarix offers a comprehensive suite of services. We streamline the entire process, providing end-to-end support to make your transition into international education seamless and stress-free.',
+        },
+        {
+            title: 'Network of Top Institutions',
+            content: 'Partnering with some of the world\'s leading universities, Scholarix opens doors to a diverse range of academic opportunities. Our extensive network allows you to explore programs that match your interests and ambitions, ensuring you receive a top-notch education.',
+        },
+        {
+            title: 'Holistic Approach to Education',
+            content: 'Scholarix adopts a holistic approach to education, emphasizing not only academic success but also personal and professional development. We guide you in selecting programs that align with your long-term career goals, ensuring you graduate with a well-rounded skill set.',
+        },
+        {
+            title: 'Transparent Process',
+            content: 'Transparency is at the core of Scholarix\'s ethos. We demystify the application process, keeping you informed at every step. Our consultants provide clear timelines, breakdowns of costs, and detailed information, empowering you to make decisions with confidence.',
+        },
+        {
+            title: 'Post-Placement Support',
+            content: 'Scholarix\'s commitment doesn\'t end with securing your admission. We offer post-placement support, assisting you in acclimating to your new academic environment. Whether it\'s finding accommodation, navigating local services, or addressing any concerns, we\'re here for you beyond enrollment.',
+        },
+    ];
+
+
     return (
         <div>
             <div className='w-[90%] mx-auto'>
@@ -25,116 +55,39 @@ const WhyChooseScholarix = () => {
                         <img className='w-[65%] rounded-lg border-8 border-[#ed4747] absolute top-80 left-32' src={choose1} alt="" />
                     </div>
 
-                    <div className='flex-1'>
-                        <Accordion style={{ backgroundColor: '#ffffff', border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                <Typography style={{ fontSize: '20px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>Global Expertise</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography style={{ fontSize: '16px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>
-                                    Scholarix brings a wealth of global expertise to guide you through the complex world of international education. Our team comprises seasoned professionals with extensive knowledge of various educational systems, ensuring you receive tailored advice for your academic journey.
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-
-
-                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                <Typography style={{ fontSize: '20px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}> Personalized Guidance</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography style={{ fontSize: '16px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>
-                                    At Scholarix, we believe in personalized guidance. Our dedicated consultants take the time to understand your aspirations, academic background, and preferences. This allows us to provide customized solutions, ensuring you make informed decisions that align with your goals.</Typography>
-                            </AccordionDetails>
-                        </Accordion>
-
-
-                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                <Typography style={{ fontSize: '20px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>Comprehensive Services
-                                </Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography style={{ fontSize: '16px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>
-                                    From university selection and application assistance to visa support and post-arrival services, Scholarix offers a comprehensive suite of services. We streamline the entire process, providing end-to-end support to make your transition into international education seamless and stress-free.
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-
-
-                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                <Typography style={{ fontSize: '20px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>Network of Top Institutions</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography style={{ fontSize: '16px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>
-                                    Partnering with some of the world's leading universities, Scholarix opens doors to a diverse range of academic opportunities. Our extensive network allows you to explore programs that match your interests and ambitions, ensuring you receive a top-notch education.
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-
-                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                <Typography style={{ fontSize: '20px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>Holistic Approach to Education</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography style={{ fontSize: '16px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>
-                                    Scholarix adopts a holistic approach to education, emphasizing not only academic success but also personal and professional development. We guide you in selecting programs that align with your long-term career goals, ensuring you graduate with a well-rounded skill set.
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-
-
-                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                <Typography style={{ fontSize: '20px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>Transparent Process</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography style={{ fontSize: '16px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>
-                                    Transparency is at the core of Scholarix's ethos. We demystify the application process, keeping you informed at every step. Our consultants provide clear timelines, breakdowns of costs, and detailed information, empowering you to make decisions with confidence.
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-
-                        <Accordion style={{ backgroundColor: '#ffffff',  border: "4px solid #ed4747",borderRadius: '8px',marginBottom:"6px", padding: "8px" }}>
-                            <AccordionSummary
-                                expandIcon={<ExpandMoreIcon />}
-                                aria-controls="panel1a-content"
-                                id="panel1a-header"
-                            >
-                                <Typography style={{ fontSize: '20px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>Post-Placement Support</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <Typography style={{ fontSize: '16px', color: '#0e2b45', fontWeight: 'bold', fontFamily: 'Playfair Display' }}>
-                                    Scholarix's commitment doesn't end with securing your admission. We offer post-placement support, assisting you in acclimating to your new academic environment. Whether it's finding accommodation, navigating local services, or addressing any concerns, we're here for you beyond enrollment.
-                                </Typography>
-                            </AccordionDetails>
-                        </Accordion>
-
+                    <div className="flex justify-center flex-1">
+                        <div className="rounded-lg space-y-6 cursor-pointer">
+                            {/* maping each accordion  */}
+                            {accordionData.map((arr, idx) => (
+                                <div key={idx} onClick={() => handleToggle(idx)} className="flex items-center">
+                                    {/* the index div  */}
+                                    <div className="w-16 h-16 bg-[#ed4747] flex justify-center items-center text-white text-2xl font-semibold rounded-xl font-sans">
+                                        <span>0{idx + 1}</span>
+                                    </div>
+                                    <div className="w-10 h-[2px] bg-[#ed4747] relative">
+                                        <span className="w-3 h-3 bg-white absolute -left-2 -top-[5px] z-40 rounded-full border-2 border-[#ed4747]"></span>
+                                        <span className="bg-[#ed4747] w-10 h-1"></span>
+                                    </div>
+                                    {/* main accordion div  */}
+                                    <div>
+                                        <div className="max-w-[450px] bg-[#F7FFF7] shadow-lg hover:shadow-2xl border-t-[12px] p-3 border-[#ed4747] relative">
+                                            <span className="h-0 w-0 border-b-[40px] border-b-transparent border-r-[40px] border-r-[#ed4747] absolute top-0 right-0"></span>
+                                            <h1 className="text-[#ed4747] text-xl text-center">{arr?.title}</h1>
+                                        </div>
+                                        <div
+                                            className={`grid overflow-hidden transition-all duration-300 ease-in-out text-slate-600  ${isOpen === idx ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                                                }`}
+                                        >
+                                            <div className="overflow-hidden">
+                                                <div className=" max-w-[450px] rounded-br-xl rounded-bl-xl bg-[#ed4747] text-white p-6 text-center text-sm">
+                                                   {arr?.content}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
