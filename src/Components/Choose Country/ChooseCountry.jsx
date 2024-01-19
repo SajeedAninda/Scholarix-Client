@@ -8,8 +8,6 @@ import CountrySkeleton from '../Skeleton/CountrySkeleton';
 const ChooseCountry = () => {
     let { countries } = useCountries();
 
-    console.log(countries)
-
     return (
         <div className='bg-[#F7FFF7]'>
             <div className='w-[90%] mx-auto'>
