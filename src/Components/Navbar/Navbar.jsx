@@ -102,10 +102,10 @@ const Navbar = () => {
                                     </Link>
                                 </li>
                                 <li className='relative group'>
-                                    <a href="#" className=" transition-all duration-300">
+                                    <Link to={"/consultant"} className=" transition-all duration-300">
                                         Consultant
                                         <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-                                    </a>
+                                    </Link>
                                 </li>
                                 {
                                     loggedInUser &&

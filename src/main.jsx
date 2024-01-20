@@ -23,6 +23,7 @@ import StudyAbroad from './Pages/Study Abroad/StudyAbroad.jsx';
 import Scholarships from './Pages/Scholarships/Scholarships.jsx';
 import CountryDetails from './Pages/CountryDetails/CountryDetails.jsx';
 import AddConsultant from './Pages/Admin/Add Consultant/AddConsultant.jsx';
+import Consultants from './Pages/Consultants/Consultants.jsx';
 
 const queryClient = new QueryClient()
 
@@ -59,12 +60,20 @@ const router = createBrowserRouter([
         element: <CountryDetails></CountryDetails>
       },
       {
+        path: "/consultant",
+        element: <Consultants></Consultants>
+      },
+      {
         path: "/login",
         element: <Login></Login>
       },
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/consultant",
+        element: <Consultants></Consultants>
       }
     ]
   },
