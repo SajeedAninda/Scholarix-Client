@@ -1,7 +1,11 @@
+import axios from 'axios';
 import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 const AddConsultant = () => {
     let [selectedImage, setSelectedImage] = useState(null);
+    let [availability, setAvailability] = useState("");
+    let [specialization, setSpecialization] = useState("");
 
     let handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -16,6 +20,48 @@ const AddConsultant = () => {
         }
     };
 
+    let data = new FormData();
+    data.append("image", selectedImage);
+
+    let handleAddConsultant = async (e) => {
+        if (!selectedImage) {
+            toast.error("Please upload an image");
+            return;
+        }
+
+        e.preventDefault();
+        let fullName = e.target.fullName.value;
+        let qualification = e.target.qualification.value;
+        let expertise = e.target.expertise.value;
+        let experience = e.target.experience.value;
+        let email = e.target.email.value;
+        let phoneNumber = e.target.phoneNumber.value;
+        let bio = e.target.bio.value;
+        let charge = e.target.charge.value;
+
+        // let consultantData = { fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization };
+
+        try {
+            let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
+            let imageUrl = res.data.data.display_url;
+            let consultantData = { fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl };
+            console.log(consultantData);
+            // axiosInstance.post("/courses", courseDetails)
+            //     .then(res => {
+            //         console.log(res.data);
+            //         if (res.data.insertedId) {
+            //             toast.dismiss(loadingToast);
+            //             toast.success("Added Course Successfully");
+            //             navigate("/admin");
+            //         }
+            //     })
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            // toast.dismiss(loadingToast);
+            toast.error("Error uploading image");
+        }
+    }
+
     return (
         <div className='py-8'>
             <div className='space-y-2'>
@@ -27,7 +73,7 @@ const AddConsultant = () => {
 
             <div className='w-[90%] my-4 mx-auto bg-gradient-to-r from-[#ed4747] to-[#920707] shadow-2xl rounded-lg'>
                 <div className='py-4 px-8'>
-                    <form>
+                    <form onSubmit={handleAddConsultant}>
                         <div className='flex gap-6 w-full'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="fullName">
@@ -96,7 +142,7 @@ const AddConsultant = () => {
                                     Availability:
                                 </label>
                                 <br />
-                                <select className='mt-2 px-4 w-full rounded-lg py-2' name="availability" id="availability" required>
+                                <select onChange={(e) => { setAvailability(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="availability" id="availability" required>
                                     <option value="">Select Availability Format</option>
                                     <option value="virtual">Virtual</option>
                                     <option value="inPerson">In Person</option>
@@ -119,8 +165,8 @@ const AddConsultant = () => {
                                     Specialization In:
                                 </label>
                                 <br />
-                                <select className='mt-2 px-4 w-full rounded-lg py-2' name="specialization" id="specialization" required>
-                                <option value="">Select The Related Field</option>
+                                <select onChange={(e) => { setSpecialization(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="specialization" id="specialization" required>
+                                    <option value="">Select The Related Field</option>
                                     <option value="engineering">Engineering</option>
                                     <option value="management">Management</option>
                                     <option value="economics">Economics</option>
