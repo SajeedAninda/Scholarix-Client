@@ -70,6 +70,15 @@ const AdminPanel = () => {
                             >
                                 Course List
                             </NavLink>
+
+                            <NavLink
+                                to={"addConsultant"}
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
+                                }
+                            >
+                                Add Consultants
+                            </NavLink>
                             <button onClick={handleLogout} className='text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md'>
                                 Logout
                             </button>
@@ -118,6 +127,15 @@ const AdminPanel = () => {
                     >
                         Course List
                     </NavLink>
+
+                    <NavLink
+                                to={"addConsultant"}
+                                className={({ isActive, isPending }) =>
+                                    isPending ? "pending" : isActive ? "border-2 border-[#fcf4e9] p-2  font-bold text-base md:text-lg text-[#fcf4e9] rounded-md hover:bg-white hover:text-[#ed4747]" : "text-base md:text-lg p-2 text-[#fcf4e9] hover:bg-white hover:text-[#ed4747] rounded-md"
+                                }
+                            >
+                                Add Consultants
+                            </NavLink>
                 </ul>
             </div>
         </div>
