@@ -1,11 +1,16 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import toast from 'react-hot-toast';
+import useAxiosInstance from '../../../Hooks/useAxiosInstance';
+import { useNavigate } from 'react-router-dom';
 
 const AddConsultant = () => {
     let [selectedImage, setSelectedImage] = useState(null);
     let [availability, setAvailability] = useState("");
     let [specialization, setSpecialization] = useState("");
+
+    let axiosInstance = useAxiosInstance();
+    let navigate = useNavigate();
 
     let handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -39,25 +44,24 @@ const AddConsultant = () => {
         let bio = e.target.bio.value;
         let charge = e.target.charge.value;
 
-        // let consultantData = { fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization };
+        let loadingToast = toast.loading('Adding Course...');
 
         try {
             let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
             let imageUrl = res.data.data.display_url;
             let consultantData = { fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl };
-            console.log(consultantData);
-            // axiosInstance.post("/courses", courseDetails)
-            //     .then(res => {
-            //         console.log(res.data);
-            //         if (res.data.insertedId) {
-            //             toast.dismiss(loadingToast);
-            //             toast.success("Added Course Successfully");
-            //             navigate("/admin");
-            //         }
-            //     })
+            axiosInstance.post("/consultant", consultantData)
+                .then(res => {
+                    console.log(res.data);
+                    if (res.data.insertedId) {
+                        toast.dismiss(loadingToast);
+                        toast.success("Added Consultant Successfully");
+                        navigate("/admin");
+                    }
+                })
         } catch (error) {
             console.error("Error uploading image:", error);
-            // toast.dismiss(loadingToast);
+            toast.dismiss(loadingToast);
             toast.error("Error uploading image");
         }
     }
