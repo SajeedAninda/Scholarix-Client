@@ -24,6 +24,7 @@ import Scholarships from './Pages/Scholarships/Scholarships.jsx';
 import CountryDetails from './Pages/CountryDetails/CountryDetails.jsx';
 import AddConsultant from './Pages/Admin/Add Consultant/AddConsultant.jsx';
 import Consultants from './Pages/Consultants/Consultants.jsx';
+import ConsultantDetails from './Pages/Consultant Details/ConsultantDetails.jsx';
 
 const queryClient = new QueryClient()
 
@@ -74,7 +75,12 @@ const router = createBrowserRouter([
       {
         path: "/consultant",
         element: <Consultants></Consultants>
-      }
+      },
+      {
+        path: "/consultantDetails/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/consultantDetails/${params.id}`),
+        element: <ConsultantDetails></ConsultantDetails>
+      },
     ]
   },
   {

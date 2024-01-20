@@ -1,6 +1,7 @@
 import React from 'react';
 import useAxiosInstance from '../../Hooks/useAxiosInstance';
 import { useQuery } from '@tanstack/react-query';
+import { Link } from 'react-router-dom';
 
 const Consultants = () => {
     let axiosInstance = useAxiosInstance();
@@ -38,7 +39,7 @@ const Consultants = () => {
                                             <span className="text-2xl font-semibold">{consultant?.fullName}</span>
                                             <p>{consultant?.expertise}</p>
                                         </div>
-                                        <a className="relative px-5 py-1 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-2xl active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0" href="#">See Details</a>
+                                        <Link to={`/consultantDetails/${consultant?._id}`} className="relative px-5 py-1 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-2xl active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0" href="#">See Details</Link>
                                     </div>
                                 )
                             }
