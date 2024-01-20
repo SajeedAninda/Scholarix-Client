@@ -30,15 +30,15 @@ const Consultants = () => {
                         <div className='grid grid-cols-3 gap-10'>
                             {
                                 consultants.map(consultant =>
-                                    <div className="group before:hover:scale-95 before:hover:h-72 before:hover:w-80 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-[#ed4747] to-[#920707] before:absolute before:top-0 w-80 h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-xl">
-                                        <div className="w-28 h-28 bg-blue-700 mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-150 group-hover:-translate-x-24  group-hover:-translate-y-20 transition-all duration-500">
+                                    <div className="group before:hover:scale-95 before:hover:h-72 before:hover:w-80 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-[#ed4747] to-[#920707] before:absolute before:top-0 w-80 h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-2xl">
+                                        <div className="w-28 h-28 mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-100 group-hover:-translate-x-24  group-hover:-translate-y-12 transition-all duration-500">
                                             <img className='w-28 h-28 object-cover rounded-full' src={consultant?.imageUrl} alt="" />
                                         </div>
                                         <div className="z-10 group-hover:text-white group-hover:-translate-y-10 transition-all duration-500">
                                             <span className="text-2xl font-semibold">{consultant?.fullName}</span>
                                             <p>{consultant?.expertise}</p>
                                         </div>
-                                        <a className="bg-blue-700 px-4 py-1 text-slate-50 rounded-md z-10 hover:scale-125 transition-all duration-500 hover:bg-blue-500" href="#">See Details</a>
+                                        <a className="relative px-5 py-1 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-2xl active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0" href="#">See Details</a>
                                     </div>
                                 )
                             }
