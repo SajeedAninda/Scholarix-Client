@@ -25,6 +25,7 @@ import CountryDetails from './Pages/CountryDetails/CountryDetails.jsx';
 import AddConsultant from './Pages/Admin/Add Consultant/AddConsultant.jsx';
 import Consultants from './Pages/Consultants/Consultants.jsx';
 import ConsultantDetails from './Pages/Consultant Details/ConsultantDetails.jsx';
+import ConsultantList from './Pages/Admin/Consultant List/ConsultantList.jsx';
 
 const queryClient = new QueryClient()
 
@@ -107,6 +108,10 @@ const router = createBrowserRouter([
       {
         path: "addConsultant",
         element: <AddConsultant></AddConsultant>
+      },
+      {
+        path: "consultantList",
+        element: <ConsultantList></ConsultantList>
       }
     ]
   }
