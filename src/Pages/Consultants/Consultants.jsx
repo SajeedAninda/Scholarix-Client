@@ -2,17 +2,10 @@ import React from 'react';
 import useAxiosInstance from '../../Hooks/useAxiosInstance';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
+import useConsultants from '../../Hooks/useConsultants';
 
 const Consultants = () => {
-    let axiosInstance = useAxiosInstance();
-
-    const { data: consultants, isLoading: isConsultantsLoading, refetch } = useQuery({
-        queryKey: ['consultants'],
-        queryFn: async () => {
-            const response = await axiosInstance.get(`/getConsultants`);
-            return response.data;
-        }
-    })
+    let { consultants } = useConsultants();
 
     return (
         <div className='w-[90%] mx-auto py-8'>
