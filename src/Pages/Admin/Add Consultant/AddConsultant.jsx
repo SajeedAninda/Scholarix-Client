@@ -29,12 +29,12 @@ const AddConsultant = () => {
     data.append("image", selectedImage);
 
     let handleAddConsultant = async (e) => {
+        e.preventDefault();
         if (!selectedImage) {
             toast.error("Please upload an image");
             return;
         }
 
-        e.preventDefault();
         let fullName = e.target.fullName.value;
         let qualification = e.target.qualification.value;
         let expertise = e.target.expertise.value;
@@ -44,7 +44,7 @@ const AddConsultant = () => {
         let bio = e.target.bio.value;
         let charge = e.target.charge.value;
 
-        let loadingToast = toast.loading('Adding Course...');
+        let loadingToast = toast.loading('Adding Consultant...');
 
         try {
             let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);

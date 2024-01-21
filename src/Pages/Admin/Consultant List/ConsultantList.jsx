@@ -4,9 +4,40 @@ import CourseListSkeleton from '../../../Components/Skeleton/CourseListSkeleton'
 import { MdEditSquare } from "react-icons/md";
 import { RiDeleteBinFill } from "react-icons/ri";
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import useAxiosInstance from '../../../Hooks/useAxiosInstance';
+import toast from 'react-hot-toast';
 
 const ConsultantList = () => {
-    let { consultants } = useConsultants();
+    let { consultants, refetch } = useConsultants();
+    let axiosInstance = useAxiosInstance();
+
+    let handleDeleteCourse = (id) => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'Once Deleted, you cannot revert this!',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#0e2b45',
+            cancelButtonColor: '#ed4747',
+            confirmButtonText: 'Yes, Delete!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axiosInstance.delete(`/deleteConsultant/${id}`)
+                    .then(res => {
+                        if (res.data.deletedCount > 0) {
+                            refetch();
+                            console.log(res.data);
+                            toast.success("Consultant Deleted Succesfully")
+                        }
+                    })
+                    .catch(error => {
+                        console.error("Error :", error);
+                        toast.error('Error', 'Failed to delete Consultant');
+                    });
+            }
+        });
+    }
 
     return (
         <div className='mx-auto w-[90%] py-8'>

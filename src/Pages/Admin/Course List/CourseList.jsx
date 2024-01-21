@@ -48,7 +48,7 @@ const CourseList = () => {
                     })
                     .catch(error => {
                         console.error("Error :", error);
-                        toast.error('Error', 'Failed to delete Asset');
+                        toast.error('Error', 'Failed to delete Course');
                     });
             }
         });
