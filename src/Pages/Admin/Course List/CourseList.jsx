@@ -104,7 +104,7 @@ const CourseList = () => {
                             <div className=''>
                                 <div className='bg-[#F7FFF7] border-b-2 border-[#ed4747] grid grid-cols-11 px-6 py-4 items-center'>
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center flex justify-center'>
-                                        <img className='w-[50px] h-[50px] rounded-full' src={course?.imageUrl} alt="" />
+                                        <img className='w-[50px] h-[50px] rounded-full object-cover' src={course?.imageUrl} alt="" />
                                     </div>
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-3 text-center'>
                                         {course?.course_name}
