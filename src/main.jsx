@@ -28,6 +28,7 @@ import ConsultantDetails from './Pages/Consultant Details/ConsultantDetails.jsx'
 import ConsultantList from './Pages/Admin/Consultant List/ConsultantList.jsx';
 import UserPanel from './Pages/User/User Panel/UserPanel.jsx';
 import UserDashboard from './Pages/User/User Dashboard/UserDashboard.jsx';
+import BookmarkedCourses from './Pages/User/Bookmarked Courses/BookmarkedCourses.jsx';
 
 const queryClient = new QueryClient()
 
@@ -124,6 +125,10 @@ const router = createBrowserRouter([
       {
         path: "/user",
         element: <UserDashboard></UserDashboard>
+      },
+      {
+        path: "bookmarkedCourses",
+        element: <BookmarkedCourses></BookmarkedCourses>
       }
     ]
   }

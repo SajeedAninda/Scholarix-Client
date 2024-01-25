@@ -63,9 +63,11 @@ const CourseDetails = () => {
         return `${parseInt(day, 10)} ${monthName}, ${year}`;
     }
 
-    let bookmarkData = { _id, imageUrl, field_name, degree_name, university_name, course_name, tuition_fees, currentUserEmail }
+    let courseId= _id;
 
-    let handleBookmark = (id) => {
+    let bookmarkData = { courseId, imageUrl, field_name, degree_name, university_name, course_name, tuition_fees, currentUserEmail }
+
+    let handleBookmark = () => {
         let loadingToast = toast.loading('Adding to Bookmarks...');
         axiosInstance.post(`/bookmarks`, bookmarkData)
             .then(res => {
