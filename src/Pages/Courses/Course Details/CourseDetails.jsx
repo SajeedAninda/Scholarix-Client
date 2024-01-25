@@ -66,14 +66,17 @@ const CourseDetails = () => {
     let bookmarkData = { _id, imageUrl, field_name, degree_name, university_name, course_name, tuition_fees, currentUserEmail }
 
     let handleBookmark = (id) => {
+        let loadingToast = toast.loading('Adding to Bookmarks...');
         axiosInstance.post(`/bookmarks`, bookmarkData)
             .then(res => {
                 console.log(res.data);
                 if (res.data.insertedId) {
+                    toast.dismiss(loadingToast);
                     toast.success("Added To Bookmarks. See from Profile");
                 }
             })
             .catch(error => {
+                toast.dismiss(loadingToast);
                 console.error("Error adding bookmark:", error);
                 if (error.response && error.response.status === 400) {
                     toast.error("This course is already Bookmarked");
