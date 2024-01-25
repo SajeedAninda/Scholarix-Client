@@ -26,6 +26,8 @@ import AddConsultant from './Pages/Admin/Add Consultant/AddConsultant.jsx';
 import Consultants from './Pages/Consultants/Consultants.jsx';
 import ConsultantDetails from './Pages/Consultant Details/ConsultantDetails.jsx';
 import ConsultantList from './Pages/Admin/Consultant List/ConsultantList.jsx';
+import UserPanel from './Pages/User/User Panel/UserPanel.jsx';
+import UserDashboard from './Pages/User/User Dashboard/UserDashboard.jsx';
 
 const queryClient = new QueryClient()
 
@@ -112,6 +114,16 @@ const router = createBrowserRouter([
       {
         path: "consultantList",
         element: <ConsultantList></ConsultantList>
+      }
+    ]
+  },
+  {
+    path: "/user",
+    element: <UserPanel></UserPanel>,
+    children: [
+      {
+        path: "/user",
+        element: <UserDashboard></UserDashboard>
       }
     ]
   }
