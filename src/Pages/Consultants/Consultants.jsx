@@ -3,6 +3,7 @@ import useAxiosInstance from '../../Hooks/useAxiosInstance';
 import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import useConsultants from '../../Hooks/useConsultants';
+import ConsultantSkeleton from '../../Components/Skeleton/ConsultantSkeleton';
 
 const Consultants = () => {
     let { consultants } = useConsultants();
@@ -21,7 +22,7 @@ const Consultants = () => {
             <div>
                 {
                     consultants ?
-                        <div className='grid grid-cols-3 gap-10'>
+                        <div className='grid grid-cols-3 gap-6'>
                             {
                                 consultants.map(consultant =>
                                     <div className="group before:hover:scale-95 before:hover:h-72 before:hover:w-80 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-[#ed4747] to-[#920707] before:absolute before:top-0 w-80 h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-2xl">
@@ -38,9 +39,7 @@ const Consultants = () => {
                             }
                         </div>
                         :
-                        <div>
-                            Loading
-                        </div>
+                        <ConsultantSkeleton></ConsultantSkeleton>
                 }
             </div>
         </div>
