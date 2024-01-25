@@ -1,7 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import useAxiosInstance from '../../../Hooks/useAxiosInstance';
+import toast from 'react-hot-toast';
+import useAuth from '../../../Hooks/useAuth';
 
 const CourseDetails = () => {
+    let axiosInstance = useAxiosInstance();
+    let { loggedInUser } = useAuth();
+    let currentUserEmail = loggedInUser?.email;
     let courseDetails = useLoaderData();
     let { _id, imageUrl, application_deadline, intake_time, scholarship_amount, available_scholarship, tuition_fees, city_name, country_name, field_name, degree_name, university_name, course_name } = courseDetails;
 
@@ -56,6 +62,27 @@ const CourseDetails = () => {
 
         return `${parseInt(day, 10)} ${monthName}, ${year}`;
     }
+
+    let bookmarkData = { _id, imageUrl, field_name, degree_name, university_name, course_name, tuition_fees, currentUserEmail }
+
+    let handleBookmark = (id) => {
+        axiosInstance.post(`/bookmarks`, bookmarkData)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    toast.success("Added To Bookmarks. See from Profile");
+                }
+            })
+            .catch(error => {
+                console.error("Error adding bookmark:", error);
+                if (error.response && error.response.status === 400) {
+                    toast.error("This course is already Bookmarked");
+                } else {
+                    toast.error("Failed to add bookmark. Please try again later.");
+                }
+            });
+    }
+    
 
     return (
         <div className='w-[90%] mx-auto py-8'>
@@ -113,7 +140,7 @@ const CourseDetails = () => {
                         </div>
                     </div>
 
-                    <button className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                    <button onClick={() => { handleBookmark(_id) }} className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
                         Bookmark this Course
                     </button>
                 </div>
@@ -181,12 +208,12 @@ const CourseDetails = () => {
 
                         <tr className='w-full border border-gray-300'>
                             <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Scholarship Amount</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{scholarship_amount>0 ? scholarship_amount : 0} Dollars</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{scholarship_amount > 0 ? scholarship_amount : 0} Dollars</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
                             <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Tuition Fees After Scholarship</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{tuition_fees-scholarship_amount} Dollars</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{tuition_fees - scholarship_amount} Dollars</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>

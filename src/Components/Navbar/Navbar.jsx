@@ -75,6 +75,10 @@ const Navbar = () => {
                                 </a>
                             </div>
                         </div>
+
+
+
+                        
                         <div className="flex items-center justify-center">
                             <ul className="flex items-center py-2 gap-2 lg:gap-10 md:pt-[0.7rem] capitalize text-sm md:text-lg font-bold">
                                 <li className='relative group'>
