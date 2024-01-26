@@ -38,7 +38,7 @@ const BookmarkedCourses = () => {
                         if (res.data.deletedCount > 0) {
                             refetch();
                             console.log(res.data);
-                            toast.success("Bookmark Deleted Succesfully")
+                            toast.success("Bookmark Deleted Is Successful")
                         }
                     })
                     .catch(error => {
