@@ -2,10 +2,20 @@ import React from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
+import useAuth from '../../Hooks/useAuth';
+import useAxiosInstance from '../../Hooks/useAxiosInstance';
+import toast from 'react-hot-toast';
 
 const ConsultantDetails = () => {
+    let { loggedInUser } = useAuth();
+    let bookingUserEmail = loggedInUser?.email;
+    let axiosInstance = useAxiosInstance();
+
     let consultantDetails = useLoaderData();
+
     let [isOpen, setIsOpen] = useState(false);
+    const [selectedDate, setSelectedDate] = useState('');
+
 
     let { _id, fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl } = consultantDetails
 
@@ -28,6 +38,39 @@ const ConsultantDetails = () => {
     function openModal() {
         setIsOpen(true)
     }
+
+    let consultantId = _id;
+
+    let handleBookConsultant = (e) => {
+        e.preventDefault();
+        let bookingCollection = { bookingUserEmail, consultantId, selectedDate, fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl };
+
+        let loadingToast = toast.loading('Booking Consultant...');
+        axiosInstance
+            .post(`/addBooking`, bookingCollection)
+            .then((res) => {
+                console.log(res.data);
+                if (res.data.insertedId) {
+                    toast.dismiss(loadingToast);
+                    toast.success('Consultant Booked Successfully. See from Profile');
+                    closeModal();
+                }
+            })
+            .catch((error) => {
+                toast.dismiss(loadingToast);
+                console.error('Error while Booking:', error);
+
+                if (error.response && error.response.status === 400) {
+                    // Consultant is already booked on the specified date
+                    toast.error('This consultant is already booked on the selected date.');
+                } else {
+                    // Other errors (e.g., server error)
+                    toast.error('Failed to book. Please try again later.');
+                }
+            });
+    };
+
+
 
     return (
         <div className='w-[90%] mx-auto py-8'>
@@ -118,7 +161,7 @@ const ConsultantDetails = () => {
                         <div className="fixed inset-0 bg-black/25" />
                     </Transition.Child>
 
-                    <div className="fixed inset-0 overflow-y-auto">
+                    <form onSubmit={handleBookConsultant} className="fixed inset-0 overflow-y-auto">
                         <div className="flex min-h-full w-full items-center justify-center p-4 text-center">
                             <Transition.Child
                                 as={Fragment}
@@ -144,22 +187,22 @@ const ConsultantDetails = () => {
                                             Please Select a date for Appointment
                                         </p>
 
-                                        <input className='p-2 border-2 border-white bg-transparent text-white rounded-md' type="date" min={new Date().toISOString().split('T')[0]} required/>
+                                        <input value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} className='p-2 border-2 border-white bg-transparent text-white rounded-md' type="date" min={new Date().toISOString().split('T')[0]} required />
                                     </div>
 
                                     <div className="mt-8 flex justify-center items-center gap-6">
-                                        <button className="relative px-5 py-2 text-[#F7FFF7] border-2 border-white text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                                        <button type='submit' className="relative flex-1 py-2 text-[#F7FFF7] border-2 border-white text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
                                             Make Appointment
                                         </button>
 
-                                        <button onClick={closeModal} className="relative px-5 py-2 text-[#F7FFF7] border-2 border-white text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                                        <button type='button' onClick={closeModal} className="relative flex-1 py-2 text-[#F7FFF7] border-2 border-white text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
                                             Cancel
                                         </button>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
-                    </div>
+                    </form>
                 </Dialog>
             </Transition>
         </div>
