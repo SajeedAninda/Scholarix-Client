@@ -1,8 +1,12 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { Dialog, Transition } from '@headlessui/react'
+import { Fragment, useState } from 'react'
 
 const ConsultantDetails = () => {
     let consultantDetails = useLoaderData();
+    let [isOpen, setIsOpen] = useState(false);
+
     let { _id, fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl } = consultantDetails
 
     let availabilityCategory = (data) => {
@@ -15,6 +19,14 @@ const ConsultantDetails = () => {
         if (data === "virtualInPerson") {
             return "Virtual & In Person"
         }
+    }
+
+    function closeModal() {
+        setIsOpen(false)
+    }
+
+    function openModal() {
+        setIsOpen(true)
     }
 
     return (
@@ -37,7 +49,7 @@ const ConsultantDetails = () => {
                         Charges: {charge}$
                     </h2>
 
-                    <button className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                    <button onClick={openModal} className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
                         Make Appointment
                     </button>
                 </div>
@@ -91,6 +103,65 @@ const ConsultantDetails = () => {
                     </table>
                 </div>
             </div>
+
+            <Transition appear show={isOpen} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={closeModal}>
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div className="fixed inset-0 bg-black/25" />
+                    </Transition.Child>
+
+                    <div className="fixed inset-0 overflow-y-auto">
+                        <div className="flex min-h-full w-full items-center justify-center p-4 text-center">
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 scale-95"
+                                enterTo="opacity-100 scale-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 scale-100"
+                                leaveTo="opacity-0 scale-95"
+                            >
+                                <Dialog.Panel className="w-full max-w-xl transform overflow-hidden rounded-2xl bg-gradient-to-r from-[#ed4747] to-[#920707] p-6 text-left align-middle shadow-xl transition-all">
+                                    <Dialog.Title
+                                        as="h3"
+                                        className="text-2xl space-y-3 text-center font-bold leading-6 text-white"
+                                    >
+                                        <h3>Consultant Name: {fullName}</h3>
+                                        <h3>Expertise: {expertise}</h3>
+                                        <h3>Charge: {charge}$</h3>
+
+                                    </Dialog.Title>
+                                    <div className="mt-5 flex gap-6 items-center justify-center">
+                                        <p className="text-lg text-white">
+                                            Please Select a date for Appointment
+                                        </p>
+
+                                        <input className='p-2 border-2 border-white bg-transparent text-white rounded-md' type="date" min={new Date().toISOString().split('T')[0]} required/>
+                                    </div>
+
+                                    <div className="mt-8 flex justify-center items-center gap-6">
+                                        <button className="relative px-5 py-2 text-[#F7FFF7] border-2 border-white text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                                            Make Appointment
+                                        </button>
+
+                                        <button onClick={closeModal} className="relative px-5 py-2 text-[#F7FFF7] border-2 border-white text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                                            Cancel
+                                        </button>
+                                    </div>
+                                </Dialog.Panel>
+                            </Transition.Child>
+                        </div>
+                    </div>
+                </Dialog>
+            </Transition>
         </div>
     );
 };
