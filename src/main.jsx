@@ -29,6 +29,7 @@ import ConsultantList from './Pages/Admin/Consultant List/ConsultantList.jsx';
 import UserPanel from './Pages/User/User Panel/UserPanel.jsx';
 import UserDashboard from './Pages/User/User Dashboard/UserDashboard.jsx';
 import BookmarkedCourses from './Pages/User/Bookmarked Courses/BookmarkedCourses.jsx';
+import Success from './Pages/Payment Result/Success.jsx';
 
 const queryClient = new QueryClient()
 
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
         loader: ({ params }) => fetch(`http://localhost:5000/consultantDetails/${params.id}`),
         element: <ConsultantDetails></ConsultantDetails>
       },
+      {
+        path: "payment/success/:tranId",
+        element: <Success></Success>
+      }
     ]
   },
   {
@@ -115,7 +120,7 @@ const router = createBrowserRouter([
       {
         path: "consultantList",
         element: <ConsultantList></ConsultantList>
-      }
+      },
     ]
   },
   {

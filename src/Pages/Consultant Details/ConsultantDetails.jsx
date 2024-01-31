@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { Fragment, useState } from 'react'
 import useAuth from '../../Hooks/useAuth';
@@ -10,6 +10,7 @@ const ConsultantDetails = () => {
     let { loggedInUser } = useAuth();
     let bookingUserEmail = loggedInUser?.email;
     let axiosInstance = useAxiosInstance();
+    let navigate = useNavigate();
 
     let consultantDetails = useLoaderData();
 
@@ -41,32 +42,34 @@ const ConsultantDetails = () => {
 
     let consultantId = _id;
 
+
     let handleBookConsultant = (e) => {
         e.preventDefault();
         let bookingCollection = { bookingUserEmail, consultantId, selectedDate, fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl };
 
-        let loadingToast = toast.loading('Booking Consultant...');
+        // let loadingToast = toast.loading('Booking Consultant...');
         axiosInstance
             .post(`/addBooking`, bookingCollection)
             .then((res) => {
                 console.log(res.data);
-                if (res.data.insertedId) {
-                    toast.dismiss(loadingToast);
-                    toast.success('Consultant Booked Successfully. See from Profile');
-                    closeModal();
-                }
+                window.location.replace(res.data.url);
+                // if (res.data.insertedId) {
+                //     toast.dismiss(loadingToast);
+                //     toast.success('Consultant Booked Successfully. See from Profile');
+                //     closeModal();
+                // }
             })
             .catch((error) => {
-                toast.dismiss(loadingToast);
+                // toast.dismiss(loadingToast);
                 console.error('Error while Booking:', error);
 
-                if (error.response && error.response.status === 400) {
-                    // Consultant is already booked on the specified date
-                    toast.error('This consultant is already booked on the selected date.');
-                } else {
-                    // Other errors (e.g., server error)
-                    toast.error('Failed to book. Please try again later.');
-                }
+                // if (error.response && error.response.status === 400) {
+                //     // Consultant is already booked on the specified date
+                //     toast.error('This consultant is already booked on the selected date.');
+                // } else {
+                //     // Other errors (e.g., server error)
+                //     toast.error('Failed to book. Please try again later.');
+                // }
             });
     };
 
