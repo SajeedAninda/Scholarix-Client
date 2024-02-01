@@ -47,29 +47,23 @@ const ConsultantDetails = () => {
         e.preventDefault();
         let bookingCollection = { bookingUserEmail, consultantId, selectedDate, fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl };
 
-        // let loadingToast = toast.loading('Booking Consultant...');
+        let loadingToast = toast.loading('Booking Consultant...');
         axiosInstance
             .post(`/addBooking`, bookingCollection)
             .then((res) => {
                 console.log(res.data);
                 window.location.replace(res.data.url);
-                // if (res.data.insertedId) {
-                //     toast.dismiss(loadingToast);
-                //     toast.success('Consultant Booked Successfully. See from Profile');
-                //     closeModal();
-                // }
+                toast.dismiss(loadingToast);
             })
             .catch((error) => {
-                // toast.dismiss(loadingToast);
+                toast.dismiss(loadingToast);
                 console.error('Error while Booking:', error);
 
-                // if (error.response && error.response.status === 400) {
-                //     // Consultant is already booked on the specified date
-                //     toast.error('This consultant is already booked on the selected date.');
-                // } else {
-                //     // Other errors (e.g., server error)
-                //     toast.error('Failed to book. Please try again later.');
-                // }
+                if (error.response && error.response.status === 400) {
+                    toast.error('This consultant is already booked on the selected date.');
+                } else {
+                    toast.error('Failed to book. Please try again later.');
+                }
             });
     };
 
