@@ -18,6 +18,34 @@ const UserAppointments = () => {
         }
     })
 
+    let availabilityCategory = (data) => {
+        if (data === "virtual") {
+            return "Virtual"
+        }
+        if (data === "inPerson") {
+            return "In Person"
+        }
+        if (data === "virtualInPerson") {
+            return "Virtual Or In Person"
+        }
+    }
+
+    let formatDate = (dateString) => {
+        let dateObj = new Date(dateString);
+        return new Intl.DateTimeFormat('en-US', {
+            year: 'numeric',
+            month: 'short',
+            day: 'numeric',
+        }).format(dateObj);
+    };
+
+    let calculateDaysLeft = (dateString) => {
+        let dateObj = new Date(dateString);
+        let currentDate = new Date();
+        let timeDifference = dateObj.getTime() - currentDate.getTime();
+        return Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+    };
+
     return (
         <div className='w-[95%] mx-auto py-8'>
             <div>
@@ -69,20 +97,25 @@ const UserAppointments = () => {
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center'>
                                         {appointment?.bookingDetails?.phoneNumber}
                                     </div>
+
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center capitalize'>
-                                        {appointment?.bookingDetails?.selectedDate}
+                                        {formatDate(appointment?.bookingDetails?.selectedDate)} <br />
+                                        {appointment?.bookingDetails?.selectedDate < new Date() ?
+                                            ' (Date has passed)' :
+                                            ` (${calculateDaysLeft(appointment?.bookingDetails?.selectedDate)} days left)`
+                                        }
                                     </div>
 
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center capitalize'>
-                                        {appointment?.bookingDetails?.availability}
+                                        {availabilityCategory(appointment?.bookingDetails?.availability)}
                                     </div>
 
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
                                         {appointment?.bookingDetails?.charge} $
                                     </div>
 
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center capitalize  whitespace-normal'>
-                                        {appointment?.transaction_id}
+                                    <div className='text-[#0e2b45] bg-green-400 p-1 rounded-lg font-bold text-lg col-span-2 text-center capitalize  whitespace-normal'>
+                                        {(appointment?.transaction_id).slice(6)}
                                     </div>
                                 </div>
                             </div>
