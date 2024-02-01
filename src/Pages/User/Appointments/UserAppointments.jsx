@@ -51,7 +51,8 @@ const UserAppointments = () => {
             <div>
                 <div className="max-w-3xl mx-auto">
                     <h1 className="text-lg text-[#0e2b45] text-center">User Appointments</h1>
-                    <p className="text-xl font-semibold text-[#0e2b45] text-center">See the appointments that you have made and paid for
+                    <p className="text-xl font-semibold text-[#0e2b45] text-center">
+                        See the appointments that you have made and paid for
                     </p>
                 </div>
             </div>
@@ -61,13 +62,13 @@ const UserAppointments = () => {
                     <div className='text-white font-bold text-xl col-span-1 text-center flex justify-center items-center'>
                         Consultant Name
                     </div>
-                    <div className='text-white font-bold text-xl col-span-2 text-center flex justify-center items-center'>
+                    <div className='text-white font-bold text-xl col-span-3 text-center flex justify-center items-center'>
                         Consultant <br /> Email
                     </div>
                     <div className='text-white font-bold text-xl col-span-2 text-center flex justify-center items-center'>
                         Consultant <br /> Phone
                     </div>
-                    <div className='text-white font-bold text-xl col-span-2 text-center flex justify-center items-center'>
+                    <div className='text-white font-bold text-xl col-span-1 text-center flex justify-center items-center'>
                         Appointment <br /> Date
                     </div>
                     <div className='text-white font-bold text-xl col-span-2 text-center flex justify-center items-center'>
@@ -82,25 +83,27 @@ const UserAppointments = () => {
                 </div>
             </div>
 
-            {
-                appointments ?
-                    (
-                        appointments?.map(appointment =>
-                            <div className=''>
+            {isAppointmentLoading ? (
+                <CourseListSkeleton />
+            ) : (
+                <>
+                    {appointments && appointments.length > 0 ? (
+                        appointments.map(appointment => (
+                            <div key={appointment.id} className=''>
                                 <div className='bg-[#F7FFF7] border-b-2 border-[#ed4747] grid grid-cols-12 px-6 py-4 items-center'>
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center'>
                                         {appointment?.bookingDetails?.fullName}
                                     </div>
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center'>
+                                    <div className='text-[#0e2b45] font-bold text-lg col-span-3 text-center'>
                                         {appointment?.bookingDetails?.email}
                                     </div>
                                     <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center'>
                                         {appointment?.bookingDetails?.phoneNumber}
                                     </div>
 
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center capitalize'>
-                                        {formatDate(appointment?.bookingDetails?.selectedDate)} <br />
-                                        {appointment?.bookingDetails?.selectedDate < new Date() ?
+                                    <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
+                                        {formatDate(appointment?.bookingDetails?.selectedDate)}
+                                        {new Date(appointment?.bookingDetails?.selectedDate) < new Date() ?
                                             ' (Date has passed)' :
                                             ` (${calculateDaysLeft(appointment?.bookingDetails?.selectedDate)} days left)`
                                         }
@@ -119,13 +122,14 @@ const UserAppointments = () => {
                                     </div>
                                 </div>
                             </div>
-                        )
-                    )
-                    :
-                    (
-                        <CourseListSkeleton></CourseListSkeleton>
-                    )
-            }
+                        ))
+                    ) : (
+                        <div className="text-[#0e2b45] text-3xl font-bold text-center mt-4">
+                            No Appointments made yet
+                        </div>
+                    )}
+                </>
+            )}
         </div>
     );
 };
