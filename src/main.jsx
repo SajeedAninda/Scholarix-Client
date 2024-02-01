@@ -31,6 +31,7 @@ import UserDashboard from './Pages/User/User Dashboard/UserDashboard.jsx';
 import BookmarkedCourses from './Pages/User/Bookmarked Courses/BookmarkedCourses.jsx';
 import Success from './Pages/Payment Result/Success.jsx';
 import Failed from './Pages/Payment Result/Failed.jsx';
+import UserAppointments from './Pages/User/Appointments/UserAppointments.jsx';
 
 const queryClient = new QueryClient()
 
@@ -139,6 +140,10 @@ const router = createBrowserRouter([
       {
         path: "bookmarkedCourses",
         element: <BookmarkedCourses></BookmarkedCourses>
+      },
+      {
+        path: "userAppointments",
+        element: <UserAppointments></UserAppointments>
       }
     ]
   }
