@@ -30,6 +30,7 @@ import UserPanel from './Pages/User/User Panel/UserPanel.jsx';
 import UserDashboard from './Pages/User/User Dashboard/UserDashboard.jsx';
 import BookmarkedCourses from './Pages/User/Bookmarked Courses/BookmarkedCourses.jsx';
 import Success from './Pages/Payment Result/Success.jsx';
+import Failed from './Pages/Payment Result/Failed.jsx';
 
 const queryClient = new QueryClient()
 
@@ -89,6 +90,10 @@ const router = createBrowserRouter([
       {
         path: "payment/success/:tranId",
         element: <Success></Success>
+      },
+      {
+        path: "payment/failed/:tranId",
+        element: <Failed></Failed>
       }
     ]
   },
