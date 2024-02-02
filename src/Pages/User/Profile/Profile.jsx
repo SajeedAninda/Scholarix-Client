@@ -1,32 +1,31 @@
 import React, { useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import Lottie from 'lottie-react';
-import profileLottie from "../../../assets/LottieFiles/profileLottie.json"
+import profileLottie from "../../../assets/LottieFiles/profileLottie.json";
+import { getAuth, updateProfile } from "firebase/auth";
+import { app } from '../../../Components/Authentication/firebase.config';
+
+const auth = getAuth(app);
+
 
 const Profile = () => {
     let { loggedInUser } = useAuth();
-    console.log(loggedInUser?.photoURL);
+    console.log(loggedInUser);
     const [editMode, setEditMode] = useState(false);
-
-
-    const [editedValues, setEditedValues] = useState({
-        fullName: loggedInUser?.displayName || '',
-        email: loggedInUser?.email || '',
-        phoneNumber: loggedInUser?.phoneNumber || '',
-        image: loggedInUser?.photoURL || '',
-    });
 
     const handleProfileUpdate = (e) => {
         e.preventDefault();
+        let fullName = e.target.fullName.value;
+        let phone = e.target.phoneNumber.value
+        let imageUrl = e.target.imageurl.value;
 
-    };
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setEditedValues((prevValues) => ({
-            ...prevValues,
-            [name]: value,
-        }));
+        updateProfile(auth.currentUser, {
+            displayName: fullName, photoURL: imageUrl, phoneNumber: phone
+        }).then(() => {
+            console.log("Profile Updated")
+        }).catch((error) => {
+            console.log(error)
+        });
     };
 
     const toggleEditMode = () => {
@@ -44,17 +43,16 @@ const Profile = () => {
 
                 <div>
                     <form onSubmit={handleProfileUpdate} className=' gap-8 flex justify-center items-center'>
-                        <div className='w-full md:w-[50%]'>
+                        <div className='w-full md:w-[50%] text-center'>
                             {/* Full Name */}
                             <div className='w-full'>
-                                <label className='text-2xl text-[white] font-bold' htmlFor="fullName">
+                                <label className='text-3xl text-[white] font-semibold' htmlFor="fullName">
                                     Full Name:
                                 </label>{' '}
                                 <br />
                                 {editMode ? (
                                     <input
-                                        value={editedValues.fullName}
-                                        onChange={handleInputChange}
+                                        defaultValue={loggedInUser?.displayName}
                                         name="fullName"
                                         className='py-3 px-4 rounded-md mt-2 w-full'
                                         placeholder='Enter Your Full Name'
@@ -62,21 +60,20 @@ const Profile = () => {
                                         required
                                     />
                                 ) : (
-                                    <span className='text-2xl text-[white] font-bold mt-1'>{loggedInUser?.displayName}</span>
+                                    <span className='text-4xl text-[white] font-bold mt-1'>{loggedInUser?.displayName}</span>
                                 )}
                             </div>
 
                             {/* Email */}
-                            <div className='w-full mt-3'>
-                                <label className='text-2xl text-[white] font-bold' htmlFor="email">
+                            <div className='w-full mt-4'>
+                                <label className='text-3xl text-[white] font-semibold' htmlFor="email">
                                     Email:
                                 </label>{' '}
                                 <br />
                                 {editMode ? (
                                     <input
                                         readOnly
-                                        value={editedValues.email}
-                                        onChange={handleInputChange}
+                                        defaultValue={loggedInUser?.email}
                                         name="email"
                                         className='py-3 px-4 rounded-md mt-2 w-full'
                                         placeholder='Enter Your Email'
@@ -84,51 +81,48 @@ const Profile = () => {
                                         required
                                     />
                                 ) : (
-                                    <span className='text-2xl text-[white] font-bold mt-1'>{loggedInUser?.email}</span>
+                                    <span className='text-4xl text-[white] font-bold mt-1'>{loggedInUser?.email}</span>
                                 )}
                             </div>
 
                             {/* Phone Number */}
-                            <div className='w-full mt-3'>
-                                <label className='text-2xl text-[white] font-bold' htmlFor="phoneNumber">
+                            <div className='w-full mt-4'>
+                                <label className='text-3xl text-[white] font-semibold' htmlFor="phoneNumber">
                                     Phone Number:
                                 </label>{' '}
                                 <br />
                                 {editMode ? (
                                     <input
-                                        value={editedValues.phoneNumber}
-                                        onChange={handleInputChange}
+                                        defaultValue={loggedInUser?.phoneNumber}
                                         name="phoneNumber"
                                         className='py-3 px-4 rounded-md mt-2 w-full'
                                         placeholder='Enter Your Phone Number'
-                                        type='tel'
-                                        required
+                                        type='text'
                                     />
                                 ) : (
-                                    <span className='text-2xl text-[white] font-bold mt-1'>
+                                    <span className='text-4xl text-[white] font-bold mt-1'>
                                         {loggedInUser?.phoneNumber ? loggedInUser.phoneNumber : 'N/A'}
                                     </span>
                                 )}
                             </div>
 
                             {/* Image */}
-                            <div className={`w-full mt-3 ${editMode ? '' : 'flex flex-row items-center gap-2'}`}>
-                                <label className='text-2xl text-[white] font-bold' htmlFor="image">
+                            <div className={`w-full text-center mt-4 ${editMode ? '' : 'flex flex-row items-center gap-2 justify-center'}`}>
+                                <label className='text-3xl text-[white] font-semibold' htmlFor="image">
                                     Image:
                                 </label>{' '}
                                 <br />
                                 {editMode ? (
                                     <input
-                                        value={editedValues.image}
-                                        onChange={handleInputChange}
-                                        name="fullName"
+                                        defaultValue={loggedInUser?.photoURL}
+                                        name="imageurl"
                                         className='py-3 px-4 rounded-md mt-2 w-full'
                                         placeholder='Enter an Image URL'
                                         type="text"
                                         required
                                     />
                                 ) : (
-                                    <span className='text-2xl text-[white] font-bold mt-1'>
+                                    <span className='text-4xl text-[white] font-bold mt-1'>
                                         <img className='w-[70px] mt-2 rounded-full' src={loggedInUser?.photoURL} alt="" />
                                     </span>
                                 )}
