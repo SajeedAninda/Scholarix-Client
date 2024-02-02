@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import Lottie from 'lottie-react';
+import profileLottie from "../../../assets/LottieFiles/profileLottie.json"
 
 const Profile = () => {
     let { loggedInUser } = useAuth();
-    console.log(loggedInUser);
+    console.log(loggedInUser?.photoURL);
     const [editMode, setEditMode] = useState(false);
 
 
     const [editedValues, setEditedValues] = useState({
         fullName: loggedInUser?.displayName || '',
         email: loggedInUser?.email || '',
-        dateOfBirth: loggedInUser?.date_of_birth || '',
+        phoneNumber: loggedInUser?.phoneNumber || '',
+        image: loggedInUser?.photoURL || '',
     });
 
     const handleProfileUpdate = (e) => {
@@ -41,7 +43,7 @@ const Profile = () => {
                 </p>
 
                 <div>
-                    <form onSubmit={handleProfileUpdate} className='pb-12 gap-8 flex justify-center items-center'>
+                    <form onSubmit={handleProfileUpdate} className=' gap-8 flex justify-center items-center'>
                         <div className='w-full md:w-[50%]'>
                             {/* Full Name */}
                             <div className='w-full'>
@@ -86,28 +88,57 @@ const Profile = () => {
                                 )}
                             </div>
 
-                            {/* Date of Birth */}
+                            {/* Phone Number */}
                             <div className='w-full mt-3'>
-                                <label className='text-2xl text-[white] font-bold' htmlFor="dob">
-                                    Date of Birth:
+                                <label className='text-2xl text-[white] font-bold' htmlFor="phoneNumber">
+                                    Phone Number:
                                 </label>{' '}
                                 <br />
                                 {editMode ? (
                                     <input
-                                        value={editedValues.dateOfBirth}
+                                        value={editedValues.phoneNumber}
                                         onChange={handleInputChange}
-                                        name="dateOfBirth"
+                                        name="phoneNumber"
                                         className='py-3 px-4 rounded-md mt-2 w-full'
-                                        type="date"
+                                        placeholder='Enter Your Phone Number'
+                                        type='tel'
+                                        required
                                     />
                                 ) : (
-                                    <span className='text-2xl text-[white] font-bold mt-1'>{loggedInUser?.date_of_birth}</span>
+                                    <span className='text-2xl text-[white] font-bold mt-1'>
+                                        {loggedInUser?.phoneNumber ? loggedInUser.phoneNumber : 'N/A'}
+                                    </span>
                                 )}
                             </div>
 
+                            {/* Image */}
+                            <div className={`w-full mt-3 ${editMode ? '' : 'flex flex-row items-center gap-2'}`}>
+                                <label className='text-2xl text-[white] font-bold' htmlFor="image">
+                                    Image:
+                                </label>{' '}
+                                <br />
+                                {editMode ? (
+                                    <input
+                                        value={editedValues.image}
+                                        onChange={handleInputChange}
+                                        name="fullName"
+                                        className='py-3 px-4 rounded-md mt-2 w-full'
+                                        placeholder='Enter an Image URL'
+                                        type="text"
+                                        required
+                                    />
+                                ) : (
+                                    <span className='text-2xl text-[white] font-bold mt-1'>
+                                        <img className='w-[70px] mt-2 rounded-full' src={loggedInUser?.photoURL} alt="" />
+                                    </span>
+                                )}
+                            </div>
+
+
+
                             {/* Buttons */}
                             <button
-                                className={`py-3 w-full bg-[white] border-2 border-[white] text-white font-bold text-lg mt-4 rounded-md hover:bg-transparent hover:text-[white] hover:border-2 hover:border-[white]`}
+                                className={`py-3 w-full bg-[white] border-2 border-[white] text-[#0e2b45] font-bold text-lg mt-4 rounded-md hover:bg-transparent hover:text-[white] hover:border-2 hover:border-[white]`}
                                 type='button'
                                 onClick={toggleEditMode}
                             >
@@ -116,7 +147,7 @@ const Profile = () => {
 
                             {editMode && (
                                 <button
-                                    className='py-3 w-full bg-[white] border-2 border-[white] text-white font-bold text-lg mt-4 rounded-md hover:bg-transparent hover:text-[white] hover:border-2 hover:border-[white]'
+                                    className='py-3 w-full bg-[white] border-2 border-[white] text-[#0e2b45] font-bold text-lg mt-4 rounded-md hover:bg-transparent hover:text-[white] hover:border-2 hover:border-[white]'
                                     type='submit'
                                 >
                                     Update
@@ -124,7 +155,7 @@ const Profile = () => {
                             )}
                         </div>
                         <div className='hidden md:block w-[50%]'>
-                            {/* <Lottie animationData={employeeRegisterLottie} loop={true} /> */}
+                            <Lottie animationData={profileLottie} loop={true} />
                         </div>
                     </form>
                 </div>
