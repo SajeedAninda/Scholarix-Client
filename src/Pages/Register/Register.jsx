@@ -29,6 +29,12 @@ const Register = () => {
 
     let handleRegister = async (e) => {
         e.preventDefault();
+
+        if (!selectedImage) {
+            toast.error("Please upload an image");
+            return;
+        }
+
         let name = e.target.name.value;
         let email = e.target.email.value;
         let password = e.target.password.value;
