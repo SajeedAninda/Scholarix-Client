@@ -35,6 +35,7 @@ import UserAppointments from './Pages/User/Appointments/UserAppointments.jsx';
 import Profile from './Pages/User/Profile/Profile.jsx';
 import AdminRoute from './Components/Authentication/Admin Route/AdminRoute.jsx';
 import UserRoute from './Components/Authentication/User Route/UserRoute.jsx';
+import PrivateRoute from './Components/Authentication/Private Route/PrivateRoute.jsx';
 
 const queryClient = new QueryClient()
 
@@ -55,7 +56,7 @@ const router = createBrowserRouter([
       {
         path: "/courseDetails/:id",
         loader: ({ params }) => fetch(`http://localhost:5000/courseDetails/${params.id}`),
-        element: <CourseDetails></CourseDetails>
+        element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
       },
       {
         path: "/scholarships",
@@ -89,7 +90,7 @@ const router = createBrowserRouter([
       {
         path: "/consultantDetails/:id",
         loader: ({ params }) => fetch(`http://localhost:5000/consultantDetails/${params.id}`),
-        element: <ConsultantDetails></ConsultantDetails>
+        element: <PrivateRoute><ConsultantDetails></ConsultantDetails></PrivateRoute>
       },
       {
         path: "payment/success/:tranId",

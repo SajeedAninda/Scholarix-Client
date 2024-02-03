@@ -1,15 +1,12 @@
 import React from 'react';
-import useCurrentUserData from '../../../Hooks/useCurrentUserData';
 import useAuth from '../../../Hooks/useAuth';
 import { ColorRing } from 'react-loader-spinner';
 import { Navigate } from 'react-router-dom';
 
-const UserRoute = ({children}) => {
-    let { userData, isUserLoading } = useCurrentUserData();
+const PrivateRoute = ({children}) => {
     let { loggedInUser, loading } = useAuth();
 
-
-    if (loading || isUserLoading) {
+    if (loading) {
         return <div className='flex justify-center min-h-screen items-center'>
             <ColorRing
                 visible={true}
@@ -22,11 +19,11 @@ const UserRoute = ({children}) => {
             />
         </div>
     }
-    if (userData?.role === "user" && loggedInUser) {
+    if (loggedInUser) {
         return children;
     }
 
     return <Navigate to="/login"></Navigate>;
 };
 
-export default UserRoute;
+export default PrivateRoute;
