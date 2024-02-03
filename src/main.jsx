@@ -34,6 +34,7 @@ import Failed from './Pages/Payment Result/Failed.jsx';
 import UserAppointments from './Pages/User/Appointments/UserAppointments.jsx';
 import Profile from './Pages/User/Profile/Profile.jsx';
 import AdminRoute from './Components/Authentication/Admin Route/AdminRoute.jsx';
+import UserRoute from './Components/Authentication/User Route/UserRoute.jsx';
 
 const queryClient = new QueryClient()
 
@@ -133,23 +134,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/user",
-    element: <UserPanel></UserPanel>,
+    element: <UserRoute><UserPanel></UserPanel></UserRoute>,
     children: [
       {
         path: "/user",
-        element: <UserDashboard></UserDashboard>
+        element: <UserRoute><UserDashboard></UserDashboard></UserRoute>
       },
       {
         path: "bookmarkedCourses",
-        element: <BookmarkedCourses></BookmarkedCourses>
+        element: <UserRoute><BookmarkedCourses></BookmarkedCourses></UserRoute>
       },
       {
         path: "userAppointments",
-        element: <UserAppointments></UserAppointments>
+        element: <UserRoute><UserAppointments></UserAppointments></UserRoute>
       },
       {
         path: "profile",
-        element: <Profile></Profile>
+        element: <UserRoute><Profile></Profile></UserRoute>
       }
     ]
   }
