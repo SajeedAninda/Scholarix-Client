@@ -100,9 +100,19 @@ const Register = () => {
         googleLogin()
             .then((result) => {
                 const user = result.user;
-                console.log(user);
-                toast.success('Logged In Successfully!');
-                navigate("/");
+                let userDetails = { name: user?.displayName, email: user?.email, imageUrl: user?.photoURL, role: "user" }
+
+                axiosInstance.post("/userGoogleRegister", userDetails)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.insertedId) {
+                            console.log(res.data);
+                        }
+                    })
+                toast.success('Logged In Successfully!', {
+                    duration: 3000,
+                });
+                navigate("/")
             }).catch((error) => {
                 console.log(error);
             });
