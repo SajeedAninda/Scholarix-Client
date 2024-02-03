@@ -5,10 +5,12 @@ import { IoIosLogIn } from "react-icons/io";
 import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/UseAuth';
 import toast from 'react-hot-toast';
+import useAxiosInstance from '../../Hooks/useAxiosInstance';
 
 const Login = () => {
     let { signIn, googleLogin } = useAuth();
     let navigate = useNavigate();
+    let axiosInstance = useAxiosInstance();
 
     let handleLogin = (e) => {
         e.preventDefault();
@@ -37,9 +39,19 @@ const Login = () => {
         googleLogin()
             .then((result) => {
                 const user = result.user;
-                console.log(user);
-                toast.success('Logged In Successfully!');
-                navigate("/");
+                let userDetails = { name: user?.displayName, email: user?.email, imageUrl: user?.photoURL, role: "user" }
+
+                axiosInstance.post("/userGoogleRegister", userDetails)
+                    .then(res => {
+                        console.log(res.data);
+                        if (res.data.insertedId) {
+                            console.log(res.data);
+                        }
+                    })
+                toast.success('Logged In Successfully!', {
+                    duration: 3000,
+                });
+                navigate("/")
             }).catch((error) => {
                 console.log(error);
             });
