@@ -7,11 +7,15 @@ import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import useAuth from '../../Hooks/useAuth';
+import useCurrentUserData from '../../Hooks/useCurrentUserData';
 
 
 const Navbar = () => {
     let { loggedInUser, logOut } = useAuth();
+    let { userData, isUserLoading } = useCurrentUserData();
+
     const [isMenuHidden, setIsMenuHidden] = useState(false);
+
     const toggleMenu = () => {
         setIsMenuHidden(!isMenuHidden);
     };
@@ -78,7 +82,7 @@ const Navbar = () => {
 
 
 
-                        
+
                         <div className="flex items-center justify-center">
                             <ul className="flex items-center py-2 gap-2 lg:gap-10 md:pt-[0.7rem] capitalize text-sm md:text-lg font-bold">
                                 <li className='relative group'>
