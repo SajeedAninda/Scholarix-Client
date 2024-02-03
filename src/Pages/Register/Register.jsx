@@ -6,10 +6,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAuth from '../../Hooks/useAuth';
+import useAxiosInstance from '../../Hooks/useAxiosInstance';
 
 const Register = () => {
     let [selectedImage, setSelectedImage] = useState(null);
     let { signUp, profileUpdate, googleLogin } = useAuth();
+    let axiosInstance = useAxiosInstance();
     let navigate = useNavigate();
 
     const handleImageChange = (e) => {
@@ -49,17 +51,28 @@ const Register = () => {
         try {
             let res = await axios.post("https://api.imgbb.com/1/upload?key=cbd289d81c381c05afbab416f87e8637", data);
             let imageUrl = res.data.data.display_url;
-            console.log(name, email, password, imageUrl);
+            // console.log(name, email, password, imageUrl);
+            let userDetails = { name, email, imageUrl, role: "user" };
 
             signUp(email, password)
                 .then((userCredential) => {
                     let user = userCredential.user;
                     profileUpdate(name, imageUrl)
                         .then(() => {
-                            toast.dismiss(loadingToast);
-                            toast.success("Registration Successful");
-                            console.log(user);
-                            navigate("/");
+
+                            axiosInstance.post("/userRegister", userDetails)
+                                .then(res => {
+                                    console.log(res.data);
+                                    if (res.data.insertedId) {
+                                        toast.dismiss(loadingToast);
+                                        toast.success("Registration Successful");
+                                        console.log(user);
+                                        navigate("/");
+                                    }
+                                })
+                                .catch((error) => {
+                                    console.timeLog(error);
+                                })
                         })
                 })
                 .catch((error) => {
