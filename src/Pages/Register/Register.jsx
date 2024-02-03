@@ -71,9 +71,9 @@ const Register = () => {
                                     console.log(res.data);
                                     if (res.data.insertedId) {
                                         toast.dismiss(loadingToast);
-                                        toast.success("Registration Successful");
+                                        toast.success("Registration Successful. Please Login");
                                         console.log(user);
-                                        navigate("/");
+                                        navigate("/login");
                                     }
                                 })
                                 .catch((error) => {
