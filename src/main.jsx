@@ -33,6 +33,7 @@ import Success from './Pages/Payment Result/Success.jsx';
 import Failed from './Pages/Payment Result/Failed.jsx';
 import UserAppointments from './Pages/User/Appointments/UserAppointments.jsx';
 import Profile from './Pages/User/Profile/Profile.jsx';
+import AdminRoute from './Components/Authentication/Admin Route/AdminRoute.jsx';
 
 const queryClient = new QueryClient()
 
@@ -101,32 +102,32 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <AdminPanel></AdminPanel>,
+    element: <AdminRoute><AdminPanel></AdminPanel></AdminRoute>,
     children: [
       {
         path: "/admin",
-        element: <AdminDashboard></AdminDashboard>
+        element: <AdminRoute><AdminDashboard></AdminDashboard></AdminRoute>
       },
       {
         path: "addCourses",
-        element: <AddCourses></AddCourses>
+        element: <AdminRoute><AddCourses></AddCourses></AdminRoute>
       },
       {
         path: "courseList",
-        element: <CourseList></CourseList>
+        element: <AdminRoute><CourseList></CourseList></AdminRoute>
       },
       {
         path: "courseList/updateCourse/:id",
         loader: ({ params }) => fetch(`http://localhost:5000/courseDetails/${params.id}`),
-        element: <UpdateCourse></UpdateCourse>
+        element: <AdminRoute><UpdateCourse></UpdateCourse></AdminRoute>
       },
       {
         path: "addConsultant",
-        element: <AddConsultant></AddConsultant>
+        element: <AdminRoute><AddConsultant></AddConsultant></AdminRoute>
       },
       {
         path: "consultantList",
-        element: <ConsultantList></ConsultantList>
+        element: <AdminRoute><ConsultantList></ConsultantList></AdminRoute>
       },
     ]
   },
