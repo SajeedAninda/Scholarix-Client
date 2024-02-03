@@ -1,11 +1,10 @@
 import React from 'react';
-import "./country.css"
+import "./country.css";
 import useCountries from '../../Hooks/useCountries';
-import CourseSkeleton from '../Skeleton/CourseSkeleton';
 import { Link } from 'react-router-dom';
 import CountrySkeleton from '../Skeleton/CountrySkeleton';
 
-const ChooseCountry = () => {
+const ChooseCountry = React.memo(() => {
     let { countries } = useCountries();
 
     return (
@@ -23,11 +22,11 @@ const ChooseCountry = () => {
                             <div className='grid grid-cols-1 md:grid-cols-3 mt-6 gap-8'>
                                 {
                                     countries?.map(country =>
-                                        <div class="card">
-                                            <img className='object-cover' src={country?.country_img_url} alt="" />
-                                            <div class="card__content">
-                                                <p class="card__title">{country?.country_name}</p>
-                                                <p class="card__description">
+                                        <div key={country._id} className="card">
+                                            <img className='object-cover' src={country?.country_img_url} alt="" loading='lazy'/>
+                                            <div className="card__content">
+                                                <p className="card__title">{country?.country_name}</p>
+                                                <p className="card__description">
                                                     {country?.country_brief_details}
                                                 </p>
 
@@ -44,13 +43,10 @@ const ChooseCountry = () => {
                             :
                             <CountrySkeleton></CountrySkeleton>
                     }
-
-
-
                 </div>
             </div>
         </div>
     );
-};
+});
 
 export default ChooseCountry;
