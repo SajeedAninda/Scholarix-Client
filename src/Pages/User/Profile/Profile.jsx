@@ -4,11 +4,13 @@ import Lottie from 'lottie-react';
 import profileLottie from "../../../assets/LottieFiles/profileLottie.json";
 import { getAuth, updateProfile } from "firebase/auth";
 import { app } from '../../../Components/Authentication/firebase.config';
-
+import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 const auth = getAuth(app);
 
-
 const Profile = () => {
+    let navigate = useNavigate();
+
     let { loggedInUser } = useAuth();
     console.log(loggedInUser);
     const [editMode, setEditMode] = useState(false);
@@ -18,13 +20,19 @@ const Profile = () => {
         let fullName = e.target.fullName.value;
         let phone = e.target.phoneNumber.value
         let imageUrl = e.target.imageurl.value;
+        let loadingToast = toast.loading('Updating Profile...');
 
         updateProfile(auth.currentUser, {
             displayName: fullName, photoURL: imageUrl, phoneNumber: phone
         }).then(() => {
-            console.log("Profile Updated")
+            console.log("Profile Updated");
+            toast.dismiss(loadingToast);
+            toast.success("Profile Updated");
+            navigate("/user");
         }).catch((error) => {
-            console.log(error)
+            console.log(error);
+            toast.dismiss(loadingToast);
+            toast.error(error);
         });
     };
 
