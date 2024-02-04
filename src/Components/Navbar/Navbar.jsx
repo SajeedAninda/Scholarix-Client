@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaBarsStaggered } from "react-icons/fa6";
 import logo from "../../assets/Logo/logo.png"
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
@@ -92,54 +92,89 @@ const Navbar = () => {
 
                         <div className="flex items-center justify-center">
                             <ul className="flex items-center py-2 gap-2 lg:gap-10 md:pt-[0.7rem] capitalize text-sm md:text-lg font-bold">
+
                                 <li className='relative group'>
-                                    <Link to={"/"} className=" transition-all duration-300">
+                                    <NavLink
+                                        to="/"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "border-b-[4px] rounded-b-md border-white" : "hover:border-b-[4px] hover:border-white transform transition-all hover:rounded-b-md"
+                                        }
+                                    >
                                         Home
-                                        <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100 "></span>
-                                    </Link>
+                                    </NavLink>
                                 </li>
+
+
                                 <li className='relative group'>
-                                    <Link to={"/studyAbroad"} className=" transition-all duration-300">
+                                    <NavLink
+                                        to="/studyAbroad"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "border-b-[4px] rounded-b-md border-white" : "hover:border-b-[4px] hover:border-white transform transition-all hover:rounded-b-md"
+                                        }
+                                    >
                                         Study Abroad
-                                        <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-                                    </Link>
+                                    </NavLink>
                                 </li>
+
                                 <li className='relative group'>
-                                    <Link to={"/courses"} className=" transition-all duration-300">
+                                    <NavLink
+                                        to="/courses"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "border-b-[4px] rounded-b-md border-white" : "hover:border-b-[4px] hover:border-white transform transition-all hover:rounded-b-md"
+                                        }
+                                    >
                                         Courses
-                                        <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-                                    </Link>
+                                    </NavLink>
                                 </li>
+
                                 <li className='relative group'>
-                                    <Link to={"/scholarships"} className=" transition-all duration-300">
+                                    <NavLink
+                                        to="/scholarships"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "border-b-[4px] rounded-b-md border-white" : "hover:border-b-[4px] hover:border-white transform transition-all hover:rounded-b-md"
+                                        }
+                                    >
                                         Scholarships
-                                        <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-                                    </Link>
+                                    </NavLink>
                                 </li>
+
                                 <li className='relative group'>
-                                    <Link to={"/consultant"} className=" transition-all duration-300">
-                                        Consultant
-                                        <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-                                    </Link>
+                                    <NavLink
+                                        to="/consultant"
+                                        className={({ isActive, isPending }) =>
+                                            isPending ? "pending" : isActive ? "border-b-[4px] rounded-b-md border-white" : "hover:border-b-[4px] hover:border-white transform transition-all hover:rounded-b-md"
+                                        }
+                                    >
+                                        Consultants
+                                    </NavLink>
                                 </li>
+
                                 {
                                     loggedInUser && (
                                         <div>
                                             {userData?.role === "user" && (
                                                 <li className='relative group'>
-                                                    <Link to="/user" className="transition-all duration-300">
+                                                    <NavLink
+                                                        to="/user"
+                                                        className={({ isActive, isPending }) =>
+                                                            isPending ? "pending" : isActive ? "border-b-[4px] rounded-b-md border-white" : "hover:border-b-[4px] hover:border-white transform transition-all hover:rounded-b-md"
+                                                        }
+                                                    >
                                                         Profile
-                                                        <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                             )}
 
                                             {userData?.role === "admin" && (
                                                 <li className='relative group'>
-                                                    <Link to="/admin" className="transition-all duration-300">
+                                                    <NavLink
+                                                        to="/admin"
+                                                        className={({ isActive, isPending }) =>
+                                                            isPending ? "pending" : isActive ? "border-b-[4px] rounded-b-md border-white" : "hover:border-b-[4px] hover:border-white transform transition-all hover:rounded-b-md"
+                                                        }
+                                                    >
                                                         Admin Panel
-                                                        <span className="absolute inset-x-0 bottom-0 h-1 bg-[#F7FFF7] rounded-2xl transform scale-x-0 transition-transform origin-left group-hover:scale-x-100"></span>
-                                                    </Link>
+                                                    </NavLink>
                                                 </li>
                                             )}
                                         </div>
