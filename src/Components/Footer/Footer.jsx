@@ -5,8 +5,11 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
+import useCountries from '../../Hooks/useCountries';
 
 const Footer = () => {
+    let { countries } = useCountries();
+
     return (
         <div className="relative mt-16 bg-gradient-to-r from-[#ed4747] to-[#920707]">
             <svg
@@ -47,89 +50,69 @@ const Footer = () => {
                     </div>
                     <div className="flex gap-20">
                         <div>
-                            <p className="font-semibold tracking-wide text-white">
-                                Apples
+                            <p className="font-bold tracking-wide text-white">
+                                Links
                             </p>
                             <ul className="mt-2 space-y-2">
                                 <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    <Link
+                                        to={"/"}
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
                                     >
-                                        Media
-                                    </a>
+                                        Home
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    <Link
+                                        to={"/studyAbroad"}
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
                                     >
-                                        Brochure
-                                    </a>
+                                        Study Abroad
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    <Link
+                                        to={"/courses"}
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
                                     >
-                                        Nonprofit
-                                    </a>
+                                        Courses
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    <Link
+                                        to={"/scholarships"}
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
                                     >
-                                        Educational
-                                    </a>
+                                        Scholarships
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
+                                    <Link
+                                        to={"/consultant"}
+                                        className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
                                     >
-                                        Projects
-                                    </a>
+                                        Consultants
+                                    </Link>
                                 </li>
                             </ul>
                         </div>
                         <div>
-                            <p className="font-semibold tracking-wide text-white">
-                                Business
+                            <p className="font-bold tracking-wide text-white">
+                                Countries
                             </p>
                             <ul className="mt-2 space-y-2">
-                                <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
-                                    >
-                                        Infopreneur
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
-                                    >
-                                        Personal
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
-                                    >
-                                        Wiki
-                                    </a>
-                                </li>
-                                <li>
-                                    <a
-                                        href="/"
-                                        className="transition-colors duration-300 text-purple-50 hover:text-white"
-                                    >
-                                        Forum
-                                    </a>
-                                </li>
+                                {
+                                    countries?.map(country =>
+                                        <li>
+                                            <Link
+                                                to={`/countryDetails/${country?._id}`}
+                                                className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
+                                            >
+                                                {country?.country_name}
+                                            </Link>
+                                        </li>
+                                    )
+                                }
                             </ul>
                         </div>
                     </div>
@@ -139,21 +122,21 @@ const Footer = () => {
                         © Copyright 2020 Lorem Inc. All rights reserved.
                     </p>
                     <div className='flex items-center gap-3 text-[#F7FFF7]'>
-                                <a href={"https://www.facebook.com/sajeedaninda/"} target="_blank">
-                                    <FaFacebook className='text-2xl text-[#F7FFF7] hover:opacity-70' />
-                                </a>
+                        <a href={"https://www.facebook.com/sajeedaninda/"} target="_blank">
+                            <FaFacebook className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                        </a>
 
-                                <a href={"https://www.instagram.com/_a.n.i.n.d.a_"} target="_blank">
-                                    <FaInstagram className='text-2xl text-[#F7FFF7] hover:opacity-70' />
-                                </a>
-                                <a href={"https://github.com/SajeedAninda"} target="_blank">
-                                    <FaGithub className='text-2xl text-[#F7FFF7] hover:opacity-70' />
-                                </a>
+                        <a href={"https://www.instagram.com/_a.n.i.n.d.a_"} target="_blank">
+                            <FaInstagram className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                        </a>
+                        <a href={"https://github.com/SajeedAninda"} target="_blank">
+                            <FaGithub className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                        </a>
 
-                                <a href={"https://www.linkedin.com/in/sajeed-aninda/"} target="_blank">
-                                    <FaLinkedin className='text-2xl text-[#F7FFF7] hover:opacity-70' />
-                                </a>
-                            </div>
+                        <a href={"https://www.linkedin.com/in/sajeed-aninda/"} target="_blank">
+                            <FaLinkedin className='text-2xl text-[#F7FFF7] hover:opacity-70' />
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
