@@ -9,6 +9,8 @@ import useCountries from '../../Hooks/useCountries';
 
 const Footer = () => {
     let { countries } = useCountries();
+    let currentYear = new Date().getFullYear();
+
 
     return (
         <div className="relative mt-16 bg-gradient-to-r from-[#ed4747] to-[#920707]">
@@ -53,7 +55,7 @@ const Footer = () => {
                             <p className="font-bold tracking-wide text-white">
                                 Links
                             </p>
-                            <ul className="mt-2 space-y-2">
+                            <ul className="mt-4 space-y-2">
                                 <li>
                                     <Link
                                         to={"/"}
@@ -100,26 +102,28 @@ const Footer = () => {
                             <p className="font-bold tracking-wide text-white">
                                 Countries
                             </p>
-                            <ul className="mt-2 space-y-2">
-                                {
-                                    countries?.map(country =>
-                                        <li>
-                                            <Link
-                                                to={`/countryDetails/${country?._id}`}
-                                                className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
-                                            >
-                                                {country?.country_name}
-                                            </Link>
-                                        </li>
-                                    )
-                                }
+                            <ul className="mt-4 space-y-2">
+                                <div className="grid grid-cols-2 gap-x-6">
+                                    {
+                                        countries?.map(country =>
+                                            <div key={country?._id} className="mb-4">
+                                                <Link
+                                                    to={`/countryDetails/${country?._id}`}
+                                                    className="transition-colors duration-300 text-purple-50 hover:text-white hover:underline"
+                                                >
+                                                    {country?.country_name}
+                                                </Link>
+                                            </div>
+                                        )
+                                    }
+                                </div>
                             </ul>
                         </div>
                     </div>
                 </div>
                 <div className="flex flex-col justify-between pt-5 pb-10 border-t border-purple-200 sm:flex-row">
                     <p className="text-sm text-gray-100">
-                        © Copyright 2020 Lorem Inc. All rights reserved.
+                        © Copyright {currentYear} Scholarix. Created By Sajeed Aninda.
                     </p>
                     <div className='flex items-center gap-3 text-[#F7FFF7]'>
                         <a href={"https://www.facebook.com/sajeedaninda/"} target="_blank">
