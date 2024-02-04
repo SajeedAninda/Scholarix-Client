@@ -154,20 +154,12 @@ const Navbar = () => {
                 <div className="w-[10%] hidden lg:block">
                     {
                         loggedInUser ?
-                            // <div className="flex items-center justify-center">
-                            //     {/* <button onClick={handleLogOut} className='bg-[#ed4747] px-5 py-2 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg'>
-                            //         Log Out
-                            //     </button> */}
-                            //     <button onClick={handleLogOut} className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
-                            //         Log Out
-                            //     </button>
-                            // </div>
                             <div onClick={toggleLogout} className='pl-4 relative z-50'>
                                 <img className='w-[70px] rounded-full border-4 hover:opacity-70 border-white cursor-pointer' src={loggedInUser?.photoURL} alt="" />
 
-                                <div className={`bg-white hover:bg-[#ed4747] cursor-pointer group border-2 border-[#ed4747] rounded-lg absolute top-20 p-4 transition-all duration-300 transform ${showLogout ? "translate-y-0" : "hidden translate-y-[-10px]"}`}>
-                                    <h2 className='text-black font-bold text-lg group-hover:text-white'>Log Out</h2>
-                                </div>
+                                <button onClick={handleLogOut} className={`top-20 right-5 px-5 z-50 py-3 text-[#0e2b45]  cursor-pointer text-lg font-bold overflow-hidden bg-white rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105  hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0 absolute ${showLogout ? "translate-y-0" : "hidden translate-y-[-10px]"}`}>
+                                    Log Out
+                                </button>
                             </div>
 
                             :
