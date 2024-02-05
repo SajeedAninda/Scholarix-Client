@@ -29,8 +29,6 @@ function WhatWeDo() {
 
     return (
         <section className="relative">
-            {/* <div className="absolute inset-0 bg-[#F7FFF7] pointer-events-none mb-16" aria-hidden="true"></div>
-            <div className="absolute left-0 right-0 m-auto w-px p-px h-20 bg-[#F7FFF7] transform -translate-y-1/2"></div> */}
 
             <div className="relative w-[90%] mx-auto px-4 sm:px-6">
                 <div className="pt-8">
@@ -40,7 +38,7 @@ function WhatWeDo() {
                         </p>
                     </div>
 
-                    <div className="flex flex-col md:flex-row justify-between items-center">
+                    <div className="flex flex-col lg:flex-row justify-between items-center">
                         <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 md:mt-6" data-aos="fade-right">
                             <div className="md:pr-4 lg:pr-12 xl:pr-16 mb-8">
                                 <h3 className="text-[#0e2b45] mb-3">Navigating Educational Pathways</h3>
