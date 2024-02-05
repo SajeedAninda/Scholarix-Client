@@ -33,7 +33,7 @@ const Footer = () => {
             </svg>
 
             <div className="px-4 pt-12 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
-                <div className="flex justify-between items-center pb-8">
+                <div className="flex flex-col lg:flex-row gap-8 lg:gap-0 justify-between items-center pb-8">
                     <div className="md:max-w-md lg:col-span-2">
                         <Link to={"/"}>
                             <div className='flex gap-2 items-center'>
@@ -121,11 +121,15 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex flex-col justify-between pt-5 pb-10 border-t border-purple-200 sm:flex-row">
-                    <p className="text-sm text-gray-100">
+
+
+
+
+                <div className="flex gap-6 md:gap-0 flex-col justify-between pt-5 pb-10 border-t border-purple-200 sm:flex-row">
+                    <p className="text-sm text-gray-100 text-center">
                         © Copyright {currentYear} Scholarix. Created By Sajeed Aninda.
                     </p>
-                    <div className='flex items-center gap-3 text-[#F7FFF7]'>
+                    <div className='flex items-center justify-center gap-3 text-[#F7FFF7]'>
                         <a href={"https://www.facebook.com/sajeedaninda/"} target="_blank">
                             <FaFacebook className='text-2xl text-[#F7FFF7] hover:opacity-70' />
                         </a>

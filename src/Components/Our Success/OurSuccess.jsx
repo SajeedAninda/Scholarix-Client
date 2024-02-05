@@ -36,13 +36,13 @@ const OurSuccess = () => {
                     </div>
                 </div>
 
-                <div className='grid grid-cols-4 gap-6 text-white'>
+                <div className='grid grid-cols-2 lg:grid-cols-4 gap-6 text-white'>
                     <div className='flex flex-col items-center space-y-3'>
                         <BsFillPeopleFill className='text-[100px]' />
                         <h3 className='text-4xl font-bold'>
                             <AnimatedCounter end={1200} duration={3} startCounting={startCounting} /> +
                         </h3>
-                        <h3 className='text-3xl font-bold'>Satisfied Clients</h3>
+                        <h3 className='text-3xl font-bold text-center'>Satisfied Clients</h3>
                     </div>
 
                     <div className='flex flex-col items-center space-y-3'>
@@ -50,7 +50,7 @@ const OurSuccess = () => {
                         <h3 className='text-4xl font-bold'>
                             <AnimatedCounter end={9} duration={3} startCounting={startCounting} />
                         </h3>
-                        <h3 className='text-3xl font-bold'>Countries</h3>
+                        <h3 className='text-3xl font-bold text-center'>Countries</h3>
                     </div>
 
                     <div className='flex flex-col items-center space-y-3'>
@@ -58,7 +58,7 @@ const OurSuccess = () => {
                         <h3 className='text-4xl font-bold'>
                             <AnimatedCounter end={100} duration={3} startCounting={startCounting} /> +
                         </h3>
-                        <h3 className='text-3xl font-bold'>Universities</h3>
+                        <h3 className='text-3xl font-bold text-center'>Universities</h3>
                     </div>
 
                     <div className='flex flex-col items-center space-y-3'>
@@ -66,7 +66,7 @@ const OurSuccess = () => {
                         <h3 className='text-4xl font-bold'>
                             <AnimatedCounter end={700} duration={3} startCounting={startCounting} /> +
                         </h3>
-                        <h3 className='text-3xl font-bold'>Students Helped</h3>
+                        <h3 className='text-3xl font-bold text-center'>Students Helped</h3>
                     </div>
                 </div>
             </div>
