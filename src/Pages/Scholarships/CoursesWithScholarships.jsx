@@ -35,7 +35,7 @@ const CoursesWithScholarships = () => {
 
             <div className='mt-6'>
                 <Tab.Group>
-                    <Tab.List className="flex space-x-1 rounded-xl bg-white border-2 border-[#ed4747] p-1">
+                    <Tab.List className="flex overflow-x-scroll space-x-4 md:space-x-1 rounded-xl bg-white border-2 border-[#ed4747] p-1">
                         <Tab
                             className={({ selected }) =>
                                 classNames(

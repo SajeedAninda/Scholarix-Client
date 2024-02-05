@@ -23,13 +23,13 @@ const DifferentScholarships = () => {
 
     return (
         <div>
-            <div className="max-w-3xl mx-auto pb-12">
+            <div className="max-w-3xl mx-auto pb-0 lg:pb-12">
                 <h1 className="text-lg text-[#0e2b45] text-center">Popular Scholarships in Different Countries</h1>
                 <p className="text-xl font-semibold text-[#0e2b45] text-center">Elevate your academic journey, as we guide you through these esteemed scholarship programs designed to empower aspiring minds, fostering cross-cultural exchange, and shaping the leaders of tomorrow.
                 </p>
             </div>
 
-            <div className="flex gap-10 flex-col md:flex-row justify-between items-center">
+            <div className="flex gap-10 flex-col lg:flex-row justify-between items-center">
                 <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 " data-aos="fade-right">
                     <div className="mb-8 md:mb-0">
                         <a
@@ -124,7 +124,7 @@ const DifferentScholarships = () => {
                     </div>
                 </div>
 
-                <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 md:mb-0 md:order-1">
+                <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-5 lg:col-span-6 mb-8 lg:mb-0 md:order-1">
                     <div className="transition-all">
                         <div className="relative flex flex-col text-center lg:text-right" data-aos="zoom-y-out" ref={tabs}>
                             {/* Item 1 */}
