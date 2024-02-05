@@ -63,8 +63,8 @@ const Courses = () => {
                     </div>
                 </div>
 
-                <div className='flex gap-6'>
-                    <div className='filters w-[30%] border-2 border-[#ed4747] px-4 pt-4 pb-8 rounded-md h-fit'>
+                <div className='flex flex-col md:flex-row gap-6'>
+                    <div className='filters w-full md:w-[30%] border-2 border-[#ed4747] px-4 pt-4 pb-8 rounded-md h-fit'>
                         <div className='FilterHeader border-b-2 border-[#ed4747] flex justify-center items-center gap-2 py-2'>
                             <h2 className='text-xl font-bold text-center'>Filter Courses</h2>
                             <TbFilterSearch className='text-3xl' />
@@ -149,7 +149,7 @@ const Courses = () => {
                         </div>
                     </div>
 
-                    <div className='search&card w-[70%]'>
+                    <div className='search&card w-full md:w-[70%]'>
                         <div className='SearchBar relative'>
                             <input onChange={(e) => { setSearchText(e.target.value) }} className='w-full border-2 border-[#ed4747] rounded-lg py-3 px-4 text-[#0e2b45] font-semibold placeholder:font-semibold' type="text" placeholder='Search By Course or University Name' />
                             <FaSearch className='text-xl absolute right-5 bottom-4 text-[#ed4747] cursor-pointer' />
@@ -199,7 +199,7 @@ const Courses = () => {
 
 
                         <div className='PAGINATIONSECTION flex justify-center gap-4 mt-4'>
-                            <button onClick={handlePrevious} className='bg-[#ed4747] px-5 py-1 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] hover:text-[#ed4747] transition ease-in-out delay-50 text-lg'>
+                            <button onClick={handlePrevious} className='bg-[#ed4747] px-2 md:px-5 py-1 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] hover:text-[#ed4747] transition ease-in-out delay-50 text-base'>
                                 <IoMdArrowRoundBack />
                             </button>
                             {displayPages.map((pageIndex, index) => (
@@ -207,12 +207,12 @@ const Courses = () => {
                                     key={index}
                                     onClick={() => setPage(pageIndex)}
                                     className={`${pageIndex === page ? 'bg-[#ed4747] text-[#F7FFF7]' : 'bg-white text-[#ed4747]'
-                                        } px-5 py-1 rounded-md font-bold border-2 border-[#ed4747] hover:border-2 hover:text-white hover:bg-[#ed4747] hover:border-[#ed4747] transition ease-in-out delay-50 text-lg`}
+                                        } px-3 md:px-5 py-1 rounded-md font-bold border-2 border-[#ed4747] hover:border-2 hover:text-white hover:bg-[#ed4747] hover:border-[#ed4747] transition ease-in-out delay-50 text-lg`}
                                 >
                                     {pageIndex + 1}
                                 </button>
                             ))}
-                            <button onClick={handleNext} className='bg-[#ed4747] px-5 py-1 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-lg hover:text-[#ed4747]'>
+                            <button onClick={handleNext} className='bg-[#ed4747] px-2 md:px-5 py-1 rounded-md font-bold text-[#F7FFF7] border-2 border-[#ed4747] hover:border-2 hover:bg-transparent hover:border-[#ed4747] transition ease-in-out delay-50 text-base hover:text-[#ed4747]'>
                                 <IoMdArrowRoundForward />
                             </button>
                         </div>
