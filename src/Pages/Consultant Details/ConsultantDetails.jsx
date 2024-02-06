@@ -71,12 +71,12 @@ const ConsultantDetails = () => {
 
     return (
         <div className='w-[90%] mx-auto py-8'>
-            <div className='flex gap-8 space-y-2'>
-                <div className='w-[40%]'>
+            <div className='flex flex-col md:flex-row gap-8 space-y-2'>
+                <div className='w-full md:w-[40%]'>
                     <img className='w-full h-[350px] object-cover border-8 border-[#ed4747] rounded-md' src={imageUrl} alt="" />
                 </div>
 
-                <div className='space-y-2 w-[60%]'>
+                <div className='space-y-2 w-full md:w-[60%]'>
                     <h1 className='text-4xl font-bold text-[#0e2b45]'>{fullName}</h1>
                     <h2 className='text-2xl font-semibold text-[#0e2b45]'>{expertise}</h2>
                     <div className='flex gap-3'>
@@ -95,50 +95,50 @@ const ConsultantDetails = () => {
                 </div>
             </div>
 
-            <div className='bg-[#F7FFF7] mt-6 py-4 px-6'>
+            <div className='bg-[#F7FFF7] mt-6 py-4 px-0 md:px-6'>
                 <div>
                     <h2 className='text-[#0e2b45] text-3xl text-center font-bold'>Overview</h2>
                     <table className='w-full my-6'>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Expertise</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Expertise</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45]'>
                                 {expertise}
                             </td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Qualifications</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{qualification}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Qualifications</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{qualification}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Experience</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{experience}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Experience</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45]'>{experience}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Speciality In</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{specialization}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Speciality In</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{specialization}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Availability</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{availabilityCategory(availability)}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Availability</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{availabilityCategory(availability)}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Charge</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{charge}$ Per Session</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Charge</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{charge}$ Per Session</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Phone Number</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{phoneNumber}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Phone Number</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{phoneNumber}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Email</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] lowercase'>{email}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Email</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-2 md:px-8 text-lg font-bold text-[#0e2b45] lowercase'>{email}</td>
                         </tr>
                     </table>
                 </div>
