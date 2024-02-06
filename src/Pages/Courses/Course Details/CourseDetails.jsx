@@ -91,12 +91,12 @@ const CourseDetails = () => {
 
     return (
         <div className='w-[90%] mx-auto py-8'>
-            <div className='flex gap-8'>
-                <div className='w-[40%]'>
+            <div className='flex flex-col lg:flex-row gap-8'>
+                <div className='w-full lg:w-[40%]'>
                     <img className='w-full h-[350px] object-cover border-8 border-[#ed4747] rounded-md' src={imageUrl} alt="" />
                 </div>
 
-                <div className='space-y-2 w-[60%]'>
+                <div className='space-y-2 w-full lg:w-[60%]'>
                     <h1 className='text-4xl font-bold text-[#0e2b45]'>{course_name}</h1>
                     <h2 className='text-2xl font-semibold text-[#0e2b45]'>{university_name}</h2>
                     <div className='flex gap-3'>
@@ -106,7 +106,7 @@ const CourseDetails = () => {
                     </div>
                     <h2 className='text-2xl font-bold text-[#0e2b45]'>Tuition Fee:
                         {available_scholarship === "yes" ?
-                            <span className='space-x-2'>
+                            <span className='space-x-2 flex flex-col md:flex-row space-y-3 md:space-y-0'>
                                 <span className='text-4xl text-[#ed4747] ml-2'>
                                     {tuition_fees - scholarship_amount}$/Semester
                                 </span>
@@ -151,49 +151,49 @@ const CourseDetails = () => {
                 </div>
             </div>
 
-            <div className='bg-[#F7FFF7] mt-6 py-4 px-6'>
-                <h1 className='text-[#0e2b45] text-3xl font-bold'>Program Details</h1>
+            <div className='bg-[#F7FFF7] mt-6 py-4 px-0 md:px-6'>
+                <h1 className='text-[#0e2b45] text-3xl font-bold pb-4 lg:pb-0'>Program Details</h1>
                 <div>
                     <h2 className='text-[#0e2b45] text-2xl text-center font-bold'>Basic Information</h2>
                     <table className='w-full my-6'>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Course Name</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'><span className='capitalize'>{degree_name}</span> in {course_name}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Course Name</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'><span className='capitalize'>{degree_name}</span> in {course_name}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Field</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{field_name}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Field</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{field_name}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>University Name</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{university_name}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>University Name</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>{university_name}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Country</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{country_name}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Country</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{country_name}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>City</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{city_name}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>City</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{city_name}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Duration</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{courseDuration(degree_name)}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Duration</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{courseDuration(degree_name)}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Intake</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{intakeTimeToDisplay(intake_time)}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Intake</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{intakeTimeToDisplay(intake_time)}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Application Deadline</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize '>{formatDate(application_deadline)}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736] capitalize'>Application Deadline</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] capitalize '>{formatDate(application_deadline)}</td>
                         </tr>
                     </table>
                 </div>
@@ -202,33 +202,33 @@ const CourseDetails = () => {
                     <h2 className='text-[#0e2b45] text-2xl text-center font-bold'>Fees Structure</h2>
                     <table className='w-full my-6'>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Basic Tuition Fees</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{tuition_fees} Dollars</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Basic Tuition Fees</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>{tuition_fees} Dollars</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Scholarship Availibility</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] capitalize'>{available_scholarship}</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Scholarship Availibility</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] capitalize'>{available_scholarship}</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Scholarship Amount</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{scholarship_amount > 0 ? scholarship_amount : 0} Dollars</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Scholarship Amount</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>{scholarship_amount > 0 ? scholarship_amount : 0} Dollars</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Tuition Fees After Scholarship</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>{tuition_fees - scholarship_amount} Dollars</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Tuition Fees After Scholarship</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>{tuition_fees - scholarship_amount} Dollars</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Application Fees</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>100 Dollars</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Application Fees</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>100 Dollars</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Service Fee (After Admission)</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>500 Dollars</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]'>Service Fee (After Admission)</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>500 Dollars</td>
                         </tr>
                     </table>
                 </div>
@@ -237,45 +237,45 @@ const CourseDetails = () => {
                     <h2 className='text-[#0e2b45] text-2xl text-center font-bold'>Application Requirements</h2>
                     <table className='w-full my-6'>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[40%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]' rowSpan={11}>Documents Required</td>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Passport Sized Photographs</td>
+                            <td className='w-[40%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45] bg-[#ed474736]' rowSpan={11}>Documents Required</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Passport Sized Photographs</td>
                         </tr>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Passport ID Page</td>
-                        </tr>
-
-                        <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Academic Transcripts</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Passport ID Page</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Highest Degree Certificate</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Academic Transcripts</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Physical Examination Form</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Highest Degree Certificate</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Non-criminal Record</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Physical Examination Form</td>
+                        </tr>
+
+                        <tr className='w-full border border-gray-300'>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Non-criminal Record</td>
                         </tr>
 
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Language Proficiency Certificate</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Language Proficiency Certificate</td>
                         </tr>
 
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Bank Statement</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Bank Statement</td>
                         </tr>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Application Form</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Application Form</td>
                         </tr>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Study Plan</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Study Plan</td>
                         </tr>
                         <tr className='w-full border border-gray-300'>
-                            <td className='w-[60%] border border-gray-300 p-2 px-8 text-lg font-bold text-[#0e2b45]'>Two Letters of Recommendation</td>
+                            <td className='w-[60%] border border-gray-300 p-2 px-4 md:px-8 text-lg font-bold text-[#0e2b45]'>Two Letters of Recommendation</td>
                         </tr>
                     </table>
                 </div>
