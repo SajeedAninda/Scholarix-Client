@@ -47,37 +47,37 @@ const UserAppointments = () => {
     };
 
     return (
-        <div className='w-[95%] mx-auto py-8'>
+        <div className='w-[99%] md:w-[95%] mx-auto py-8'>
             <div>
                 <div className="max-w-3xl mx-auto">
-                    <h1 className="text-lg text-[#0e2b45] text-center">User Appointments</h1>
-                    <p className="text-xl font-semibold text-[#0e2b45] text-center">
+                    <h1 className="text-[9px] md:text-base lg:text-xl text-[#0e2b45] text-center">User Appointments</h1>
+                    <p className="text-[9px] md:text-base lg:text-xl font-semibold text-[#0e2b45] text-center">
                         See the appointments that you have made and paid for
                     </p>
                 </div>
             </div>
 
             <div className='mt-4'>
-                <div className='bg-gradient-to-r from-[#ed4747] to-[#920707] rounded-tl-xl rounded-tr-xl grid grid-cols-12 px-6 py-4'>
-                    <div className='text-white font-bold text-xl col-span-1 text-center flex justify-center items-center'>
+                <div className='bg-gradient-to-r from-[#ed4747] to-[#920707] rounded-tl-xl rounded-tr-xl grid grid-cols-12 px-2 md:px-6 py-4'>
+                    <div className='text-white font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center flex justify-center items-center'>
                         Consultant Name
                     </div>
-                    <div className='text-white font-bold text-xl col-span-3 text-center flex justify-center items-center'>
+                    <div className='text-white font-bold text-[9px] md:text-base lg:text-xl col-span-3 text-center flex justify-center items-center'>
                         Consultant <br /> Email
                     </div>
-                    <div className='text-white font-bold text-xl col-span-2 text-center flex justify-center items-center'>
+                    <div className='text-white font-bold text-[9px] md:text-base lg:text-xl col-span-2 text-center flex justify-center items-center'>
                         Consultant <br /> Phone
                     </div>
-                    <div className='text-white font-bold text-xl col-span-1 text-center flex justify-center items-center'>
+                    <div className='text-white font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center flex justify-center items-center'>
                         Appointment <br /> Date
                     </div>
-                    <div className='text-white font-bold text-xl col-span-2 text-center flex justify-center items-center'>
+                    <div className='text-white font-bold text-[9px] md:text-base lg:text-xl col-span-2 text-center flex justify-center items-center'>
                         Appointment <br /> Type
                     </div>
-                    <div className='text-white font-bold text-xl col-span-1 text-center flex justify-center items-center'>
+                    <div className='text-white font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center flex justify-center items-center'>
                         Charges
                     </div>
-                    <div className='text-white font-bold text-xl col-span-2 text-center'>
+                    <div className='text-white font-bold text-[9px] md:text-base lg:text-xl col-span-2 text-center'>
                         Transaction <br /> ID
                     </div>
                 </div>
@@ -90,18 +90,18 @@ const UserAppointments = () => {
                     {appointments && appointments.length > 0 ? (
                         appointments.map(appointment => (
                             <div key={appointment.id} className=''>
-                                <div className='bg-[#F7FFF7] border-b-2 border-[#ed4747] grid grid-cols-12 px-6 py-4 items-center'>
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center'>
+                                <div className='bg-[#F7FFF7] border-b-2 border-[#ed4747] grid grid-cols-12 px-6 py-4 items-center overflow-x-auto'>
+                                    <div className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center'>
                                         {appointment?.bookingDetails?.fullName}
                                     </div>
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-3 text-center'>
+                                    <div className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-3 text-center'>
                                         {appointment?.bookingDetails?.email}
                                     </div>
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center'>
+                                    <div className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-2 text-center'>
                                         {appointment?.bookingDetails?.phoneNumber}
                                     </div>
 
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
+                                    <div className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center capitalize'>
                                         {formatDate(appointment?.bookingDetails?.selectedDate)}
                                         {new Date(appointment?.bookingDetails?.selectedDate) < new Date() ?
                                             ' (Date has passed)' :
@@ -109,15 +109,15 @@ const UserAppointments = () => {
                                         }
                                     </div>
 
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-2 text-center capitalize'>
+                                    <div className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-2 text-center capitalize'>
                                         {availabilityCategory(appointment?.bookingDetails?.availability)}
                                     </div>
 
-                                    <div className='text-[#0e2b45] font-bold text-lg col-span-1 text-center capitalize'>
+                                    <div className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center capitalize'>
                                         {appointment?.bookingDetails?.charge} $
                                     </div>
 
-                                    <div className='text-[#0e2b45] bg-green-400 p-1 rounded-lg font-bold text-lg col-span-2 text-center capitalize  whitespace-normal'>
+                                    <div className='text-[#0e2b45] bg-green-400 p-1 rounded-lg font-bold text-[9px] md:text-base lg:text-xl col-span-2 text-center capitalize  whitespace-normal'>
                                         {(appointment?.transaction_id).slice(6)}
                                     </div>
                                 </div>

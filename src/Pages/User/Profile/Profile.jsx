@@ -44,7 +44,7 @@ const Profile = () => {
     return (
         <div>
             <div className='w-[90%] my-12 mx-auto bg-gradient-to-r from-[#ed4747] to-[#920707] shadow-2xl rounded-lg py-4 px-8'>
-                <h1 className='text-[white] text-center font-bold text-4xl'>Profile Information</h1>
+                <h1 className='text-[white] text-center font-bold text-3xl md:text-4xl'>Profile Information</h1>
                 <p className='text-[white] text-center font-bold text-lg mt-1'>
                     View Your Profile Information & Update
                 </p>
@@ -54,7 +54,7 @@ const Profile = () => {
                         <div className='w-full md:w-[50%] text-center'>
                             {/* Full Name */}
                             <div className='w-full'>
-                                <label className='text-3xl text-[white] font-semibold' htmlFor="fullName">
+                                <label className='text-2xl md:text-3xl text-[white] font-semibold' htmlFor="fullName">
                                     Full Name:
                                 </label>{' '}
                                 <br />
@@ -68,13 +68,13 @@ const Profile = () => {
                                         required
                                     />
                                 ) : (
-                                    <span className='text-4xl text-[white] font-bold mt-1'>{loggedInUser?.displayName}</span>
+                                    <span className='text-3xl md:text-4xl text-[white] font-bold mt-1'>{loggedInUser?.displayName}</span>
                                 )}
                             </div>
 
                             {/* Email */}
                             <div className='w-full mt-4'>
-                                <label className='text-3xl text-[white] font-semibold' htmlFor="email">
+                                <label className='text-2xl md:text-3xl text-[white] font-semibold' htmlFor="email">
                                     Email:
                                 </label>{' '}
                                 <br />
@@ -89,13 +89,13 @@ const Profile = () => {
                                         required
                                     />
                                 ) : (
-                                    <span className='text-4xl text-[white] font-bold mt-1'>{loggedInUser?.email}</span>
+                                    <span className='text-3xl md:text-4xl text-[white] font-bold mt-1'>{loggedInUser?.email}</span>
                                 )}
                             </div>
 
                             {/* Phone Number */}
                             <div className='w-full mt-4'>
-                                <label className='text-3xl text-[white] font-semibold' htmlFor="phoneNumber">
+                                <label className='text-2xl md:text-3xl text-[white] font-semibold' htmlFor="phoneNumber">
                                     Phone Number:
                                 </label>{' '}
                                 <br />
@@ -108,7 +108,7 @@ const Profile = () => {
                                         type='text'
                                     />
                                 ) : (
-                                    <span className='text-4xl text-[white] font-bold mt-1'>
+                                    <span className='text-3xl md:text-4xl text-[white] font-bold mt-1'>
                                         {loggedInUser?.phoneNumber ? loggedInUser.phoneNumber : 'N/A'}
                                     </span>
                                 )}
@@ -116,7 +116,7 @@ const Profile = () => {
 
                             {/* Image */}
                             <div className={`w-full text-center mt-4 ${editMode ? '' : 'flex flex-row items-center gap-2 justify-center'}`}>
-                                <label className='text-3xl text-[white] font-semibold' htmlFor="image">
+                                <label className='text-2xl md:text-3xl text-[white] font-semibold' htmlFor="image">
                                     Image:
                                 </label>{' '}
                                 <br />
@@ -130,7 +130,7 @@ const Profile = () => {
                                         required
                                     />
                                 ) : (
-                                    <span className='text-4xl text-[white] font-bold mt-1'>
+                                    <span className='text-3xl md:text-4xl text-[white] font-bold mt-1'>
                                         <img className='w-[70px] mt-2 rounded-full' src={loggedInUser?.photoURL} alt="" />
                                     </span>
                                 )}
