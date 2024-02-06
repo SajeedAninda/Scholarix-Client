@@ -69,7 +69,7 @@ const UpdateCourse = () => {
                 <div className='py-4 px-8'>
                     <form onSubmit={handleAddCourses}>
                         {/* 1st row */}
-                        <div className='flex flex-col md:flex-row gap-6w-full'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="courseName">
                                     Course Name:
@@ -88,7 +88,7 @@ const UpdateCourse = () => {
                         </div>
 
                         {/* 2nd row */}
-                        <div className='flex flex-col md:flex-row gap-6w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="degree">
                                     Degree:
@@ -120,7 +120,7 @@ const UpdateCourse = () => {
                         </div>
 
                         {/* 3rd row */}
-                        <div className='flex flex-col md:flex-row gap-6w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="country">
                                     Country:
@@ -153,7 +153,7 @@ const UpdateCourse = () => {
                         </div>
 
                         {/* 4th row */}
-                        <div className='flex flex-col md:flex-row gap-6w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <div className='flex-1'>
                                     <label className='text-white text-2xl font-bold text-center' htmlFor="tuitionFees">
@@ -166,7 +166,7 @@ const UpdateCourse = () => {
                         </div>
 
                         {/* 5th row */}
-                        <div className='flex flex-col md:flex-row gap-6w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="scholarship">
                                     Scholarship:
@@ -191,7 +191,7 @@ const UpdateCourse = () => {
                         </div>
 
                         {/* 6th row */}
-                        <div className='flex flex-col md:flex-row gap-6w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="intake">
                                     Intake:

@@ -5,8 +5,8 @@ import { IoIosPersonAdd } from "react-icons/io";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
-import useAuth from '../../Hooks/useAuth';
 import useAxiosInstance from '../../Hooks/useAxiosInstance';
+import useAuth from '../../Hooks/UseAuth';
 
 const Register = () => {
     let [selectedImage, setSelectedImage] = useState(null);
@@ -125,7 +125,7 @@ const Register = () => {
                 <div
                     className="bg-white flex flex-row-reverse justify-between items-center"
                 >
-                    <div className="flex-1">
+                    <div className="flex-1" data-aos="fade-left">
                         <div className="mt-12 flex flex-col items-center">
                             <h1 className="text-2xl xl:text-3xl font-extrabold text-[#0e2b45]">
                                 Register to Scholarix
@@ -233,7 +233,7 @@ const Register = () => {
 
 
 
-                    <div className="flex-1 text-center hidden lg:flex">
+                    <div className="flex-1 text-center hidden lg:flex" data-aos="fade-right">
                         <div>
                             <Lottie className='w-full' animationData={registerLottie} loop={true} />
                         </div>

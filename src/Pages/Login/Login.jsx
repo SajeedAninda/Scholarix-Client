@@ -64,7 +64,7 @@ const Login = () => {
                 <div
                     className="bg-white flex justify-between"
                 >
-                    <div className="flex-1">
+                    <div className="flex-1" data-aos="fade-right">
                         <div className="mt-12 flex flex-col items-center">
                             <h1 className="text-2xl xl:text-3xl font-extrabold text-[#0e2b45]">
                                 Login to Scholarix
@@ -139,14 +139,14 @@ const Login = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex-1 text-center hidden lg:flex">
+                    <div className="flex-1 text-center hidden lg:flex" data-aos="fade-left">
                         <div>
                             <Lottie animationData={loginLottie} loop={true} />
                         </div>
                     </div>
                 </div>
 
-                <div className='text-center text-2xl font-bold text-[#0e2b45]'>
+                <div className='text-center text-2xl font-bold text-[#0e2b45] mt-6 lg:mt-0'>
                     Don't have an Account? <Link className='text-[#ed4747] hover:underline' to={"/register"}>Register</Link>
                 </div>
             </div>
