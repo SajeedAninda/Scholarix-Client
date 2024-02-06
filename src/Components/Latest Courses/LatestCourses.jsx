@@ -31,7 +31,7 @@ const LatestCourses = () => {
                                     (
                                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 py-6'>
                                             {latestCourses?.map(course => (
-                                                <div key={course?._id} className="bg-whiterounded-lg shadow-lg flex flex-col">
+                                                <div key={course?._id} className="bg-whiterounded-lg shadow-lg flex flex-col" data-aos="flip-up">
                                                     <img className="rounded-t-lg w-full h-[200px] object-cover" src={course?.imageUrl} alt="" />
 
 

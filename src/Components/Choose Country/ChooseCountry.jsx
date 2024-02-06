@@ -19,7 +19,7 @@ const ChooseCountry = React.memo(() => {
 
                     {
                         countries ?
-                            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-6 gap-8'>
+                            <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-6 gap-8' >
                                 {
                                     countries?.map(country =>
                                         <div key={country._id} className="card">

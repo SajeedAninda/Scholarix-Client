@@ -19,7 +19,7 @@ const HowWeHelp = () => {
                 </div>
 
                 <div>
-                    <div className='flex items-center justify-between service1 py-8 px-12 rounded-full mb-6'>
+                    <div className='flex items-center justify-between service1 py-8 px-12 rounded-full mb-6' data-aos="fade-left">
                         <div className='w-[30%] flex '>
                             <img className='hidden md:inline-block md:w-[150px] md:h-[150px] lg:w-[200px] h-[200px] xl:w-[250px] xl:h-[250px] rounded-full object-cover' src={service1} alt="" />
                         </div>
@@ -32,7 +32,7 @@ const HowWeHelp = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-row-reverse items-center justify-between service2 py-8 px-12 rounded-full mb-6'>
+                    <div className='flex flex-row-reverse items-center justify-between service2 py-8 px-12 rounded-full mb-6' data-aos="fade-right">
                         <div className='w-[30%] flex justify-end'>
                             <img className='hidden md:inline-block md:w-[150px] md:h-[150px] lg:w-[200px] h-[200px] xl:w-[250px] xl:h-[250px] rounded-full object-cover' src={service2} alt="" />
                         </div>
@@ -45,8 +45,8 @@ const HowWeHelp = () => {
                         </div>
                     </div>
 
-                    <div className='flex items-center justify-between service1 py-8 px-12 rounded-full mb-6'>
-                        <div className='w-[30%] flex '>
+                    <div className='flex items-center justify-between service1 py-8 px-12 rounded-full mb-6' data-aos="fade-left">
+                        <div className='w-[30%] flex ' >
                             <img className='hidden md:inline-block md:w-[150px] md:h-[150px] lg:w-[200px] h-[200px] xl:w-[250px] xl:h-[250px] rounded-full object-cover' src={service3} alt="" />
                         </div>
                         <div className='flex flex-col gap-3 w-full md:w-[70%]'>
@@ -58,7 +58,7 @@ const HowWeHelp = () => {
                         </div>
                     </div>
 
-                    <div className='flex flex-row-reverse items-center justify-between service2 py-8 px-12 rounded-full mb-6'>
+                    <div className='flex flex-row-reverse items-center justify-between service2 py-8 px-12 rounded-full mb-6' data-aos="fade-right">
                         <div className='w-[30%] flex justify-end'>
                             <img className='hidden md:inline-block md:w-[150px] md:h-[150px] lg:w-[200px] h-[200px] xl:w-[250px] xl:h-[250px] rounded-full object-cover' src={service4} alt="" />
                         </div>

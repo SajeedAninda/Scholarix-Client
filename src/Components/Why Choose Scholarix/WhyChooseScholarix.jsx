@@ -50,12 +50,12 @@ const WhyChooseScholarix = () => {
                 </div>
 
                 <div className='flex flex-col md:flex-row'>
-                    <div className='images flex-1 relative'>
+                    <div className='images flex-1 relative' data-aos="fade-right">
                         <img className='w-[65%] rounded-lg border-8 border-[#ed4747]' src={choose2} alt="" />
                         <img className='w-[65%] rounded-lg border-8 border-[#ed4747] top-48 left-32 sm:top-72 sm:left-32 md:top-56 md:left-24 absolute lg:top-64 lg:left-32 xl:top-80 xl:left-32' src={choose1} alt="" />
                     </div>
 
-                    <div className="flex justify-center flex-1 pt-32 md:pt-0">
+                    <div className="flex justify-center flex-1 pt-32 md:pt-0" data-aos="fade-left">
                         <div className="rounded-lg space-y-6 cursor-pointer">
                             {/* maping each accordion  */}
                             {accordionData.map((arr, idx) => (
