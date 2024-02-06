@@ -22,10 +22,10 @@ const Consultants = () => {
             <div>
                 {
                     consultants ?
-                        <div className='grid grid-cols-3 gap-6'>
+                        <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6'>
                             {
                                 consultants.map(consultant =>
-                                    <div className="group before:hover:scale-95 before:hover:h-72 before:hover:w-80 before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-80 before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-[#ed4747] to-[#920707] before:absolute before:top-0 w-80 h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-2xl">
+                                    <div className="group before:hover:scale-95 before:hover:h-72 before:hover:w-full before:hover:rounded-b-2xl before:transition-all before:duration-500 before:content-[''] before:w-full before:h-24 before:rounded-t-2xl before:bg-gradient-to-bl from-[#ed4747] to-[#920707] before:absolute before:top-0 h-72 relative bg-slate-50 flex flex-col items-center justify-center gap-2 text-center rounded-2xl overflow-hidden shadow-2xl">
                                         <div className="w-28 h-28 mt-8 rounded-full border-4 border-slate-50 z-10 group-hover:scale-100 group-hover:-translate-x-24  group-hover:-translate-y-12 transition-all duration-500">
                                             <img className='w-28 h-28 object-cover rounded-full' src={consultant?.imageUrl} alt="" />
                                         </div>

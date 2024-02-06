@@ -10,17 +10,7 @@ const DifferentScholarships = () => {
             tabs.current.parentElement.style.height = `${tabs.current.clientHeight}px`;
         }
     };
-
-    // useEffect(() => {
-    //     heightFix();
-    //     const interval = setInterval(() => {
-    //         setTab((prevTab) => (prevTab % 9) + 1);
-    //     }, 8000);
-
-    //     return () => clearInterval(interval);
-    // }, []);
-
-
+    
     return (
         <div>
             <div className="max-w-3xl mx-auto pb-0 lg:pb-12">
@@ -29,7 +19,7 @@ const DifferentScholarships = () => {
                 </p>
             </div>
 
-            <div className="flex gap-10 flex-col lg:flex-row justify-between items-center">
+            <div className="mt-6 lg:mt-0 flex gap-10 flex-col lg:flex-row justify-between items-center">
                 <div className="max-w-xl md:max-w-none md:w-full mx-auto md:col-span-7 lg:col-span-6 " data-aos="fade-right">
                     <div className="mb-8 md:mb-0">
                         <a
