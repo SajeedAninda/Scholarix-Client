@@ -20,7 +20,7 @@ const CountryDetails = () => {
 
     return (
         <div className='w-[90%] mx-auto py-8'>
-            <div className='flex gap-10 items-center'>
+            <div className='flex flex-col lg:flex-row gap-10 items-center'>
                 <div className='flex-1'>
                     <img className='w-full h-[300px] border-8 border-[#ed4747] rounded-lg object-cover' src={country_img_url} alt="" />
                 </div>
@@ -41,7 +41,7 @@ const CountryDetails = () => {
                 <p className='text-lg font-semibold text-[#0e2b45]'>{why_students_study_here}</p>
             </div>
 
-            <div className='flex justify-between items-center'>
+            <div className='flex flex-col md:flex-row justify-between items-center'>
                 <div className='space-y-3 mt-6 flex-1'>
                     <h2 className='text-3xl font-bold text-[#0e2b45]'>Best Cities to study in {country_name}</h2>
                     <ul className='mt-4'>
@@ -73,7 +73,7 @@ const CountryDetails = () => {
 
             <div className='space-y-3 mt-10'>
                 <h2 className='text-3xl font-bold text-[#0e2b45] text-center'>Best Courses in {country_name}</h2>
-                <div className='flex justify-center mt-4 space-x-4'>
+                <div className='flex flex-col md:flex-row justify-center mt-4 space-x-4'>
                     {/* Left List */}
                     <ul className='text-center'>
                         {best_courses.slice(0, Math.ceil(best_courses.length / 2)).map((course, index) => (
