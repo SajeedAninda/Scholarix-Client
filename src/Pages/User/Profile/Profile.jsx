@@ -6,6 +6,7 @@ import { getAuth, updateProfile } from "firebase/auth";
 import { app } from '../../../Components/Authentication/firebase.config';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 const auth = getAuth(app);
 
 const Profile = () => {
@@ -43,6 +44,9 @@ const Profile = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>User | Profile</title>
+            </Helmet>
             <div className='w-[90%] my-12 mx-auto bg-gradient-to-r from-[#ed4747] to-[#920707] shadow-2xl rounded-lg py-4 px-8'>
                 <h1 className='text-[white] text-center font-bold text-3xl md:text-4xl'>Profile Information</h1>
                 <p className='text-[white] text-center font-bold text-lg mt-1'>

@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import CourseListSkeleton from '../../../Components/Skeleton/CourseListSkeleton';
+import { Helmet } from 'react-helmet-async';
 
 
 const CourseList = () => {
@@ -56,6 +57,9 @@ const CourseList = () => {
 
     return (
         <div className='mx-auto w-[98%] md:w-[90%] py-8'>
+            <Helmet>
+                <title>Admin | Course List</title>
+            </Helmet>
             <div className='space-y-2'>
                 <h1 className='text-[#0e2b45] text-4xl font-bold text-center'>Course List</h1>
                 <h2 className='text-[#0e2b45] text-xl font-bold text-center'>

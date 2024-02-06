@@ -1,10 +1,14 @@
 import React from 'react';
 import userLottie from "../../../assets/LottieFiles/userLottie.json"
 import Lottie from 'lottie-react';
+import { Helmet } from 'react-helmet-async';
 
 const UserDashboard = () => {
     return (
         <div className='w-[90%] mx-auto'>
+            <Helmet>
+                <title>User | Dashboard</title>
+            </Helmet>
             <div className='flex flex-col md:flex-row-reverse my-12 md:my-6 lg:my-2 justify-center items-center'>
                 <div className='flex-1 text-center'>
                     <h1 className='text-7xl md:text-8xl lg:text-9xl font-bold'><span className='text-[#ed4747]'>User</span> <br /> <span className='text-[#0e2b45]'>Panel</span> <br /></h1>

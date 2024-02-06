@@ -4,6 +4,7 @@ import "./addcourses.css"
 import axios from 'axios';
 import useAxiosInstance from '../../../Hooks/useAxiosInstance';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AddCourses = () => {
     let axiosInstance = useAxiosInstance();
@@ -83,6 +84,9 @@ const AddCourses = () => {
 
     return (
         <div className='py-8'>
+            <Helmet>
+                <title>Admin | Add Courses</title>
+            </Helmet>
             <div className='space-y-2'>
                 <h1 className='text-[#0e2b45] text-4xl font-bold text-center'>Add Courses</h1>
                 <h2 className='text-[#0e2b45] text-xl font-bold text-center'>

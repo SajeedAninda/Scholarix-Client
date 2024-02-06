@@ -7,6 +7,7 @@ import TabCourseSkeleton from '../../../Components/Skeleton/TabCourseSkeleton';
 import { MdDelete } from "react-icons/md";
 import Swal from 'sweetalert2';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 
 const BookmarkedCourses = () => {
@@ -51,6 +52,9 @@ const BookmarkedCourses = () => {
 
     return (
         <div className='w-[90%] mx-auto py-8'>
+            <Helmet>
+                <title>User | Bookmarked Courses</title>
+            </Helmet>
             <div>
                 <div className="max-w-3xl mx-auto">
                     <h1 className="text-lg text-[#0e2b45] text-center">Bookmarked Courses</h1>

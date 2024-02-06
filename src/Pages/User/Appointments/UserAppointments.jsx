@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import useAuth from '../../../Hooks/useAuth';
 import CourseListSkeleton from '../../../Components/Skeleton/CourseListSkeleton';
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const UserAppointments = () => {
     let axiosInstance = useAxiosInstance();
@@ -48,6 +49,9 @@ const UserAppointments = () => {
 
     return (
         <div className='w-[99%] md:w-[95%] mx-auto py-8'>
+            <Helmet>
+                <title>User | User Appointments</title>
+            </Helmet>
             <div>
                 <div className="max-w-3xl mx-auto">
                     <h1 className="text-[9px] md:text-base lg:text-xl text-[#0e2b45] text-center">User Appointments</h1>

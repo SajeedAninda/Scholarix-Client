@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosInstance from '../../../Hooks/useAxiosInstance';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const ConsultantList = () => {
     let { consultants, refetch } = useConsultants();
@@ -41,6 +42,9 @@ const ConsultantList = () => {
 
     return (
         <div className='mx-auto w-[98%] md:w-[90%] py-8'>
+            <Helmet>
+                <title>Admin | Consultant List</title>
+            </Helmet>
             <div className='space-y-2'>
                 <h1 className='text-[#0e2b45] text-4xl font-bold text-center'>Consultant List</h1>
                 <h2 className='text-[#0e2b45] text-[9px] md:text-base lg:text-xl font-bold text-center'>

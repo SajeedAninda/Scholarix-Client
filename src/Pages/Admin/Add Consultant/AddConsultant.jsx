@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import useAxiosInstance from '../../../Hooks/useAxiosInstance';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
 const AddConsultant = () => {
     let [selectedImage, setSelectedImage] = useState(null);
@@ -68,6 +69,9 @@ const AddConsultant = () => {
 
     return (
         <div className='py-8'>
+            <Helmet>
+                <title>Admin | Add Consultant</title>
+            </Helmet>
             <div className='space-y-2'>
                 <h1 className='text-[#0e2b45] text-4xl font-bold text-center'>Add Consultants</h1>
                 <h2 className='text-[#0e2b45] text-xl font-bold text-center'>
