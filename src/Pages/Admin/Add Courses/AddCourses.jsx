@@ -93,7 +93,7 @@ const AddCourses = () => {
                 <div className='py-4 px-8'>
                     <form onSubmit={handleAddCourses}>
                         {/* 1st row */}
-                        <div className='flex gap-6 w-full'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="courseName">
                                     Course Name:
@@ -112,7 +112,7 @@ const AddCourses = () => {
                         </div>
 
                         {/* 2nd row */}
-                        <div className='flex gap-6 w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="degree">
                                     Degree:
@@ -144,7 +144,7 @@ const AddCourses = () => {
                         </div>
 
                         {/* 3rd row */}
-                        <div className='flex gap-6 w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="country">
                                     Country:
@@ -177,7 +177,7 @@ const AddCourses = () => {
                         </div>
 
                         {/* 4th row */}
-                        <div className='flex gap-6 w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <div className='flex-1'>
                                     <label className='text-white text-2xl font-bold text-center' htmlFor="tuitionFees">
@@ -190,7 +190,7 @@ const AddCourses = () => {
                         </div>
 
                         {/* 5th row */}
-                        <div className='flex gap-6 w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="scholarship">
                                     Scholarship:
@@ -215,7 +215,7 @@ const AddCourses = () => {
                         </div>
 
                         {/* 6th row */}
-                        <div className='flex gap-6 w-full mt-6'>
+                        <div className='flex flex-col md:flex-row gap-6 w-full mt-6'>
                             <div className='flex-1'>
                                 <label className='text-white text-2xl font-bold text-center' htmlFor="intake">
                                     Intake:
@@ -243,7 +243,7 @@ const AddCourses = () => {
 
                         {/* 7th row  */}
                         <div className='mt-5 bg-transparent w-full m-auto rounded-xl'>
-                            <div className='px-5 py-3 relative rounded-lg'>
+                            <div className='px-2 md:px-5 py-3 relative rounded-lg'>
                                 <div className='flex flex-col w-max mx-auto text-center'>
                                     <label>
                                         <input
@@ -255,7 +255,7 @@ const AddCourses = () => {
                                             hidden
                                             onChange={handleImageChange}
                                         />
-                                        <div className='bg-transparent border-2 border-white text-white text-2xl font-bold cursor-pointer py-2 px-7 hover:bg-[white] hover:border-[#ed4747] hover:text-[#ed4747] rounded-xl'>
+                                        <div className='bg-transparent border-2 border-white text-white text-md md:text-2xl font-bold cursor-pointer py-2 px-2 md:px-7 hover:bg-[white] hover:border-[#ed4747] hover:text-[#ed4747] rounded-xl'>
                                             {selectedImage ? selectedImage.name : "Upload Relevant University Picture"}
                                         </div>
                                     </label>
