@@ -4,12 +4,16 @@ import { useQuery } from '@tanstack/react-query';
 import { Link } from 'react-router-dom';
 import useConsultants from '../../Hooks/useConsultants';
 import ConsultantSkeleton from '../../Components/Skeleton/ConsultantSkeleton';
+import { Helmet } from 'react-helmet-async';
 
 const Consultants = () => {
     let { consultants } = useConsultants();
 
     return (
         <div className='w-[90%] mx-auto py-8'>
+            <Helmet>
+                <title>Scholarix | Consultants</title>
+            </Helmet>
             <div>
                 <div className="max-w-3xl mx-auto text-center pb-8">
                     <h1 className="mb-4 text-lg text-[#0e2b45]">Consultants</h1>

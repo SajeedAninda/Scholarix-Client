@@ -5,6 +5,7 @@ import { Fragment, useState } from 'react'
 import useAuth from '../../Hooks/useAuth';
 import useAxiosInstance from '../../Hooks/useAxiosInstance';
 import toast from 'react-hot-toast';
+import { Helmet } from 'react-helmet-async';
 
 const ConsultantDetails = () => {
     let { loggedInUser } = useAuth();
@@ -71,6 +72,9 @@ const ConsultantDetails = () => {
 
     return (
         <div className='w-[90%] mx-auto py-8'>
+            <Helmet>
+                <title>Scholarix | Consultant Details</title>
+            </Helmet>
             <div className='flex flex-col md:flex-row gap-8 space-y-2'>
                 <div className='w-full md:w-[40%]'>
                     <img className='w-full h-[350px] object-cover border-8 border-[#ed4747] rounded-md' src={imageUrl} alt="" />

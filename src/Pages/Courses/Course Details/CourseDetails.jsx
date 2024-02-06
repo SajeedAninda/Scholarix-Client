@@ -3,6 +3,7 @@ import { useLoaderData } from 'react-router-dom';
 import useAxiosInstance from '../../../Hooks/useAxiosInstance';
 import toast from 'react-hot-toast';
 import useAuth from '../../../Hooks/useAuth';
+import { Helmet } from 'react-helmet-async';
 
 const CourseDetails = () => {
     let axiosInstance = useAxiosInstance();
@@ -91,6 +92,9 @@ const CourseDetails = () => {
 
     return (
         <div className='w-[90%] mx-auto py-8'>
+            <Helmet>
+                <title>Scholarix | Course Details</title>
+            </Helmet>
             <div className='flex flex-col lg:flex-row gap-8'>
                 <div className='w-full lg:w-[40%]'>
                     <img className='w-full h-[350px] object-cover border-8 border-[#ed4747] rounded-md' src={imageUrl} alt="" />

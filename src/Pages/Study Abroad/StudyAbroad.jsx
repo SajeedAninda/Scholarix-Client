@@ -6,12 +6,16 @@ import StudyAbroadTabs from './StudyAbroadTabs';
 import CountrySkeleton from '../../Components/Skeleton/CountrySkeleton';
 import { Link } from 'react-router-dom';
 import useCountries from '../../Hooks/useCountries';
+import { Helmet } from 'react-helmet-async';
 
 const StudyAbroad = () => {
     let { countries } = useCountries();
 
     return (
         <div className='w-[90%] mx-auto py-8'>
+            <Helmet>
+                <title>Scholarix | Study Abroad</title>
+            </Helmet>
             <div>
                 <div>
                     <div className="max-w-3xl mx-auto">

@@ -5,6 +5,7 @@ import { LiaUniversitySolid } from "react-icons/lia";
 import { FaBookReader } from "react-icons/fa";
 import useCourses from '../../Hooks/useCourses';
 import CourseSkeleton from '../../Components/Skeleton/CourseSkeleton';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -20,6 +21,9 @@ const CountryDetails = () => {
 
     return (
         <div className='w-[90%] mx-auto py-8'>
+            <Helmet>
+                <title>Scholarix | Country Details</title>
+            </Helmet>
             <div className='flex flex-col lg:flex-row gap-10 items-center'>
                 <div className='flex-1'>
                     <img className='w-full h-[300px] border-8 border-[#ed4747] rounded-lg object-cover' src={country_img_url} alt="" />
@@ -118,7 +122,7 @@ const CountryDetails = () => {
                             (
                                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 py-6'>
                                     {scholarshipCourses?.map(course => (
-                                        <div key={course?._id} className="bg-whiterounded-lg shadow-lg flex flex-col">
+                                        <div key={course?._id} className="bg-whiterounded-lg shadow-lg flex flex-col" data-aos="flip-up">
                                             <img className="rounded-t-lg w-full h-[200px] object-cover" src={course?.imageUrl} alt="" />
 
 

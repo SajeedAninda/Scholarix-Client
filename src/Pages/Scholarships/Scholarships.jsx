@@ -2,10 +2,14 @@ import React from 'react';
 import scholarshipImg from "../../assets/ScholarshipImage/scholarshipImg.jpg"
 import DifferentScholarships from './DifferentScholarships';
 import CoursesWithScholarships from './CoursesWithScholarships';
+import { Helmet } from 'react-helmet-async';
 
 const Scholarships = () => {
     return (
         <div className='w-[90%] mx-auto py-8'>
+            <Helmet>
+                <title>Scholarix | Scholarships</title>
+            </Helmet>
             <div>
                 <div className="max-w-3xl mx-auto pb-12">
                     <h1 className="text-lg text-[#0e2b45] text-center">Study With Scholarship</h1>

@@ -8,10 +8,14 @@ import WhyChooseScholarix from '../../Components/Why Choose Scholarix/WhyChooseS
 import OurSuccess from '../../Components/Our Success/OurSuccess';
 import PeopleSays from '../../Components/People Says/PeopleSays';
 import LatestCourses from '../../Components/Latest Courses/LatestCourses';
+import { Helmet } from 'react-helmet-async';
 
 const Homepage = () => {
     return (
         <div>
+            <Helmet>
+                <title>Scholarix | Home</title>
+            </Helmet>
             <Banner></Banner>
             <WhatWeDo></WhatWeDo>
             <HowWeHelp></HowWeHelp>

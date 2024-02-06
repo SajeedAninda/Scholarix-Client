@@ -36,6 +36,7 @@ import Profile from './Pages/User/Profile/Profile.jsx';
 import AdminRoute from './Components/Authentication/Admin Route/AdminRoute.jsx';
 import UserRoute from './Components/Authentication/User Route/UserRoute.jsx';
 import PrivateRoute from './Components/Authentication/Private Route/PrivateRoute.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient()
 
@@ -162,7 +163,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <Toaster />
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <RouterProvider router={router} />
+        <HelmetProvider>
+          <RouterProvider router={router} />
+        </HelmetProvider>
       </AuthProvider>
     </QueryClientProvider>
   </React.StrictMode>

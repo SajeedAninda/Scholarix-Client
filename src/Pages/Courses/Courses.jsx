@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { IoMdArrowRoundForward } from "react-icons/io";
 import CourseSkeleton from '../../Components/Skeleton/CourseSkeleton';
+import { Helmet } from 'react-helmet-async';
 
 
 
@@ -54,6 +55,9 @@ const Courses = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Scholarix | Courses</title>
+            </Helmet>
             <div className='w-[90%] mx-auto py-8'>
                 <div>
                     <div className="max-w-3xl mx-auto text-center pb-8">
