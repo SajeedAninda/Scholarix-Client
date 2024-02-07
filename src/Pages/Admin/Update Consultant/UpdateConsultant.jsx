@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
-import { useLoaderData } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { useLoaderData, useNavigate } from 'react-router-dom';
+import useAxiosInstance from '../../../Hooks/useAxiosInstance';
 
 const UpdateConsultant = () => {
     let consultantData = useLoaderData();
@@ -8,6 +10,9 @@ const UpdateConsultant = () => {
 
     let [availability, setAvailability] = useState(consultantData.availability);
     let [specialization, setSpecialization] = useState(consultantData.specialization);
+
+    let axiosInstance = useAxiosInstance();
+    let navigate = useNavigate();
 
 
     let handleAddConsultant = (e) => {
@@ -22,9 +27,19 @@ const UpdateConsultant = () => {
         let bio = e.target.bio.value;
         let charge = e.target.charge.value;
 
+        let loadingToast = toast.loading('Updating Consultant...');
+
         let consultantData = { fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization };
 
-        console.log(consultantData);
+        axiosInstance.patch(`/updateConsultant/${_id}`, consultantData)
+            .then(res => {
+                console.log(res.data);
+                if (res.data.modifiedCount > 0) {
+                    toast.dismiss(loadingToast);
+                    toast.success("Updated Consultant Successfully");
+                    navigate("/admin/consultantList");
+                }
+            })
     }
 
     return (
