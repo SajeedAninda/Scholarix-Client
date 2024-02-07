@@ -4,14 +4,27 @@ import { useLoaderData } from 'react-router-dom';
 
 const UpdateConsultant = () => {
     let consultantData = useLoaderData();
-    // let { _id, fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization, imageUrl } = consultantData;
+    let { _id, fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, imageUrl } = consultantData;
 
-    let [availability, setAvailability] = useState("");
-    let [specialization, setSpecialization] = useState("");
+    let [availability, setAvailability] = useState(consultantData.availability);
+    let [specialization, setSpecialization] = useState(consultantData.specialization);
 
 
-    let handleAddConsultant = () => {
+    let handleAddConsultant = (e) => {
+        e.preventDefault();
 
+        let fullName = e.target.fullName.value;
+        let qualification = e.target.qualification.value;
+        let expertise = e.target.expertise.value;
+        let experience = e.target.experience.value;
+        let email = e.target.email.value;
+        let phoneNumber = e.target.phoneNumber.value;
+        let bio = e.target.bio.value;
+        let charge = e.target.charge.value;
+
+        let consultantData = { fullName, qualification, expertise, experience, email, phoneNumber, bio, charge, availability, specialization };
+
+        console.log(consultantData);
     }
 
     return (
@@ -35,7 +48,7 @@ const UpdateConsultant = () => {
                                     Full Name:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: John Doe' type="text" name='fullName' id='fullName' required />
+                                <input defaultValue={fullName} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: John Doe' type="text" name='fullName' id='fullName' required />
                             </div>
 
                             <div className='flex-1'>
@@ -43,7 +56,7 @@ const UpdateConsultant = () => {
                                     Educational Qualification:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Bachelors in Educational Psychology' type="text" name='qualification' id='qualification' required />
+                                <input defaultValue={qualification} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Bachelors in Educational Psychology' type="text" name='qualification' id='qualification' required />
                             </div>
                         </div>
 
@@ -53,7 +66,7 @@ const UpdateConsultant = () => {
                                     Expertise:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Study Abroad, Career Counseling etc' type="text" name='expertise' id='expertise' required />
+                                <input defaultValue={expertise} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: Study Abroad, Career Counseling etc' type="text" name='expertise' id='expertise' required />
                             </div>
 
                             <div className='flex-1'>
@@ -61,7 +74,7 @@ const UpdateConsultant = () => {
                                     Experience:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 10+ years in education consultancy' type="text" name='experience' id='experience' required />
+                                <input defaultValue={experience} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 10+ years in education consultancy' type="text" name='experience' id='experience' required />
                             </div>
                         </div>
 
@@ -71,7 +84,7 @@ const UpdateConsultant = () => {
                                     Email:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: johndoe@gmail.com' type="email" name='email' id='email' required />
+                                <input defaultValue={email} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: johndoe@gmail.com' type="email" name='email' id='email' required />
                             </div>
 
                             <div className='flex-1'>
@@ -79,7 +92,7 @@ const UpdateConsultant = () => {
                                     Phone Number:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='+8801754334429' type="tel" name='phoneNumber' id='phoneNumber' required />
+                                <input defaultValue={phoneNumber} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='+8801754334429' type="tel" name='phoneNumber' id='phoneNumber' required />
                             </div>
                         </div>
 
@@ -89,7 +102,7 @@ const UpdateConsultant = () => {
                                     Bio:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: John Doe is a seasoned education consultant with a strong background in guiding students etc' type="text" name='bio' id='bio' required />
+                                <input defaultValue={bio} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: John Doe is a seasoned education consultant with a strong background in guiding students etc' type="text" name='bio' id='bio' required />
                             </div>
 
                             <div className='flex-1'>
@@ -97,7 +110,7 @@ const UpdateConsultant = () => {
                                     Availability:
                                 </label>
                                 <br />
-                                <select onChange={(e) => { setAvailability(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="availability" id="availability" required>
+                                <select value={consultantData.availability} onChange={(e) => { setAvailability(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="availability" id="availability" required>
                                     <option value="">Select Availability Format</option>
                                     <option value="virtual">Virtual</option>
                                     <option value="inPerson">In Person</option>
@@ -112,7 +125,7 @@ const UpdateConsultant = () => {
                                     Consultancy Charge:
                                 </label>
                                 <br />
-                                <input className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 50$' type="number" name='charge' id='charge' required />
+                                <input defaultValue={charge} className='mt-2 px-4 w-full rounded-lg py-2' placeholder='E.g: 50$' type="number" name='charge' id='charge' required />
                             </div>
 
                             <div className='flex-1'>
@@ -120,7 +133,7 @@ const UpdateConsultant = () => {
                                     Specialization In:
                                 </label>
                                 <br />
-                                <select onChange={(e) => { setSpecialization(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="specialization" id="specialization" required>
+                                <select value={consultantData.specialization} onChange={(e) => { setSpecialization(e.target.value) }} className='mt-2 px-4 w-full rounded-lg py-2' name="specialization" id="specialization" required>
                                     <option value="">Select The Related Field</option>
                                     <option value="engineering">Engineering</option>
                                     <option value="management">Management</option>
