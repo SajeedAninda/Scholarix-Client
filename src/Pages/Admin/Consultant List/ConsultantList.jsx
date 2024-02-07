@@ -95,7 +95,7 @@ const ConsultantList = () => {
                                             {consultant?.expertise}
                                         </div>
 
-                                        <Link to={`updateCourse/${consultant?._id}`} className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center flex justify-center'>
+                                        <Link to={`updateConsultant/${consultant?._id}`} className='text-[#0e2b45] font-bold text-[9px] md:text-base lg:text-xl col-span-1 text-center flex justify-center'>
                                             <MdEditSquare className='text-[12px] md:text-base lg:text-3xl cursor-pointer font-bold text-[#0e2b45]' />
                                         </Link>
 

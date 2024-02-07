@@ -37,6 +37,7 @@ import AdminRoute from './Components/Authentication/Admin Route/AdminRoute.jsx';
 import UserRoute from './Components/Authentication/User Route/UserRoute.jsx';
 import PrivateRoute from './Components/Authentication/Private Route/PrivateRoute.jsx';
 import { HelmetProvider } from 'react-helmet-async';
+import UpdateConsultant from './Pages/Admin/Update Consultant/UpdateConsultant.jsx';
 
 const queryClient = new QueryClient()
 
@@ -131,6 +132,11 @@ const router = createBrowserRouter([
       {
         path: "consultantList",
         element: <AdminRoute><ConsultantList></ConsultantList></AdminRoute>
+      },
+      {
+        path: "consultantList/updateConsultant/:id",
+        loader: ({ params }) => fetch(`http://localhost:5000/consultantDetails/${params.id}`),
+        element: <AdminRoute><UpdateConsultant></UpdateConsultant></AdminRoute>
       },
     ]
   },
