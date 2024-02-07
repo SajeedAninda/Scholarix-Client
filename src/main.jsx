@@ -57,7 +57,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/courseDetails/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/courseDetails/${params.id}`),
+        loader: ({ params }) => fetch(`https://scholarix-server.vercel.app/courseDetails/${params.id}`),
         element: <PrivateRoute><CourseDetails></CourseDetails></PrivateRoute>
       },
       {
@@ -70,7 +70,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/countryDetails/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/detailedCountry/${params.id}`),
+        loader: ({ params }) => fetch(`https://scholarix-server.vercel.app/detailedCountry/${params.id}`),
         element: <CountryDetails></CountryDetails>
       },
       {
@@ -91,7 +91,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/consultantDetails/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/consultantDetails/${params.id}`),
+        loader: ({ params }) => fetch(`https://scholarix-server.vercel.app/consultantDetails/${params.id}`),
         element: <PrivateRoute><ConsultantDetails></ConsultantDetails></PrivateRoute>
       },
       {
@@ -122,7 +122,7 @@ const router = createBrowserRouter([
       },
       {
         path: "courseList/updateCourse/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/courseDetails/${params.id}`),
+        loader: ({ params }) => fetch(`https://scholarix-server.vercel.app/courseDetails/${params.id}`),
         element: <AdminRoute><UpdateCourse></UpdateCourse></AdminRoute>
       },
       {
@@ -135,7 +135,7 @@ const router = createBrowserRouter([
       },
       {
         path: "consultantList/updateConsultant/:id",
-        loader: ({ params }) => fetch(`http://localhost:5000/consultantDetails/${params.id}`),
+        loader: ({ params }) => fetch(`https://scholarix-server.vercel.app/consultantDetails/${params.id}`),
         element: <AdminRoute><UpdateConsultant></UpdateConsultant></AdminRoute>
       },
     ]
