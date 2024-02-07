@@ -36,7 +36,7 @@ const Banner = () => {
             >
                 <SwiperSlide>
                     <div className='h-[85vh] w-full banner1'>
-                        <div className='flex flex-col gap-4 justify-center items-center h-full' data-aos="fade-up">
+                        <div className='flex flex-col gap-4 justify-center items-center h-full'>
                             <h2 className='text-center text-5xl md:text-6xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Empowering Dreams, Guiding Futures</h2>
                             <p className='text-2xl text-center md:text-3xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Your Journey to Academic Excellence Begins Here.</p>
                         </div>
@@ -45,7 +45,7 @@ const Banner = () => {
 
                 <SwiperSlide>
                     <div className='h-[85vh] w-full banner2'>
-                        <div className='flex flex-col gap-4 justify-center items-center h-full' data-aos="fade-up">
+                        <div className='flex flex-col gap-4 justify-center items-center h-full'>
                             <h2 className='text-center text-5xl md:text-6xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Unlocking Potential, Embracing Knowledge</h2>
                             <p className='text-2xl text-center md:text-3xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Exploring Boundless Horizons for Personal and Collective Growth</p>
                         </div>
@@ -54,7 +54,7 @@ const Banner = () => {
 
                 <SwiperSlide>
                     <div className='h-[85vh] w-full banner3'>
-                        <div className='flex flex-col gap-4 justify-center items-center h-full' data-aos="fade-up">
+                        <div className='flex flex-col gap-4 justify-center items-center h-full'>
                             <h2 className='text-center text-5xl md:text-6xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Bridging Aspirations with Education</h2>
                             <p className='text-2xl text-center md:text-3xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Building Academic Bridges for Lifelong Success</p>
                         </div>
@@ -63,7 +63,7 @@ const Banner = () => {
 
                 <SwiperSlide>
                     <div className='h-[85vh] w-full banner4'>
-                        <div className='flex flex-col gap-4 justify-center items-center h-full' data-aos="fade-up">
+                        <div className='flex flex-col gap-4 justify-center items-center h-full'>
                             <h2 className='text-center text-5xl md:text-6xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Bridging Aspirations with Education</h2>
                             <p className='text-2xl text-center md:text-3xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Fostering Lifelong Learning and Achievement Through Educational Excellence</p>
                         </div>
@@ -72,7 +72,7 @@ const Banner = () => {
 
                 <SwiperSlide>
                     <div className='h-[85vh] w-full banner5'>
-                    <div className='flex flex-col gap-4 justify-center items-center h-full' data-aos="fade-up">
+                    <div className='flex flex-col gap-4 justify-center items-center h-full'>
                             <h2 className='text-center text-5xl md:text-6xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Where Passion Meets Pedagogy.</h2>
                             <p className='text-2xl text-center md:text-3xl drop-shadow-2xl  text-[#F7FFF7] font-bold'>Come Join Us</p>
                         </div>
