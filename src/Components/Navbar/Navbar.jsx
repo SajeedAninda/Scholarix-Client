@@ -52,12 +52,21 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="w-[10%] block lg:hidden">
-                    <div className="flex items-center justify-center">
-                        <Link to={"/login"} className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
-                            Login
-                        </Link>
-                    </div>
+                <div className="w-fit block lg:hidden">
+                    {
+                        loggedInUser ?
+                            <div className="flex items-center justify-center">
+                                <button onClick={handleLogOut} className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                                    Log Out
+                                </button>
+                            </div>
+                            :
+                            <div className="flex items-center justify-center">
+                                <Link to={"/login"} className="relative px-5 py-2 text-[#F7FFF7] text-lg font-bold overflow-hidden bg-[#ed4747] rounded-md  transition-all duration-400 ease-in-out shadow-md hover:scale-105 hover:text-white hover:shadow-lg active:scale-90 before:absolute before:top-0 before:-left-full before:w-full before:h-full before:bg-gradient-to-r before:from-[#920707] before:to-[#ed4747] before:transition-all before:duration-500 before:ease-in-out before:z-[-1] before:rounded-md hover:before:left-0">
+                                    Login
+                                </Link>
+                            </div>
+                    }
                 </div>
 
                 <div className="m-5 lg:hidden" id="menu-button" onClick={toggleMenu}>
@@ -91,7 +100,7 @@ const Navbar = () => {
 
 
                         <div className="flex items-center justify-center">
-                            <ul className="flex items-center py-2 gap-2 lg:gap-10 md:pt-[0.7rem] capitalize text-sm md:text-lg font-bold">
+                            <ul className="flex flex-wrap items-center justify-center py-2 gap-2 lg:gap-10 md:pt-[0.7rem] capitalize text-xs md:text-lg font-bold">
 
                                 <li className='relative group'>
                                     <NavLink
