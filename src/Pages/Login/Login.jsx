@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/UseAuth';
 import toast from 'react-hot-toast';
 import useAxiosInstance from '../../Hooks/useAxiosInstance';
+import DemoAccounts from '../../Components/Demo Accounts/DemoAccounts';
 
 const Login = () => {
     let { signIn, googleLogin } = useAuth();
@@ -136,6 +137,8 @@ const Login = () => {
                                         </button>
                                     </div>
                                 </form>
+
+                                <DemoAccounts></DemoAccounts>
                             </div>
                         </div>
                     </div>
