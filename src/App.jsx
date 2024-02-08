@@ -34,7 +34,7 @@ function App() {
               wrapperClass=""
               colors={['#ed4747', '#0e2b45']}
             />
-            <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-[#ed4747]'>Welcome to Scholarix!</h1>
+            <h1 className='text-3xl md:text-5xl lg:text-6xl font-bold text-[#ed4747]'>Scholarix</h1>
           </div>
           :
           <div>
